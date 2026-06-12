@@ -1,0 +1,48 @@
+/* ============================================
+   HOME — DASHBOARD iOS STYLE
+============================================ */
+
+.title-section[b-lbmfdtjvjr] {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+  margin-bottom: 6px;
+}
+
+.card[b-lbmfdtjvjr] {
+  background: var(--glass-bg) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 22px !important;
+  backdrop-filter: blur(26px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(26px) saturate(180%) !important;
+  box-shadow: var(--shadow-ios) !important;
+  transition: 0.25s ease;
+}
+
+.card:hover[b-lbmfdtjvjr] {
+  background: var(--glass-hover) !important;
+}
+
+.card-header[b-lbmfdtjvjr] {
+  background: rgba(255, 255, 255, 0.45) !important;
+  border-bottom: 1px solid rgba(0,0,0,0.08) !important;
+  border-radius: 22px 22px 0 0 !important;
+  backdrop-filter: blur(20px);
+}
+
+.progress[b-lbmfdtjvjr] {
+  background: rgba(0,0,0,0.08);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-bar[b-lbmfdtjvjr] {
+  background: var(--accent);
+  border-radius: 20px;
+  transition: width 0.4s ease;
+}
+
+.table-hover tbody tr:hover[b-lbmfdtjvjr] {
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(12px);
+}

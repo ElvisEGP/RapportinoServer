@@ -1,0 +1,44 @@
+﻿@page "/services/delete/{Id:int}"
+@namespace RapportinoServer.Pages.Services
+@using Microsoft.AspNetCore.Components.Web
+
+@inherits DeleteTypeServicePageBase
+
+<PageTitle>Elimina Tipo di Servizio</PageTitle>
+
+@if (IsLoading)
+{
+    <p>Caricamento...</p>
+}
+else if (LoadError is not null)
+{
+    <div class="alert alert-danger">@LoadError</div>
+}
+else if (TypeServiceItem is null)
+{
+    <div class="alert alert-warning">Tipo di servizio non trovato.</div>
+}
+else
+{
+    <h3>Elimina Tipo di Servizio</h3>
+
+    <p>Sei sicuro di voler eliminare questo tipo di servizio?</p>
+
+    <p><strong>@TypeServiceItem.Name</strong></p>
+
+    <div class="d-flex gap-2">
+        <button class="btn btn-danger" @onclick="ConfirmAsync" disabled="@IsDeleting">
+            @if (IsDeleting)
+            {
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            }
+            Elimina
+        </button>
+        <button class="btn btn-secondary" @onclick="Cancel" disabled="@IsDeleting">Annulla</button>
+    </div>
+
+    @if (!string.IsNullOrEmpty(ErrorMessage))
+    {
+        <div class="alert alert-danger mt-3">@ErrorMessage</div>
+    }
+}

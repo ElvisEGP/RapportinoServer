@@ -1,0 +1,276 @@
+﻿@page "/reports/new"
+
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Forms
+@namespace RapportinoServer.Pages.Reports
+@inherits RapportinoServer.Pages.Reports.NewReportPageBase
+
+<PageTitle>Nuovo Rapportino</PageTitle>
+
+<div class="mb-3">
+    <h1 class="h2 title-section">Nuovo Rapportino</h1>
+
+    <EditForm EditContext="EditContext" OnValidSubmit="HandleValidSubmit" FormName="NewReportForm">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        @if (!string.IsNullOrEmpty(SaveError))
+        {
+            <div class="alert alert-danger">@SaveError</div>
+        }
+
+        <div class="row g-3">
+            <div class="col-md-12 position-relative">
+                <label class="form-label">Cliente (Azienda)</label>
+
+                <input class="form-control"
+                       value="@ClientSearch"
+                       @oninput="OnClientSearchInput"
+                       @onfocus="ShowClientsList"
+                       @onkeydown:escape="HideClientsList" />
+
+                @if (ShowClientList && FilteredClients.Any())
+                {
+                    <ul class="list-group position-absolute w-100"
+                        style="z-index:1000; max-height:200px; overflow-y:auto;">
+                        @foreach (var c in FilteredClients)
+                        {
+                            <li class="list-group-item list-group-item-action"
+                                style="cursor:pointer;"
+                                @onmousedown:preventDefault="true"
+                                @onmousedown="@(() => SelectClient(c))">
+                                @c.CompanyName (@c.City)
+                            </li>
+                        }
+                    </ul>
+                }
+
+                @if (SelectedClient is null)
+                {
+                    <button type="button"
+                            class="btn btn-outline-primary mt-2"
+                            @onclick="NewClient">
+                        Nuovo Cliente
+                    </button>
+                }
+                else
+                {
+                    <p class="mt-2 text-success fw-bold">
+                        Cliente selezionato: @SelectedClient.CompanyName (@SelectedClient.City)
+                    </p>
+                }
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Email</label>
+                <InputText type="email"
+                           class="form-control"
+                           @bind-Value="Report.Email" />
+                <ValidationMessage For="@(() => Report.Email)" />
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Seriale</label>
+
+                @if (FilteredMachines.Any())
+                {
+                    <InputSelect class="form-select"
+                                 @bind-Value="SelectedSerial"
+                                 @bind-Value:after="OnSerialSelected">
+                        <option value="">Seleziona seriale...</option>
+                        @foreach (var serial in FilteredSerials)
+                        {
+                            <option value="@serial">@serial</option>
+                        }
+                    </InputSelect>
+                }
+                else
+                {
+                    <InputText class="form-control"
+                               @bind-Value="Report.Serial" />
+                    <ValidationMessage For="@(() => Report.Serial)" />
+                }
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Modello</label>
+                <InputText class="form-control"
+                           @bind-Value="Report.Model"
+                           readonly="@(!string.IsNullOrWhiteSpace(SelectedSerial))" />
+                <ValidationMessage For="@(() => Report.Model)" />
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Tecnico</label>
+                <InputSelect class="form-select" @bind-Value="Report.TechnicianName">
+                    <option value="">Seleziona tecnico...</option>
+                    @foreach (var t in Technicians)
+                    {
+                        <option value="@t.TechnicianName">@t.TechnicianName</option>
+                    }
+                </InputSelect>
+                <ValidationMessage For="@(() => Report.TechnicianName)" />
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Tipo di Servizio</label>
+                <InputSelect class="form-select" @bind-Value="Report.ServiceType">
+                    <option value="">Seleziona servizio...</option>
+                    @foreach (var s in Services)
+                    {
+                        <option value="@s.Name">@s.Name</option>
+                    }
+                </InputSelect>
+                <ValidationMessage For="@(() => Report.ServiceType)" />
+            </div>
+
+            <div class="col-md-12">
+                <label class="form-label">Rapporto Generale</label>
+                <InputTextArea class="form-control"
+                               rows="8"
+                               @bind-Value="Report.ReportDescription" />
+                <ValidationMessage For="@(() => Report.ReportDescription)" />
+            </div>
+            
+            <div class="col-md-12">
+                <div class="form-check">
+                    <InputCheckbox class="form-check-input" id="safetyCheck" @bind-Value="Report.SafetyDevicesCheck" />
+                    <label class="form-check-label" for="safetyCheck">
+                        Macchina con tutti dispositivi di siccurezza presente e funzionante
+                    </label>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <label class="form-label">Materiale Sostituito</label>
+                <InputTextArea class="form-control"
+                               rows="6"
+                               @bind-Value="Report.ChangedMaterial" />
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Materiale Ordinato / Preventivale</label>
+                <InputTextArea class="form-control"
+                               rows="6"
+                               @bind-Value="Report.OrderedMaterial" />
+            </div>
+
+            <div class="col-md-12 mt-4">
+                <h5>Ore di Lavoro</h5>
+
+                <table class="table text-center">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Ore</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @for (int i = 0; i < Report.WorkLogs.Count && i < logHours.Count && i < logMinutes.Count; i++)
+                        {
+                            var index = i;
+                            var log = Report.WorkLogs[index];
+
+                            <tr>
+                                <td>
+                                    <InputDate class="form-control" @bind-Value="log.WorkedDate" />
+                                </td>
+
+                                <td>
+                                    <div class="d-flex gap-2 justify-content-center">
+                                        <select class="form-select"
+                                                style="width:80px"
+                                                value="@logHours[index]"
+                                                @onchange="@(e => SetLogHour(index, e.Value?.ToString()))">
+                                            @for (int h = 0; h < 24; h++)
+                                            {
+                                                <option value="@h">@h.ToString("00")</option>
+                                            }
+                                        </select>
+
+                                        <select class="form-select"
+                                                style="width:80px"
+                                                value="@logMinutes[index]"
+                                                @onchange="@(e => SetLogMinute(index, e.Value?.ToString()))">
+                                            @for (int m = 0; m < 60; m += 5)
+                                            {
+                                                <option value="@m">@m.ToString("00")</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <button type="button"
+                                            class="btn btn-outline-danger btn-sm"
+                                            @onclick="@(() => RemoveLogAt(index))"
+                                            disabled="@IsSaving">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+                <button type="button"
+                        class="btn btn-outline-primary btn-sm"
+                        @onclick="AddLog"
+                        disabled="@IsSaving">
+                    <i class="bi bi-plus"></i> Aggiungi riga
+                </button>
+            </div>
+
+            <div class="col-md-12 mt-4">
+                <label class="form-label fw-bold">Firma Cliente</label>
+                <div class="border rounded p-2 bg-white">
+                    <canvas id="signature-pad"
+                            class="border rounded"
+                            style="width: 100%; height: 200px; touch-action: none;"></canvas>
+                </div>
+
+                <button type="button"
+                        class="btn btn-outline-secondary btn-sm mt-2"
+                        @onclick="ClearClientSignature">
+                    Cancella firma cliente
+                </button>
+            </div>
+
+            <div class="col-md-12 mt-4">
+                <label class="form-label fw-bold">Firma Tecnico</label>
+                <div class="border rounded p-2 bg-white">
+                    <canvas id="signature-tech"
+                            class="border rounded"
+                            style="width: 100%; height: 200px; touch-action: none;"></canvas>
+                </div>
+
+                <button type="button"
+                        class="btn btn-outline-secondary btn-sm mt-2"
+                        @onclick="ClearTechSignature">
+                    Cancella firma tecnico
+                </button>
+            </div>
+
+            <div class="col-md-9 mt-5">
+                <button type="button"
+                        class="btn btn-danger"
+                        @onclick="ResetForm"
+                        disabled="@IsSaving">
+                    Cancella Rapportino
+                </button>
+            </div>
+
+            <div class="col-md-3 mt-5">
+                <button type="submit" class="btn btn-primary w-100" disabled="@IsSaving">
+                    @if (IsSaving)
+                    {
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    }
+                    Salva Rapportino
+                </button>
+            </div>
+        </div>
+    </EditForm>
+</div>

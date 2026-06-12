@@ -1,0 +1,51 @@
+﻿@page "/services/edit/{id:int}"
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Forms
+
+@namespace RapportinoServer.Pages.Services
+
+@inherits EditTypeServicePageBase
+
+<PageTitle>Modifica Tipo di Servizio</PageTitle>
+
+@if (IsLoading)
+{
+    <p>Caricamento...</p>
+}
+else if (LoadError is not null)
+{
+    <div class="alert alert-danger">@LoadError</div>
+}
+else
+{
+    if (Service is null)
+    {
+        <div class="alert alert-warning">Tipo di servizio non trovato.</div>
+    }
+    else
+    {
+        <EditForm EditContext="EditContext" OnValidSubmit="HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="mb-3">
+            <label class="form-label">Nome</label>
+            <InputText class="form-control" @bind-Value="Service.Name" />
+            <ValidationMessage For="@(() => Service.Name)" />
+        </div>
+
+        <div class="d-flex gap-2">
+            <button class="btn btn-secondary" type="button" @onclick="Cancel" disabled="@IsSaving">Annulla</button>
+            <button class="btn btn-primary" type="submit" disabled="@IsSaving">
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" hidden="@(!IsSaving)"></span>
+                Salva
+            </button>
+        </div>
+
+        @if (!string.IsNullOrEmpty(ErrorMessage))
+        {
+            <div class="alert alert-danger mt-3">@ErrorMessage</div>
+        }
+    </EditForm>
+    }
+}

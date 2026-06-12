@@ -1,0 +1,42 @@
+﻿@page "/technicians/delete/{Id:int}"
+@namespace RapportinoServer.Pages.Technicians
+@using Microsoft.AspNetCore.Components.Web
+
+@inherits DeleteTechniciansPageBase
+
+<PageTitle>Elimina Tecnico</PageTitle>
+
+@if (IsLoading)
+{
+    <p>Caricamento...</p>
+}
+else if (LoadError is not null)
+{
+    <div class="alert alert-danger">@LoadError</div>
+}
+else if (Technician is null)
+{
+    <div class="alert alert-warning">Tecnico non trovato.</div>
+}
+else
+{
+    <h2 class="mt-4 text-danger">Elimina Tecnico</h2>
+
+    <p>Sei sicuro di voler eliminare il tecnico <strong>@Technician.TechnicianName</strong>?</p>
+
+    <div class="d-flex gap-2">
+        <button class="btn btn-danger" @onclick="ConfirmAsync" disabled="@IsDeleting">
+            @if (IsDeleting)
+            {
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            }
+            Elimina
+        </button>
+        <button class="btn btn-secondary" @onclick="Cancel" disabled="@IsDeleting">Annulla</button>
+    </div>
+
+    @if (!string.IsNullOrEmpty(ErrorMessage))
+    {
+        <div class="alert alert-danger mt-3">@ErrorMessage</div>
+    }
+}

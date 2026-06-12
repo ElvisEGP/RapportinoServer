@@ -1,0 +1,75 @@
+﻿@page "/technicians/edit/{Id:int}"
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Web
+@namespace RapportinoServer.Pages.Technicians
+
+@inherits EditTechniciansPageBase
+
+<PageTitle>Modifica Tecnico</PageTitle>
+
+@if (IsLoading)
+{
+    <p>Caricamento...</p>
+}
+else if (LoadError is not null)
+{
+    <div class="alert alert-danger">@LoadError</div>
+}
+else
+{
+    if (Technician is null)
+    {
+        <div class="alert alert-warning">Tecnico non trovato.</div>
+    }
+    else
+    {
+        <EditForm EditContext="EditContext" OnValidSubmit="HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="mb-3">
+            <label class="form-label">Nome Tecnico</label>
+            <InputText class="form-control" @bind-Value="Technician.TechnicianName" />
+            <ValidationMessage For="@(() => Technician.TechnicianName)" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Cognome</label>
+            <InputText class="form-control" @bind-Value="Technician.Surname" />
+            <ValidationMessage For="@(() => Technician.Surname)" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Username</label>
+            <InputText class="form-control" @bind-Value="Technician.Username" />
+            <ValidationMessage For="@(() => Technician.Username)" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Password</label>
+            <InputText type="password" class="form-control" @bind-Value="Technician.Password" />
+            <ValidationMessage For="@(() => Technician.Password)" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Ruolo</label>
+            <InputText class="form-control" @bind-Value="Technician.Role" />
+            <ValidationMessage For="@(() => Technician.Role)" />
+        </div>
+
+        <div class="d-flex gap-2">
+            <button class="btn btn-secondary" type="button" @onclick="Cancel" disabled="@IsSaving">Annulla</button>
+            <button class="btn btn-primary" type="submit" disabled="@IsSaving">
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" hidden="@(!IsSaving)"></span>
+                Salva
+            </button>
+        </div>
+
+        @if (!string.IsNullOrEmpty(ErrorMessage))
+        {
+            <div class="alert alert-danger mt-3">@ErrorMessage</div>
+        }
+    </EditForm>
+    }
+}

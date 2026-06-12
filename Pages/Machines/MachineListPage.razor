@@ -1,0 +1,55 @@
+@page "/machines"
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Forms
+@namespace RapportinoServer.Pages.Machines
+@inherits RapportinoServer.Pages.Machines.MachineListPageBase
+
+<PageTitle>Macchine</PageTitle>
+
+<div class="mb-3">
+    <h1 class="h2 title-section">Macchine</h1>
+
+    <InputText class="form-control"
+               @bind-Value="MachineSearch"
+               @bind-Value:event="oninput"
+               placeholder="Cerca macchina..." />
+</div>
+
+@if (IsLoading)
+{
+    <p>Caricamento...</p>
+}
+else if (LoadError is not null)
+{
+    <div class="alert alert-danger">@LoadError</div>
+}
+else if (Machines is null || !Machines.Any())
+{
+    <p class="mt-2">Nessuna macchina presente.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Modello</th>
+            <th>Matricola</th>
+            <th class="text-end">Azioni</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var m in FilteredMachines)
+        {
+            <tr @key="m.Id">
+                <td>@m.Model</td>
+                <td>@m.Serial</td>
+                <td class="text-end">
+                    <button class="btn btn-sm btn-outline-secondary me-1" @onclick="() => Details(m.Id)">Dettagli</button>
+                    <button class="btn btn-sm btn-warning me-1" @onclick="() => Edit(m.Id)">Modifica</button>
+                    <button class="btn btn-sm btn-danger" @onclick="() => ConfirmDelete(m.Id, m.Model)">Elimina</button>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

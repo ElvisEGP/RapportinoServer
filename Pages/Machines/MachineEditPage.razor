@@ -1,0 +1,66 @@
+@page "/machines/edit/{id:int}"
+@using Microsoft.AspNetCore.Components.Forms
+@namespace RapportinoServer.Pages.Machines
+
+@inherits MachineEditPageBase
+
+<PageTitle>Modifica Macchina</PageTitle>
+
+@if (IsLoading)
+{
+    <p>Caricamento...</p>
+}
+else if (LoadError is not null)
+{
+    <div class="alert alert-danger">@LoadError</div>
+}
+else
+{
+    if (Machine is null)
+    {
+        <div class="alert alert-warning">Macchina non trovata.</div>
+    }
+    else
+    {
+        <EditForm Model="Machine" OnValidSubmit="HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label class="form-label">ClientId</label>
+                <InputNumber TValue="int" class="form-control" @bind-Value="Machine.ClientId" />
+                <ValidationMessage For="@(() => Machine.ClientId)" />
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Modello</label>
+                <InputText class="form-control" @bind-Value="Machine.Model" />
+                <ValidationMessage For="@(() => Machine.Model)" />
+            </div>
+
+            <div class="col-md-12">
+                <label class="form-label">Matricola</label>
+                <InputText class="form-control" @bind-Value="Machine.Serial" />
+                <ValidationMessage For="@(() => Machine.Serial)" />
+            </div>
+
+            <div class="col-md-9 mt-4">
+                <button type="button" class="btn btn-secondary" @onclick="Cancel" disabled="@IsSaving">Annulla</button>
+            </div>
+
+            <div class="col-md-3 mt-4">
+                <button type="submit" class="btn btn-primary w-100" disabled="@IsSaving">
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" hidden="@(!IsSaving)"></span>
+                    Salva
+                </button>
+            </div>
+        </div>
+    </EditForm>
+
+    @if (!string.IsNullOrEmpty(ErrorMessage))
+    {
+        <div class="alert alert-danger mt-3">@ErrorMessage</div>
+    }
+    }
+}

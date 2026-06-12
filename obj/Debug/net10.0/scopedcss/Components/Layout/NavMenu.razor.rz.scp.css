@@ -1,0 +1,126 @@
+/* ============================
+   MENU SUPERIOR — iOS GLASS
+============================ */
+
+.top-nav[b-jnasgoe70l] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 900;
+}
+
+/* Barra superior */
+.top-row[b-jnasgoe70l] {
+    height: 60px;
+    background: var(--glass-bg);
+    border-bottom: 1px solid var(--glass-border);
+    backdrop-filter: blur(28px) saturate(180%);
+    display: flex;
+    align-items: center;
+}
+
+/* Botão hamburguer */
+.navbar-toggler[b-jnasgoe70l] {
+    display: none;
+}
+
+.navbar-toggler-btn[b-jnasgoe70l] {
+    display: none;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 14px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+}
+
+/* ============================
+   MENU HORIZONTAL
+============================ */
+
+.nav-scrollable[b-jnasgoe70l] {
+    width: 100%;
+    background: var(--glass-bg);
+    border-bottom: 1px solid var(--glass-border);
+    backdrop-filter: blur(28px);
+    padding: 10px 20px;
+}
+
+.nav-horizontal[b-jnasgoe70l] {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 16px;
+}
+
+/* Usuário */
+.nav-user[b-jnasgoe70l] {
+    margin-right: 20px;
+    opacity: 0.7;
+}
+
+/* Itens */
+.nav-item[b-jnasgoe70l] {
+    display: flex;
+}
+
+/* Links */
+.nav-link[b-jnasgoe70l] {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.35);
+    border: 1px solid rgba(255,255,255,0.45);
+    backdrop-filter: blur(18px);
+    font-weight: 600;
+    color: #000 !important;
+    transition: 0.2s ease;
+}
+
+.nav-link:hover[b-jnasgoe70l] {
+    background: var(--glass-hover);
+}
+
+/* Logout alinhado à direita */
+.nav-logout[b-jnasgoe70l] {
+    margin-left: auto;
+}
+
+/* ============================
+   AJUSTE DO CONTEÚDO
+============================ */
+
+body[b-jnasgoe70l] {
+    padding-top: 120px; /* header + menu */
+}
+
+/* ============================
+   MOBILE
+============================ */
+
+@media (max-width: 768px) {
+
+    .navbar-toggler-btn[b-jnasgoe70l] {
+        display: inline-flex;
+    }
+
+    .nav-scrollable[b-jnasgoe70l] {
+        display: none;
+    }
+
+    .navbar-toggler:checked ~ .nav-scrollable[b-jnasgoe70l] {
+        display: block;
+    }
+
+    .nav-horizontal[b-jnasgoe70l] {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    body[b-jnasgoe70l] {
+        padding-top: 70px;
+    }
+}

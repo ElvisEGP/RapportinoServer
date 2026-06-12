@@ -1,0 +1,357 @@
+/* /Components/Layout/NavMenu.razor.rz.scp.css */
+/* ============================
+   MENU SUPERIOR — iOS GLASS
+============================ */
+
+.top-nav[b-jnasgoe70l] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 900;
+}
+
+/* Barra superior */
+.top-row[b-jnasgoe70l] {
+    height: 60px;
+    background: var(--glass-bg);
+    border-bottom: 1px solid var(--glass-border);
+    backdrop-filter: blur(28px) saturate(180%);
+    display: flex;
+    align-items: center;
+}
+
+/* Botão hamburguer */
+.navbar-toggler[b-jnasgoe70l] {
+    display: none;
+}
+
+.navbar-toggler-btn[b-jnasgoe70l] {
+    display: none;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 14px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+}
+
+/* ============================
+   MENU HORIZONTAL
+============================ */
+
+.nav-scrollable[b-jnasgoe70l] {
+    width: 100%;
+    background: var(--glass-bg);
+    border-bottom: 1px solid var(--glass-border);
+    backdrop-filter: blur(28px);
+    padding: 10px 20px;
+}
+
+.nav-horizontal[b-jnasgoe70l] {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 16px;
+}
+
+/* Usuário */
+.nav-user[b-jnasgoe70l] {
+    margin-right: 20px;
+    opacity: 0.7;
+}
+
+/* Itens */
+.nav-item[b-jnasgoe70l] {
+    display: flex;
+}
+
+/* Links */
+.nav-link[b-jnasgoe70l] {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.35);
+    border: 1px solid rgba(255,255,255,0.45);
+    backdrop-filter: blur(18px);
+    font-weight: 600;
+    color: #000 !important;
+    transition: 0.2s ease;
+}
+
+.nav-link:hover[b-jnasgoe70l] {
+    background: var(--glass-hover);
+}
+
+/* Logout alinhado à direita */
+.nav-logout[b-jnasgoe70l] {
+    margin-left: auto;
+}
+
+/* ============================
+   AJUSTE DO CONTEÚDO
+============================ */
+
+body[b-jnasgoe70l] {
+    padding-top: 120px; /* header + menu */
+}
+
+/* ============================
+   MOBILE
+============================ */
+
+@media (max-width: 768px) {
+
+    .navbar-toggler-btn[b-jnasgoe70l] {
+        display: inline-flex;
+    }
+
+    .nav-scrollable[b-jnasgoe70l] {
+        display: none;
+    }
+
+    .navbar-toggler:checked ~ .nav-scrollable[b-jnasgoe70l] {
+        display: block;
+    }
+
+    .nav-horizontal[b-jnasgoe70l] {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    body[b-jnasgoe70l] {
+        padding-top: 70px;
+    }
+}
+/* /Pages/Home.razor.rz.scp.css */
+/* ============================================
+   HOME — DASHBOARD iOS STYLE
+============================================ */
+
+.title-section[b-lbmfdtjvjr] {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+  margin-bottom: 6px;
+}
+
+.card[b-lbmfdtjvjr] {
+  background: var(--glass-bg) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 22px !important;
+  backdrop-filter: blur(26px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(26px) saturate(180%) !important;
+  box-shadow: var(--shadow-ios) !important;
+  transition: 0.25s ease;
+}
+
+.card:hover[b-lbmfdtjvjr] {
+  background: var(--glass-hover) !important;
+}
+
+.card-header[b-lbmfdtjvjr] {
+  background: rgba(255, 255, 255, 0.45) !important;
+  border-bottom: 1px solid rgba(0,0,0,0.08) !important;
+  border-radius: 22px 22px 0 0 !important;
+  backdrop-filter: blur(20px);
+}
+
+.progress[b-lbmfdtjvjr] {
+  background: rgba(0,0,0,0.08);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-bar[b-lbmfdtjvjr] {
+  background: var(--accent);
+  border-radius: 20px;
+  transition: width 0.4s ease;
+}
+
+.table-hover tbody tr:hover[b-lbmfdtjvjr] {
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(12px);
+}
+/* /Pages/Login.razor.rz.scp.css */
+/* ============================================
+   PALETA iOS FROSTED GLASS
+============================================ */
+
+:root[b-s9f70bhk5h] {
+  --text-inverted: #ffffff;  /* Branco iOS */
+}
+/* Container centralizado */
+.login-container[b-s9f70bhk5h] {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/images/background-login.jpg') !important;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Card estilo iOS Frosted Glass */
+.login-card[b-s9f70bhk5h] {
+    width: 360px;
+    padding: 32px;
+    border-radius: 26px;
+    background: rgba(255, 255, 255, 0);
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Título */
+.title-page-login[b-s9f70bhk5h] {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+label.Username-login[b-s9f70bhk5h] {
+    color: #FFFFFF;
+    font-size: 17px;
+}
+label.Password-login[b-s9f70bhk5h] {
+    color: #FFFFFF;
+    font-size: 17px;
+    margin-top: 20px;
+}
+
+/* Inputs iOS */
+.input-group[b-s9f70bhk5h] {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-ios[b-s9f70bhk5h] {
+    padding: 14px;
+    border-radius: 16px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(255, 255, 255, 0.65);
+    color: #1c1c1e;
+    font-size: 16px;
+    transition: 0.2s ease;
+}
+
+.input-ios:focus[b-s9f70bhk5h] {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: #0a84ff;
+    outline: none;
+}
+
+/* Botão iOS */
+.btn-ios[b-s9f70bhk5h] {
+    padding: 14px;
+    border-radius: 18px;
+    border: none;
+    background: #0a84ff;
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+    width: 100%;
+    margin-top: 38px;
+}
+
+.btn-ios:hover[b-s9f70bhk5h] {
+    background: #409cff;
+}
+
+/* Loader estilo iOS */
+.loader-ios[b-s9f70bhk5h] {
+    width: 18px;
+    height: 18px;
+    border: 3px solid rgba(255,255,255,0.4);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin-b-s9f70bhk5h 0.8s linear infinite;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+@keyframes spin-b-s9f70bhk5h {
+    to { transform: rotate(360deg); }
+}
+
+/* Alert iOS */
+.alert-ios[b-s9f70bhk5h] {
+    background: rgba(255, 0, 0, 0.15);
+    color: #b00020;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 14px;
+}
+
+/* Teste */
+.teste[b-s9f70bhk5h] {
+    color: #1c1c1e;
+    text-align: center;
+    display: block;
+}
+
+/* Responsividade */
+@media (max-width: 480px) 
+{
+    .login-card[b-s9f70bhk5h] {
+        width: 90%;
+        padding: 24px;
+    }
+    .login-container[b-s9f70bhk5h] {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url('/images/background-login.jpg') !important;
+        background-size: cover;
+        background-position: center;
+    }
+}
+@media (max-width: 768px) 
+{
+    .login-container[b-s9f70bhk5h] {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url('/images/background-login.jpg') !important;
+        background-size: cover;
+        background-position: center;
+    }
+}
+@media (max-width: 1024px) 
+{
+    .login-container[b-s9f70bhk5h] {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url('/images/background-login.jpg') !important;
+        background-size: cover;
+        background-position: center;
+    }
+}
+@media (max-width: 1440px) 
+{
+    .login-container[b-s9f70bhk5h] {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url('/images/background-login.jpg') !important;
+        background-size: cover;
+        background-position: center;
+    }
+}
+

@@ -1,0 +1,118 @@
+﻿@page "/clients/edit/{id:int}"
+@using Microsoft.AspNetCore.Components.Web
+@namespace RapportinoServer.Pages.Clients
+
+@inherits ClientEditPageBase
+
+<PageTitle>Modifica Cliente</PageTitle>
+
+<div class="container mt-4">
+    <h1 class="h2 title-section">Modifica Cliente</h1>
+
+    @if (IsLoading)
+    {
+        <p>Caricamento...</p>
+    }
+    else if (LoadError is not null)
+    {
+        <div class="alert alert-danger">@LoadError</div>
+    }
+    else if (Client is null)
+    {
+        <div class="alert alert-warning">Cliente non trovato.</div>
+    }
+    else
+    {
+        <EditForm EditContext="EditContext" OnValidSubmit="HandleValidSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="row g-3">
+
+                <!-- Nome Azienda -->
+                <div class="col-md-12">
+                    <label class="form-label">Nome Azienda</label>
+                    <InputText class="form-control" @bind-Value="Client.CompanyName" />
+                    <ValidationMessage For="@(() => Client.CompanyName)" />
+                </div>
+
+                <!-- Indirizzo -->
+                <div class="col-md-8">
+                    <label class="form-label">Indirizzo</label>
+                    <InputText class="form-control" @bind-Value="Client.Address" />
+                </div>
+
+                <div class="col-md-2">
+                    <label class="form-label">Numero Civico</label>
+                    <InputText class="form-control" @bind-Value="Client.NumberAddress" />
+                </div>
+
+                <div class="col-md-4">
+                    <label class="form-label">Città</label>
+                    <InputText class="form-control" @bind-Value="Client.City" />
+                </div>
+
+                <div class="col-md-2">
+                    <label class="form-label">CAP</label>
+                    <InputText class="form-control" @bind-Value="Client.PostalCode" />
+                </div>
+
+                <div class="col-md-2">
+                    <label class="form-label">Provincia</label>
+                    <InputText class="form-control" @bind-Value="Client.State" />
+                </div>
+
+                <div class="col-md-2">
+                    <label class="form-label">Nazione</label>
+                    <InputText class="form-control" @bind-Value="Client.Country" />
+                </div>
+
+                <!-- Contatti -->
+                <div class="col-md-4">
+                    <label class="form-label">Telefono</label>
+                    <InputText class="form-control" @bind-Value="Client.Phone" />
+                </div>
+
+                <div class="col-md-8">
+                    <label class="form-label">Email</label>
+                    <InputText class="form-control" @bind-Value="Client.Email" />
+                </div>
+
+                <div class="col-md-12">
+                    <label class="form-label">Sito Web</label>
+                    <InputText class="form-control" @bind-Value="Client.Website" />
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Note</label>
+                    <InputTextArea class="form-control" rows="3" @bind-Value="Client.Note" />
+                </div>
+
+                <!-- Data (DateOnly) -->
+                <div class="col-md-4">
+                    <label class="form-label">Data</label>
+                    <InputDate TValue="DateTime" class="form-control" @bind-Value="DataAsDateTime" />
+                    <ValidationMessage For="@(() => DataAsDateTime)" />
+                </div>
+
+                <!-- Botões -->
+                <div class="col-md-9 mt-5">
+                    <button type="button" class="btn btn-secondary" @onclick="GoBack" disabled="@IsSaving">Indietro</button>
+                </div>
+
+                <div class="col-md-3 mt-5">
+                    <button type="submit" class="btn btn-primary w-100" disabled="@IsSaving">
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" hidden="@(!IsSaving)"></span>
+                        Salva Modifiche
+                    </button>
+                </div>
+
+            </div>
+        </EditForm>
+
+        @if (!string.IsNullOrEmpty(ErrorMessage))
+        {
+            <div class="alert alert-danger mt-3">@ErrorMessage</div>
+        }
+    }
+</div>

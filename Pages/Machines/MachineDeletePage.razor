@@ -1,0 +1,51 @@
+@page "/machines/delete/{id:int}"
+@namespace RapportinoServer.Pages.Machines
+
+@inherits MachineDeletePageBase
+
+<PageTitle>Elimina Macchina</PageTitle>
+
+@if (IsLoading)
+{
+    <p>Caricamento...</p>
+}
+else if (LoadError is not null)
+{
+    <div class="alert alert-danger">@LoadError</div>
+}
+else if (Machine is null)
+{
+    <div class="alert alert-warning">Macchina non trovata.</div>
+}
+else
+{
+    <div class="alert alert-warning">
+        Sei sicuro di voler eliminare la macchina <strong>@Machine.Model</strong>?
+    </div>
+
+    <div class="mb-3">
+        <div><strong>ID:</strong> @Machine.Id</div>
+        <div><strong>ClientId:</strong> @Machine.ClientId</div>
+        <div><strong>Modello:</strong> @Machine.Model</div>
+        <div><strong>Matricola:</strong> @Machine.Serial</div>
+    </div>
+
+    <div class="d-flex gap-2">
+        <button class="btn btn-danger" @onclick="ConfirmDelete" disabled="@IsDeleting">
+            @if (IsDeleting)
+            {
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            }
+            Elimina
+        </button>
+
+        <button class="btn btn-secondary" @onclick="Cancel" disabled="@IsDeleting">
+            Annulla
+        </button>
+    </div>
+
+    @if (!string.IsNullOrEmpty(ErrorMessage))
+    {
+        <div class="alert alert-danger mt-3">@ErrorMessage</div>
+    }
+}

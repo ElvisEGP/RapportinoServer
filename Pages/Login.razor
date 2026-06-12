@@ -1,0 +1,45 @@
+@page "/login"
+
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Web
+@layout RapportinoServer.Components.Layout.EmptyLayout
+@inherits RapportinoServer.Pages.LoginPageBase
+
+
+<PageTitle>Login Rapportino</PageTitle>
+
+<div class="login-container">
+    <div class="login-card glass">
+        <h1 class="title-page-login">Accesso Tecnico</h1>
+
+        <EditForm EditContext="EditContext" OnValidSubmit="HandleValidSubmit">
+            <DataAnnotationsValidator />
+
+            <div class="input-group">
+                <label class="Username-login">Username</label>
+                <InputText class="input-ios" @bind-Value="Form.Username" />
+                <ValidationMessage For="@(() => Form.Username)" />
+            </div>
+
+            <div class="input-group">
+                <label class="Password-login">Password</label>
+                <InputText type="password" class="input-ios" @bind-Value="Form.Password" />
+                <ValidationMessage For="@(() => Form.Password)" />
+            </div>
+
+            @if (!string.IsNullOrWhiteSpace(ErrorMessage))
+            {
+                <div class="alert-ios">@ErrorMessage</div>
+            }
+
+            <button type="submit" class="btn-ios" disabled="@IsSubmitting">
+                @if (IsSubmitting)
+                {
+                    <span class="loader-ios"></span>
+                }
+                Entra
+            </button>
+        </EditForm>
+    </div>
+</div>

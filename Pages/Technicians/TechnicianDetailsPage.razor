@@ -1,0 +1,56 @@
+@page "/technicians/details/{Id:int}"
+@using Microsoft.AspNetCore.Components.Web
+@namespace RapportinoServer.Pages.Technicians
+
+@inherits TechnicianDetailsPageBase
+
+<PageTitle>Dettagli Tecnico #@Technician?.Id</PageTitle>
+
+<div class="container mt-4">
+    @if (IsLoading)
+    {
+        <p>Caricamento...</p>
+    }
+    else if (LoadError is not null)
+    {
+        <div class="alert alert-danger">@LoadError</div>
+    }
+    else if (Technician is null)
+    {
+        <div class="alert alert-warning">Tecnico non trovato.</div>
+    }
+    else
+    {
+        <div class="mb-3 d-flex justify-content-between align-items-center">
+            <div>
+                <h1 class="h2 title-section">Dettagli Tecnico</h1>
+                <p class="text-muted mb-0">#@Technician.Id - @Technician.TechnicianName</p>
+            </div>
+            <button class="btn btn-secondary" @onclick="BackToList">Torna ai tecnici</button>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Informazioni tecniche</h5>
+                        <p class="mb-1"><strong>Nome:</strong> @Technician.TechnicianName</p>
+                        <p class="mb-1"><strong>Cognome:</strong> @Technician.Surname</p>
+                        <p class="mb-1"><strong>Username:</strong> @Technician.Username</p>
+                        <p class="mb-1"><strong>Ruolo:</strong> @Technician.Role</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Accesso</h5>
+                        <p class="mb-1"><strong>Password:</strong> ******</p>
+                        <p class="text-muted small">La password non è mostrata per motivi di sicurezza.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

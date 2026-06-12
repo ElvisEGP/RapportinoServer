@@ -1,0 +1,97 @@
+@page "/clients/details/{Id:int}"
+@using Microsoft.AspNetCore.Components.Web
+@namespace RapportinoServer.Pages.Clients
+
+@inherits ClientDetailsPageBase
+
+<PageTitle>Dettagli Cliente #@Client?.Id</PageTitle>
+
+<div class="container mt-4">
+    @if (IsLoading)
+    {
+        <p>Caricamento...</p>
+    }
+    else if (LoadError is not null)
+    {
+        <div class="alert alert-danger">@LoadError</div>
+    }
+    else if (Client is null)
+    {
+        <div class="alert alert-warning">Cliente non trovato.</div>
+    }
+    else
+    {
+        <div class="mb-3 d-flex justify-content-between align-items-center">
+            <div>
+                <h1 class="h2 title-section">Dettagli Cliente</h1>
+                <p class="text-muted mb-0">#@Client.Id - @Client.CompanyName</p>
+            </div>
+            <button class="btn btn-secondary" @onclick="BackToList">Torna ai clienti</button>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Informazioni principali</h5>
+                        <p class="mb-1"><strong>Ragione sociale:</strong> @Client.CompanyName</p>
+                        <p class="mb-1"><strong>Telefono:</strong> @Client.Phone</p>
+                        <p class="mb-1"><strong>Email:</strong> @Client.Email</p>
+                        <p class="mb-1"><strong>Sito web:</strong> @Client.Website</p>
+                        <p class="mb-1"><strong>Data registrazione:</strong> @Client.Data.ToString("dd/MM/yyyy")</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Indirizzo</h5>
+                        <p class="mb-1">@Client.Address @Client.NumberAddress</p>
+                        <p class="mb-1">@Client.City - @Client.PostalCode (@Client.State)</p>
+                        <p class="mb-1">@Client.Country</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Note</h5>
+                        <p class="mb-0">@(!string.IsNullOrWhiteSpace(Client.Note) ? Client.Note : "Nessuna nota disponibile.")</p>
+                    </div>
+                </div>
+            </div>
+
+            @if (Client.Machines?.Any() == true)
+            {
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Macchine associate</h5>
+                            <table class="table table-sm mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Modello</th>
+                                        <th>Matricola</th>
+                                        <th>ClientId</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var machine in Client.Machines)
+                                    {
+                                        <tr>
+                                            <td>@machine.Model</td>
+                                            <td>@machine.Serial</td>
+                                            <td>@machine.ClientId</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

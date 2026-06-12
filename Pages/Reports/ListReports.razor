@@ -1,0 +1,62 @@
+﻿@page "/reports"
+@using Microsoft.AspNetCore.Components.Web
+@namespace RapportinoServer.Pages.Reports
+
+@inherits ListReportsPageBase
+
+<PageTitle>Lista dei Rapportini</PageTitle>
+
+<div class="mb-3">
+    <h1 class="h2 title-section">Rapportini</h1>
+    <button type="button" class="btn btn-primary" @onclick="NewReport" disabled="@IsLoading || IsDeleting">
+        Nuovo Rapportino
+    </button>
+
+    @if (IsLoading)
+    {
+        <p>Caricamento in corso...</p>
+    }
+    else if (LoadError is not null)
+    {
+        <div class="alert alert-danger mt-3">@LoadError</div>
+    }
+    else if (Reports is null || !Reports.Any())
+    {
+        <p class="mt-2">Nessun rapportino presente.</p>
+    }
+    else
+    {
+        <table class="table table-striped align-middle mt-3">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Data</th>
+                    <th>Matricola</th>
+                    <th>Modello</th>
+                    <th>Email</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var r in Reports)
+                {
+                    <tr>
+                        <td>@r.Id</td>
+                        <td>@r.Data.ToString("dd/MM/yyyy")</td>
+                        <td>@r.Serial</td>
+                        <td>@r.Model</td>
+                        <td>@r.Email</td>
+                        <td class="text-end">
+                            <button class="btn btn-sm btn-outline-secondary me-1" @onclick="() => GoToDetails(r.Id)" disabled="@IsDeleting">
+                                Dettagli
+                            </button>
+                            <button class="btn btn-sm btn-danger" @onclick="() => DeleteReport(r.Id)" disabled="@IsDeleting">
+                                Elimina
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

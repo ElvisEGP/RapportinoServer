@@ -1,0 +1,147 @@
+﻿@page "/clients/new"
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Forms
+@namespace RapportinoServer.Pages.Clients
+@inherits RapportinoServer.Pages.Clients.ClientNewPageBase
+
+<PageTitle>Nuovo Cliente</PageTitle>
+
+<div class="mb-3">
+    <h1 class="h2 title-section">Nuovo Cliente</h1>
+
+    <EditForm EditContext="EditContext" OnValidSubmit="HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        @if (!string.IsNullOrEmpty(ErrorMessage))
+        {
+            <div class="alert alert-danger">@ErrorMessage</div>
+        }
+
+        <div class="row g-3">
+            <div class="col-md-12">
+                <label class="form-label">Ragione Sociale</label>
+                <InputText class="form-control" @bind-Value="Client.CompanyName" />
+                <ValidationMessage For="@(() => Client.CompanyName)" />
+            </div>
+
+            <div class="col-md-8">
+                <label class="form-label">Indirizzo</label>
+                <InputText class="form-control" @bind-Value="Client.Address" />
+                <ValidationMessage For="@(() => Client.Address)" />
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">Numero Civico</label>
+                <InputText class="form-control" @bind-Value="Client.NumberAddress" />
+                <ValidationMessage For="@(() => Client.NumberAddress)" />
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">Città</label>
+                <InputText class="form-control" @bind-Value="Client.City" />
+                <ValidationMessage For="@(() => Client.City)" />
+            </div>
+
+            <div class="col-md-2">
+                <label class="form-label">CAP</label>
+                <InputText class="form-control" @bind-Value="Client.PostalCode" />
+                <ValidationMessage For="@(() => Client.PostalCode)" />
+            </div>
+
+            <div class="col-md-3">
+                <label class="form-label">Provincia</label>
+                <InputText class="form-control" @bind-Value="Client.State" />
+                <ValidationMessage For="@(() => Client.State)" />
+            </div>
+
+            <div class="col-md-3">
+                <label class="form-label">Nazione</label>
+                <InputText class="form-control" @bind-Value="Client.Country" />
+                <ValidationMessage For="@(() => Client.Country)" />
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Telefono</label>
+                <InputText class="form-control" @bind-Value="Client.Phone" />
+                <ValidationMessage For="@(() => Client.Phone)" />
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Email</label>
+                <InputText type="email" class="form-control" @bind-Value="Client.Email" />
+                <ValidationMessage For="@(() => Client.Email)" />
+            </div>
+
+            <div class="col-md-12">
+                <label class="form-label">Sito Web</label>
+                <InputText class="form-control" @bind-Value="Client.Website" />
+                <ValidationMessage For="@(() => Client.Website)" />
+            </div>
+
+            <div class="col-md-12">
+                <label class="form-label">Note</label>
+                <InputTextArea class="form-control" rows="3" @bind-Value="Client.Note" />
+            </div>
+
+            <div class="col-md-12 mt-4">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h2 class="h5 mb-0">Macchine del cliente</h2>
+
+                    <button type="button"
+                            class="btn btn-outline-primary btn-sm"
+                            @onclick="AddMachine"
+                            disabled="@IsSaving">
+                        Aggiungi macchina
+                    </button>
+                </div>
+
+                @for (var i = 0; i < Client.Machines.Count; i++)
+                {
+                    var machine = Client.Machines[i];
+
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-5">
+                                    <label class="form-label">Modello</label>
+                                    <InputText class="form-control" @bind-Value="machine.Model" />
+                                </div>
+
+                                <div class="col-md-5">
+                                    <label class="form-label">Matricola <span class="text-danger">*</span></label>
+                                    <InputText class="form-control" @bind-Value="machine.Serial" />
+                                </div>
+
+                                <div class="col-md-2 d-flex align-items-end">
+                                    <button type="button"
+                                            class="btn btn-outline-danger w-100"
+                                            @onclick="() => RemoveMachine(machine)"
+                                            disabled="@IsSaving">
+                                        Rimuovi
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="col-md-9 mt-4">
+                <button type="button" class="btn btn-secondary" @onclick="Cancel" disabled="@IsSaving">
+                    Annulla
+                </button>
+            </div>
+
+            <div class="col-md-3 mt-4">
+                <button type="submit" class="btn btn-primary w-100" disabled="@IsSaving">
+                    @if (IsSaving)
+                    {
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    }
+                    Salva
+                </button>
+            </div>
+        </div>
+    </EditForm>
+</div>

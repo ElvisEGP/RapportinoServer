@@ -1,0 +1,180 @@
+/* ============================================
+   PALETA iOS FROSTED GLASS
+============================================ */
+
+:root {
+  --text-inverted: #ffffff;  /* Branco iOS */
+}
+/* Container centralizado */
+.login-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/images/background-login.jpg') !important;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Card estilo iOS Frosted Glass */
+.login-card {
+    width: 360px;
+    padding: 32px;
+    border-radius: 26px;
+    background: rgba(255, 255, 255, 0);
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Título */
+.title-page-login {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+label.Username-login {
+    color: #FFFFFF;
+    font-size: 17px;
+}
+label.Password-login {
+    color: #FFFFFF;
+    font-size: 17px;
+    margin-top: 20px;
+}
+
+/* Inputs iOS */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-ios {
+    padding: 14px;
+    border-radius: 16px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(255, 255, 255, 0.65);
+    color: #1c1c1e;
+    font-size: 16px;
+    transition: 0.2s ease;
+}
+
+.input-ios:focus {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: #0a84ff;
+    outline: none;
+}
+
+/* Botão iOS */
+.btn-ios {
+    padding: 14px;
+    border-radius: 18px;
+    border: none;
+    background: #0a84ff;
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+    width: 100%;
+    margin-top: 38px;
+}
+
+.btn-ios:hover {
+    background: #409cff;
+}
+
+/* Loader estilo iOS */
+.loader-ios {
+    width: 18px;
+    height: 18px;
+    border: 3px solid rgba(255,255,255,0.4);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Alert iOS */
+.alert-ios {
+    background: rgba(255, 0, 0, 0.15);
+    color: #b00020;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 14px;
+}
+
+/* Teste */
+.teste {
+    color: #1c1c1e;
+    text-align: center;
+    display: block;
+}
+
+/* Responsividade */
+@media (max-width: 480px) 
+{
+    .login-card {
+        width: 90%;
+        padding: 24px;
+    }
+    .login-container {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url('/images/background-login.jpg') !important;
+        background-size: cover;
+        background-position: center;
+    }
+}
+@media (max-width: 768px) 
+{
+    .login-container {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url('/images/background-login.jpg') !important;
+        background-size: cover;
+        background-position: center;
+    }
+}
+@media (max-width: 1024px) 
+{
+    .login-container {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url('/images/background-login.jpg') !important;
+        background-size: cover;
+        background-position: center;
+    }
+}
+@media (max-width: 1440px) 
+{
+    .login-container {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url('/images/background-login.jpg') !important;
+        background-size: cover;
+        background-position: center;
+    }
+}
+

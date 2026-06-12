@@ -1,0 +1,50 @@
+﻿@page "/clients/delete/{id:int}"
+@namespace RapportinoServer.Pages.Clients
+
+@inherits ClientDeletePageBase
+
+<PageTitle>Elimina Cliente</PageTitle>
+
+@if (IsLoading)
+{
+    <p>Caricamento...</p>
+}
+else if (LoadError is not null)
+{
+    <div class="alert alert-danger">@LoadError</div>
+}
+else if (Client is null)
+{
+    <div class="alert alert-warning">Cliente non trovato.</div>
+}
+else
+{
+    <div class="alert alert-warning">
+        Sei sicuro di voler eliminare il cliente <strong>@Client.CompanyName</strong>?
+    </div>
+
+    <div class="mb-3">
+        <div><strong>ID:</strong> @Client.Id</div>
+        <div><strong>Ragione Sociale:</strong> @Client.CompanyName</div>
+        <div><strong>Email:</strong> @Client.Email</div>
+    </div>
+
+    <div class="d-flex gap-2">
+        <button class="btn btn-danger" @onclick="ConfirmDelete" disabled="@IsDeleting">
+            @if (IsDeleting)
+            {
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            }
+            Elimina
+        </button>
+
+        <button class="btn btn-secondary" @onclick="Cancel" disabled="@IsDeleting">
+            Annulla
+        </button>
+    </div>
+
+    @if (!string.IsNullOrEmpty(ErrorMessage))
+    {
+        <div class="alert alert-danger mt-3">@ErrorMessage</div>
+    }
+}

@@ -1,0 +1,50 @@
+﻿@page "/services"
+@using Microsoft.AspNetCore.Components.Web
+
+@namespace RapportinoServer.Pages.Services
+
+
+@inherits ListTypeServicePageBase
+
+<PageTitle>Tipi di Servizio</PageTitle>
+
+<div class="mb-3">
+    <h1 class="h2 title-section">Tipi di Servizio</h1>
+    <button class="btn btn-primary" @onclick="NewService" disabled="@IsLoading || IsDeleting">Nuovo Tipo</button>
+</div>
+
+@if (IsLoading)
+{
+    <p>Caricamento...</p>
+}
+else if (LoadError is not null)
+{
+    <div class="alert alert-danger">@LoadError</div>
+}
+else if (Services is null || !Services.Any())
+{
+    <p class="mt-2">Nessun tipo di servizio presente.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var s in Services)
+        {
+            <tr>
+                <td>@s.Name</td>
+                <td class="text-end">
+                    <button class="btn btn-warning btn-sm me-1" @onclick="() => Edit(s.Id)" disabled="@IsDeleting">Modifica</button>
+                    <button class="btn btn-danger btn-sm" @onclick="() => ConfirmDelete(s.Id, s.Name)" disabled="@IsDeleting">Elimina</button>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

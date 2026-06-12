@@ -1,4 +1,4 @@
-README (Italiano)
+🇮🇹 README (Italiano)
 RapportinoServer
 Stato del progetto: In sviluppo 🚧
 
@@ -49,6 +49,10 @@ Questo progetto non ha ancora una licenza definita.
 
 🤝 Contributi
 I contributi saranno benvenuti una volta stabilita la struttura principale del progetto.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
 
 🇬🇧 README (English)
 RapportinoServer
@@ -101,3 +105,15 @@ This project does not have a defined license yet.
 
 🤝 Contributions
 Contributions will be welcome once the main structure of the project is established.
+
+Se quiser, posso personalizar o README com:
+
+Tecnologias reais que você está usando
+
+Logo do projeto
+
+Badges (build, version, status)
+
+Estrutura de API
+
+Roadmap

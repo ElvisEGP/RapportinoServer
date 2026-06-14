@@ -7,13 +7,16 @@
 }
 /* Container centralizado */
 .login-container {
-    height: 100vh;
+    min-height: 100vh;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('/images/background-login.jpg') !important;
-    background-size: cover;
-    background-position: center;
+
+    background-image: url('/images/background-login.jpg');
+    background-size: cover;        /* cobre toda a tela */
+    background-position: center;   /* sempre centralizado */
+    background-repeat: no-repeat;  /* evita repetição */
 }
 
 /* Card estilo iOS Frosted Glass */

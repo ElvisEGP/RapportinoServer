@@ -57,9 +57,12 @@
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/RapportinoServer.MvcApplicationPartsAssemblyInfo.cache
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/RapportinoServer.RazorAssemblyInfo.cache
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/RapportinoServer.RazorAssemblyInfo.cs
+/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/RapportinoServer.sourcelink.json
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/rjimswa.dswa.cache.json
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/rjsmrazor.dswa.cache.json
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json
+/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/scopedcss/Components/Layout/NavMenu.razor.rz.scp.css
+/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/scopedcss/Pages/Home.razor.rz.scp.css
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/scopedcss/Pages/Login.razor.rz.scp.css
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/scopedcss/bundle/RapportinoServer.styles.css
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/scopedcss/projectbundle/RapportinoServer.bundle.scp.css
@@ -78,8 +81,7 @@
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/RapportinoServer.pdb
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/RapportinoServer.genruntimeconfig.cache
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/ref/RapportinoServer.dll
-/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/gdxhy7pssl-{0}-5q7t54cuta-5q7t54cuta.gz
-/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/scopedcss/Components/Layout/NavMenu.razor.rz.scp.css
-/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/scopedcss/Pages/Home.razor.rz.scp.css
-/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/u2p4k7z20m-{0}-rx0sfeozv3-rx0sfeozv3.gz
-/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/tm7c2jv13h-{0}-rx0sfeozv3-rx0sfeozv3.gz
+/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/scopedcss/Components/Layout/MainLayout.razor.rz.scp.css
+/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/u2p4k7z20m-{0}-p29nh1a6eg-p29nh1a6eg.gz
+/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/tm7c2jv13h-{0}-p29nh1a6eg-p29nh1a6eg.gz
+/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/gdxhy7pssl-{0}-ys599rjafc-ys599rjafc.gz

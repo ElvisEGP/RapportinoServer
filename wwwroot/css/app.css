@@ -36,7 +36,6 @@ audio, canvas, svg, form, fieldset, legend, blockquote, hr {
 body {
   background: linear-gradient(135deg, #e5e7eb 0%, #f8fafc 100%);
   line-height: 1.6;
-  padding: 24px;
   -webkit-font-smoothing: antialiased;
 }
 

@@ -1,26 +1,22 @@
-/* ============================
-   MENU SUPERIOR — iOS GLASS
-============================ */
-
-.top-nav {
+/* HEADER FIXO */
+header {
+    width: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    z-index: 900;
+    z-index: 999;
 }
 
-/* Barra superior */
-.top-row {
-    height: 60px;
+/* NAV SUPERIOR */
+.top-nav {
+    width: 100%;
     background: var(--glass-bg);
     border-bottom: 1px solid var(--glass-border);
     backdrop-filter: blur(28px) saturate(180%);
-    display: flex;
-    align-items: center;
+    padding: 10px 20px;
 }
 
-/* Botão hamburguer */
+/* HAMBURGUER */
 .navbar-toggler {
     display: none;
 }
@@ -34,16 +30,9 @@
     border: 1px solid var(--glass-border);
 }
 
-/* ============================
-   MENU HORIZONTAL
-============================ */
-
+/* MENU HORIZONTAL */
 .nav-scrollable {
     width: 100%;
-    background: var(--glass-bg);
-    border-bottom: 1px solid var(--glass-border);
-    backdrop-filter: blur(28px);
-    padding: 10px 20px;
 }
 
 .nav-horizontal {
@@ -56,8 +45,11 @@
 
 /* Usuário */
 .nav-user {
-    margin-right: 20px;
-    opacity: 0.7;
+    width: 100%;
+    display: flow;
+    text-align: right;
+    padding-right: 23px;
+    padding-top: 6px;
 }
 
 /* Itens */
@@ -65,7 +57,7 @@
     display: flex;
 }
 
-/* Links */
+/* Links estilo iOS */
 .nav-link {
     display: inline-flex;
     align-items: center;
@@ -84,23 +76,17 @@
     background: var(--glass-hover);
 }
 
-/* Logout alinhado à direita */
+/* Logout à direita */
 .nav-logout {
     margin-left: auto;
 }
 
-/* ============================
-   AJUSTE DO CONTEÚDO
-============================ */
-
+/* Ajuste do conteúdo */
 body {
-    padding-top: 120px; /* header + menu */
+    padding-top: 120px;
 }
 
-/* ============================
-   MOBILE
-============================ */
-
+/* MOBILE */
 @media (max-width: 768px) {
 
     .navbar-toggler-btn {
@@ -109,6 +95,8 @@ body {
 
     .nav-scrollable {
         display: none;
+        width: 100%;
+        padding-top: 10px;
     }
 
     .navbar-toggler:checked ~ .nav-scrollable {

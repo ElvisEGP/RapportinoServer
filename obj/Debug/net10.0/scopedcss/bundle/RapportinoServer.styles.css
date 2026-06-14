@@ -1,27 +1,27 @@
+/* /Components/Layout/MainLayout.razor.rz.scp.css */
+.page[b-0lwjgk58vn] {
+    margin-top: 140px;
+}
 /* /Components/Layout/NavMenu.razor.rz.scp.css */
-/* ============================
-   MENU SUPERIOR — iOS GLASS
-============================ */
-
-.top-nav[b-jnasgoe70l] {
+/* HEADER FIXO */
+header[b-jnasgoe70l] {
+    width: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    z-index: 900;
+    z-index: 999;
 }
 
-/* Barra superior */
-.top-row[b-jnasgoe70l] {
-    height: 60px;
+/* NAV SUPERIOR */
+.top-nav[b-jnasgoe70l] {
+    width: 100%;
     background: var(--glass-bg);
     border-bottom: 1px solid var(--glass-border);
     backdrop-filter: blur(28px) saturate(180%);
-    display: flex;
-    align-items: center;
+    padding: 10px 20px;
 }
 
-/* Botão hamburguer */
+/* HAMBURGUER */
 .navbar-toggler[b-jnasgoe70l] {
     display: none;
 }
@@ -35,16 +35,9 @@
     border: 1px solid var(--glass-border);
 }
 
-/* ============================
-   MENU HORIZONTAL
-============================ */
-
+/* MENU HORIZONTAL */
 .nav-scrollable[b-jnasgoe70l] {
     width: 100%;
-    background: var(--glass-bg);
-    border-bottom: 1px solid var(--glass-border);
-    backdrop-filter: blur(28px);
-    padding: 10px 20px;
 }
 
 .nav-horizontal[b-jnasgoe70l] {
@@ -57,8 +50,11 @@
 
 /* Usuário */
 .nav-user[b-jnasgoe70l] {
-    margin-right: 20px;
-    opacity: 0.7;
+    width: 100%;
+    display: flow;
+    text-align: right;
+    padding-right: 23px;
+    padding-top: 6px;
 }
 
 /* Itens */
@@ -66,7 +62,7 @@
     display: flex;
 }
 
-/* Links */
+/* Links estilo iOS */
 .nav-link[b-jnasgoe70l] {
     display: inline-flex;
     align-items: center;
@@ -85,23 +81,17 @@
     background: var(--glass-hover);
 }
 
-/* Logout alinhado à direita */
+/* Logout à direita */
 .nav-logout[b-jnasgoe70l] {
     margin-left: auto;
 }
 
-/* ============================
-   AJUSTE DO CONTEÚDO
-============================ */
-
+/* Ajuste do conteúdo */
 body[b-jnasgoe70l] {
-    padding-top: 120px; /* header + menu */
+    padding-top: 120px;
 }
 
-/* ============================
-   MOBILE
-============================ */
-
+/* MOBILE */
 @media (max-width: 768px) {
 
     .navbar-toggler-btn[b-jnasgoe70l] {
@@ -110,6 +100,8 @@ body[b-jnasgoe70l] {
 
     .nav-scrollable[b-jnasgoe70l] {
         display: none;
+        width: 100%;
+        padding-top: 10px;
     }
 
     .navbar-toggler:checked ~ .nav-scrollable[b-jnasgoe70l] {
@@ -184,13 +176,16 @@ body[b-jnasgoe70l] {
 }
 /* Container centralizado */
 .login-container[b-s9f70bhk5h] {
-    height: 100vh;
+    min-height: 100vh;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('/images/background-login.jpg') !important;
-    background-size: cover;
-    background-position: center;
+
+    background-image: url('/images/background-login.jpg');
+    background-size: cover;        /* cobre toda a tela */
+    background-position: center;   /* sempre centralizado */
+    background-repeat: no-repeat;  /* evita repetição */
 }
 
 /* Card estilo iOS Frosted Glass */

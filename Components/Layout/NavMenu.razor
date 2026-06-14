@@ -1,89 +1,91 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">RapportinoServer</a>
-    </div>
-</div>
+﻿<header>
+    <nav class="top-nav">
 
-<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
-<input id="navbar-toggler" type="checkbox" title="Navigation menu" class="navbar-toggler" />
-<label for="navbar-toggler"></label>
+        <!-- Botão Hamburguer (mobile) -->
+        <input id="navbar-toggler" type="checkbox" class="navbar-toggler" />
+        <label for="navbar-toggler" class="navbar-toggler-btn">
+            <i class="bi bi-list"></i>
+        </label>
 
-<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
-    <nav class="nav flex-column">
-        @if (AuthState.IsAuthenticated)
-        {
-            <div class="px-3 py-2 text-white-50 small">
-                Connesso: @AuthState.CurrentTechnician?.Username
+        <!-- MENU HORIZONTAL -->
+        <div class="nav-scrollable">
+            <div class="nav-horizontal">
+
+                <div class="nav-item">
+                    <NavLink class="nav-link" href="/home">
+                        <i class="bi bi-house-door-fill"></i>Home
+                    </NavLink>
+                </div>
+
+                <div class="nav-item">
+                    <NavLink class="nav-link" href="/clients/new">
+                        <i class="bi bi-person-vcard-fill"></i>Nuovo Cliente
+                    </NavLink>
+                </div>
+
+                <div class="nav-item">
+                    <NavLink class="nav-link" href="/reports" Match="NavLinkMatch.All">
+                        <i class="bi bi-folder-fill"></i>Lista di Rapportini
+                    </NavLink>
+                </div>
+
+                <div class="nav-item">
+                    <NavLink class="nav-link" href="/reports/new">
+                        <i class="bi bi-file-earmark-text-fill"></i>Nuovo Rapportino
+                    </NavLink>
+                </div>
+
+                @if (AuthState.IsAdmin)
+                {
+                    <div class="nav-item">
+                        <NavLink class="nav-link" href="/services/new">
+                            <i class="bi bi-wrench-adjustable-circle-fill"></i>Nuovo Tipo di Servizio
+                        </NavLink>
+                    </div>
+
+                    <div class="nav-item">
+                        <NavLink class="nav-link" href="/technicians/new">
+                            <i class="bi bi-person-plus-fill"></i>Nuovo Tecnico
+                        </NavLink>
+                    </div>
+
+                    <div class="nav-item">
+                        <NavLink class="nav-link" href="/clients" Match="NavLinkMatch.All">
+                            <i class="bi bi-person-lines-fill"></i>Lista dei Clienti
+                        </NavLink>
+                    </div>
+
+                    <div class="nav-item">
+                        <NavLink class="nav-link" href="/technicians" Match="NavLinkMatch.All">
+                            <i class="bi bi-people-fill"></i>Lista dei Tecnici
+                        </NavLink>
+                    </div>
+
+                    <div class="nav-item">
+                        <NavLink class="nav-link" href="/services" Match="NavLinkMatch.All">
+                            <i class="bi bi-tools"></i>Lista dei Servizi
+                        </NavLink>
+                    </div>
+                }
+
+                @if (AuthState.IsAuthenticated)
+                {
+                    <div class="nav-item nav-logout">
+                        <button class="nav-button" @onclick="Logout">
+                            <i class="bi bi-box-arrow-right"></i> Logout
+                        </button>
+                    </div>
+                }
+
+
             </div>
-        }
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="/home">
-                <i class="bi bi-house-door-fill"></i>Home
-            </NavLink>
         </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="/clients/new">
-                <i class="bi bi-person-vcard-fill"></i>Nuovo Cliente
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="/reports" Match="NavLinkMatch.All">
-                <i class="bi bi-folder-fill"></i>Lista di Rapportini
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="/reports/new">
-                <i class="bi bi-file-earmark-text-fill"></i>Nuovo Rapportino
-            </NavLink>
-        </div>
-
-        @if (AuthState.IsAdmin)
-        {
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="/services/new">
-                    <i class="bi bi-wrench-adjustable-circle-fill"></i>Nuovo Tipo di Servizio
-                </NavLink>
-            </div>
-
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="/technicians/new">
-                    <i class="bi bi-person-plus-fill"></i>Nuovo Tecnico
-                </NavLink>
-            </div>
-
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="/clients" Match="NavLinkMatch.All">
-                    <i class="bi bi-person-lines-fill"></i>Lista dei Clienti
-                </NavLink>
-            </div>
-
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="/technicians" Match="NavLinkMatch.All">
-                    <i class="bi bi-people-fill"></i>Lista dei Tecnici
-                </NavLink>
-            </div>
-
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="/services" Match="NavLinkMatch.All">
-                    <i class="bi bi-tools"></i>Lista dei Servizi
-                </NavLink>
-            </div>
-        }
-
-        @if (AuthState.IsAuthenticated)
-        {
-            <div class="nav-item px-3 mt-2">
-                <button class="btn btn-outline-light btn-sm w-100" @onclick="Logout">
-                    <i class="bi bi-box-arrow-right"></i> Logout
-                </button>
-            </div>
-        }
+       
     </nav>
-</div>
+    <div class="nav-user">
+     Connesso: @AuthState.CurrentTechnician?.Username
+    </div>
+</header>
 
 @code {
     [Inject] private RapportinoServer.Services.AuthStateService AuthState { get; set; } = default!;

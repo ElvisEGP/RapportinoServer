@@ -1,0 +1,11 @@
+{
+  "watch": {
+    "exclude": [
+      "**/bin/**",
+      "**/obj/**",
+      "**/node_modules/**",
+      "**/.git/**",
+      "**/wwwroot/**"
+    ]
+  }
+}

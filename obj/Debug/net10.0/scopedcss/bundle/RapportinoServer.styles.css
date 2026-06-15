@@ -167,13 +167,6 @@ body[b-jnasgoe70l] {
   backdrop-filter: blur(12px);
 }
 /* /Pages/Login.razor.rz.scp.css */
-/* ============================================
-   PALETA iOS FROSTED GLASS
-============================================ */
-
-:root[b-s9f70bhk5h] {
-  --text-inverted: #ffffff;  /* Branco iOS */
-}
 /* Container centralizado */
 .login-container[b-s9f70bhk5h] {
     min-height: 100vh;
@@ -183,18 +176,17 @@ body[b-jnasgoe70l] {
     justify-content: center;
 
     background-image: url('/images/background-login.jpg');
-    background-size: cover;        /* cobre toda a tela */
-    background-position: center;   /* sempre centralizado */
-    background-repeat: no-repeat;  /* evita repetição */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-/* Card estilo iOS Frosted Glass */
 .login-card[b-s9f70bhk5h] {
     width: 360px;
     padding: 32px;
-    border-radius: 26px;
+    border-radius: 12px;
     background: rgba(255, 255, 255, 0);
-    border: 1px solid rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.285);
     backdrop-filter: blur(28px) saturate(180%);
     -webkit-backdrop-filter: blur(28px) saturate(180%);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
@@ -206,47 +198,40 @@ body[b-jnasgoe70l] {
 /* Título */
 .title-page-login[b-s9f70bhk5h] {
     font-size: 28px;
-    font-weight: 700;
+    font-weight: 600;
     color: #ffffff;
     text-align: center;
     margin-bottom: 10px;
 }
 
-label.Username-login[b-s9f70bhk5h] {
-    color: #FFFFFF;
-    font-size: 17px;
-}
-label.Password-login[b-s9f70bhk5h] {
-    color: #FFFFFF;
-    font-size: 17px;
-    margin-top: 20px;
-}
-
-/* Inputs iOS */
+/* Inputs */
 .input-group[b-s9f70bhk5h] {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
 
-.input-ios[b-s9f70bhk5h] {
+label.username-login[b-s9f70bhk5h],
+label.password-login[b-s9f70bhk5h] {
+    color: #FFFFFF;
+    font-size: 17px;
+}
+
+label.password-login[b-s9f70bhk5h] {
+    margin-top: 20px;
+}
+/* Works don't touch hahaha */
+[b-s9f70bhk5h] .input-login,
+[b-s9f70bhk5h] .input-passwd {
     padding: 14px;
-    border-radius: 16px;
+    border-radius: 12px;
     border: 1px solid rgba(0,0,0,0.1);
-    background: rgba(255, 255, 255, 0.65);
+    background: rgba(226, 226, 226, 0.803);
     color: #1c1c1e;
     font-size: 16px;
     transition: 0.2s ease;
 }
-
-.input-ios:focus[b-s9f70bhk5h] {
-    background: rgba(255, 255, 255, 0.85);
-    border-color: #0a84ff;
-    outline: none;
-}
-
-/* Botão iOS */
-.btn-ios[b-s9f70bhk5h] {
+.btn-login[b-s9f70bhk5h] {
     padding: 14px;
     border-radius: 18px;
     border: none;
@@ -259,13 +244,12 @@ label.Password-login[b-s9f70bhk5h] {
     width: 100%;
     margin-top: 38px;
 }
-
-.btn-ios:hover[b-s9f70bhk5h] {
+.btn-login:hover[b-s9f70bhk5h] {
     background: #409cff;
 }
 
 /* Loader estilo iOS */
-.loader-ios[b-s9f70bhk5h] {
+.loader-login[b-s9f70bhk5h] {
     width: 18px;
     height: 18px;
     border: 3px solid rgba(255,255,255,0.4);
@@ -281,72 +265,10 @@ label.Password-login[b-s9f70bhk5h] {
 }
 
 /* Alert iOS */
-.alert-ios[b-s9f70bhk5h] {
+.alert-login[b-s9f70bhk5h] {
     background: rgba(255, 0, 0, 0.15);
     color: #b00020;
     padding: 10px 14px;
     border-radius: 12px;
-    font-size: 14px;
+    font-size: 16px;
 }
-
-/* Teste */
-.teste[b-s9f70bhk5h] {
-    color: #1c1c1e;
-    text-align: center;
-    display: block;
-}
-
-/* Responsividade */
-@media (max-width: 480px) 
-{
-    .login-card[b-s9f70bhk5h] {
-        width: 90%;
-        padding: 24px;
-    }
-    .login-container[b-s9f70bhk5h] {
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-image: url('/images/background-login.jpg') !important;
-        background-size: cover;
-        background-position: center;
-    }
-}
-@media (max-width: 768px) 
-{
-    .login-container[b-s9f70bhk5h] {
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-image: url('/images/background-login.jpg') !important;
-        background-size: cover;
-        background-position: center;
-    }
-}
-@media (max-width: 1024px) 
-{
-    .login-container[b-s9f70bhk5h] {
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-image: url('/images/background-login.jpg') !important;
-        background-size: cover;
-        background-position: center;
-    }
-}
-@media (max-width: 1440px) 
-{
-    .login-container[b-s9f70bhk5h] {
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-image: url('/images/background-login.jpg') !important;
-        background-size: cover;
-        background-position: center;
-    }
-}
-

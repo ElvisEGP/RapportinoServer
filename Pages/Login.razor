@@ -17,26 +17,26 @@
             <DataAnnotationsValidator />
 
             <div class="input-group">
-                <label class="Username-login">Username</label>
-                <InputText class="input-ios" @bind-Value="Form.Username" />
+                <label class="username-login">Username</label>
+                <InputText class="input-login" @bind-Value="Form.Username" />
                 <ValidationMessage For="@(() => Form.Username)" />
             </div>
 
             <div class="input-group">
-                <label class="Password-login">Password</label>
-                <InputText type="password" class="input-ios" @bind-Value="Form.Password" />
+                <label class="password-login">Password</label>
+                <InputText type="password" class="input-passwd" @bind-Value="Form.Password" />
                 <ValidationMessage For="@(() => Form.Password)" />
             </div>
 
             @if (!string.IsNullOrWhiteSpace(ErrorMessage))
             {
-                <div class="alert-ios">@ErrorMessage</div>
+                <div class="alert-login">@ErrorMessage</div>
             }
 
-            <button type="submit" class="btn-ios" disabled="@IsSubmitting">
+            <button type="submit" class="btn-login" disabled="@IsSubmitting">
                 @if (IsSubmitting)
                 {
-                    <span class="loader-ios"></span>
+                    <span class="loader-login"></span>
                 }
                 Entra
             </button>

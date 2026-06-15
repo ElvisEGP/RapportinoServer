@@ -1,0 +1,214 @@
+/* ============================================
+   RESET + BASE (TODAS AS TAGS HTML)
+============================================ */
+
+*, html, body, a, button, input, select, textarea, code, pre,
+p, h1, h2, h3, h4, h5, h6, small, span, label, div, section,
+article, aside, header, footer, nav, main, figure, figcaption,
+ul, ol, li, table, thead, tbody, tfoot, tr, th, td, img, video,
+audio, canvas, svg, form, fieldset, legend, blockquote, hr {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+               "SF Pro Text", Helvetica, Arial, sans-serif;
+}
+/* ============================================
+   PALETA iOS FROSTED GLASS
+============================================ */
+
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.65);
+  --glass-hover: rgba(255, 255, 255, 0.75);
+
+  --accent: #0a84ff;        /* Azul iOS */
+  --accent-hover: #409cff;
+
+  --shadow-ios: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* ============================================
+   FUNDO iOS (Control Center / Widgets)
+============================================ */
+
+body {
+  background: linear-gradient(135deg, #e5e7eb 0%, #f8fafc 100%);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================
+   TIPOGRAFIA
+============================================ */
+
+h1, h2, h3, h4, h5, h6, p, span, small, label {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* ============================================
+   LINKS
+============================================ */
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* ============================================
+   FROSTED GLASS (iOS REAL)
+============================================ */
+
+.glass,
+section,
+article,
+aside,
+header,
+footer,
+nav,
+div.box {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 22px;
+  padding: 24px;
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  box-shadow: var(--shadow-ios);
+  transition: 0.25s ease;
+}
+
+.glass:hover,
+section:hover,
+article:hover,
+div.box:hover {
+  background: var(--glass-hover);
+}
+
+/* ============================================
+   LISTAS
+============================================ */
+
+ul, ol {
+  margin-left: 24px;
+  margin-bottom: 16px;
+}
+
+/* ============================================
+   TABELAS — iOS
+============================================ */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 18px;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+}
+
+th, td {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 14px;
+}
+
+th {
+  background: rgba(255, 255, 255, 0.45);
+  font-weight: 600;
+}
+
+/* ============================================
+   FORMULÁRIOS — Inputs iOS
+============================================ */
+
+input, textarea, select {
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(18px);
+  transition: 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: var(--accent);
+  outline: none;
+}
+
+/* Botões iOS */
+button {
+  padding: 14px 20px;
+  border-radius: 18px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+button:hover {
+  background: var(--accent-hover);
+}
+
+/* ============================================
+   IMAGENS
+============================================ */
+
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: 18px;
+}
+
+/* ============================================
+   OUTROS ELEMENTOS HTML
+============================================ */
+
+hr {
+  border: none;
+  height: 1px;
+  background: rgba(0,0,0,0.1);
+  margin: 20px 0;
+}
+
+blockquote {
+  padding: 16px 20px;
+  border-left: 4px solid var(--accent);
+  background: rgba(255,255,255,0.45);
+  border-radius: 12px;
+}
+
+/* ============================================
+   MEDIA QUERIES — iOS RESPONSIVE
+============================================ */
+
+@media (max-width: 480px) {
+  body {
+    padding: 14px;
+    font-size: 15px;
+  }
+  .glass, section, article, div.box {
+    padding: 18px;
+    border-radius: 18px;
+  }
+  h1 { font-size: 26px; }
+  h2 { font-size: 22px; }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 1024px) {
+  body {
+    font-size: 18px;
+  }
+}

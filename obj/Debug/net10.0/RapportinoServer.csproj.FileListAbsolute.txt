@@ -74,8 +74,6 @@
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/b4swnj981r-{0}-abdmv1u4y3-abdmv1u4y3.gz
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/drbtis5erm-{0}-ne14ti1q68-ne14ti1q68.gz
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/puac7qrmye-{0}-ig5xotzpx5-ig5xotzpx5.gz
-/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/u2p4k7z20m-{0}-hh20x4zvhz-hh20x4zvhz.gz
-/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/tm7c2jv13h-{0}-hh20x4zvhz-hh20x4zvhz.gz
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/staticwebassets.build.json
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/staticwebassets.build.json.cache
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/staticwebassets.development.json
@@ -87,3 +85,5 @@
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/RapportinoServer.pdb
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/RapportinoServer.genruntimeconfig.cache
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/ref/RapportinoServer.dll
+/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/u2p4k7z20m-{0}-ancxlivpzb-ancxlivpzb.gz
+/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/tm7c2jv13h-{0}-ancxlivpzb-ancxlivpzb.gz

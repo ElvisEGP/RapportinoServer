@@ -5,7 +5,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     background-image: url('/images/background-login.jpg');
     background-size: cover;
     background-position: center;
@@ -57,8 +56,8 @@ label.password-login[b-s9f70bhk5h] {
     padding: 14px;
     border-radius: 12px;
     border: 1px solid rgba(0,0,0,0.1);
-    background: rgba(226, 226, 226, 0.803);
-    color: #1c1c1e;
+    background: rgba(0, 0, 0, 0.2);
+    color: #dadada;
     font-size: 16px;
     transition: 0.2s ease;
 }
@@ -66,7 +65,7 @@ label.password-login[b-s9f70bhk5h] {
     padding: 14px;
     border-radius: 18px;
     border: none;
-    background: #0a84ff;
+    background: #192969;
     color: white;
     font-size: 17px;
     font-weight: 600;
@@ -74,9 +73,11 @@ label.password-login[b-s9f70bhk5h] {
     transition: 0.2s ease;
     width: 100%;
     margin-top: 38px;
+    box-shadow: 0 4px 12px rgba(36, 55, 133, 0.4);
 }
 .btn-login:hover[b-s9f70bhk5h] {
-    background: #409cff;
+    background: #0a60ac;
+    box-shadow: 0 0 40px rgba(30, 54, 152, 1);
 }
 
 /* Loader estilo iOS */
@@ -95,11 +96,72 @@ label.password-login[b-s9f70bhk5h] {
     to { transform: rotate(360deg); }
 }
 
-/* Alert iOS */
+/* Alert */
+.validation-message[b-s9f70bhk5h] {
+    font-size: 16px;
+    color: #e40a32;
+    font-size: 18px;
+}
 .alert-login[b-s9f70bhk5h] {
     background: rgba(255, 0, 0, 0.15);
-    color: #b00020;
+    color: #f71a42;
     padding: 10px 14px;
     border-radius: 12px;
     font-size: 16px;
+    box-shadow: 0px 1px 20px 11px rgb(255 0 0 / 40%);
+    margin-top: 29px
 }
+/* Responsividade */
+@media (max-width: 480px) 
+{
+    .login-card[b-s9f70bhk5h] {
+        width: 90%;
+        padding: 24px;
+    }
+    .login-container[b-s9f70bhk5h] {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url('/images/background-login.jpg') !important;
+        background-size: cover;
+        background-position: center;
+    }
+}
+@media (max-width: 768px) 
+{
+    .login-container[b-s9f70bhk5h] {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url('/images/background-login.jpg') !important;
+        background-size: cover;
+        background-position: center;
+    }
+}
+@media (max-width: 1024px) 
+{
+    .login-container[b-s9f70bhk5h] {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url('/images/background-login.jpg') !important;
+        background-size: cover;
+        background-position: center;
+    }
+}
+@media (max-width: 1440px) 
+{
+    .login-container[b-s9f70bhk5h] {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url('/images/background-login.jpg') !important;
+        background-size: cover;
+        background-position: center;
+    }
+}
+

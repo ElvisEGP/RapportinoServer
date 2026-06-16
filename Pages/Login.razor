@@ -19,13 +19,17 @@
             <div class="input-group">
                 <label class="username-login">Username</label>
                 <InputText class="input-login" @bind-Value="Form.Username" />
-                <ValidationMessage For="@(() => Form.Username)" />
+                <div class="validation-message">
+                    <ValidationMessage For="@(() => Form.Username)" />
+                </div>
             </div>
 
             <div class="input-group">
                 <label class="password-login">Password</label>
                 <InputText type="password" class="input-passwd" @bind-Value="Form.Password" />
-                <ValidationMessage For="@(() => Form.Password)" />
+                <div class="validation-message">
+                    <ValidationMessage For="@(() => Form.Password)" />
+                </div>
             </div>
 
             @if (!string.IsNullOrWhiteSpace(ErrorMessage))

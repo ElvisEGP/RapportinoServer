@@ -1,91 +1,97 @@
-﻿<header>
-    <nav class="top-nav">
+﻿<header class="header">
+    <nav class="nav">
 
         <!-- Botão Hamburguer (mobile) -->
-        <input id="navbar-toggler" type="checkbox" class="navbar-toggler" />
-        <label for="navbar-toggler" class="navbar-toggler-btn">
-            <i class="bi bi-list"></i>
+        <input id="navbar-toggler" type="checkbox" class="nav__toggle-input" />
+
+        <label for="navbar-toggler" class="nav__toggle-button">
+            <span class="nav__toggle-line"></span>
+            <span class="nav__toggle-line"></span>
+            <span class="nav__toggle-line"></span>
         </label>
 
+
         <!-- MENU HORIZONTAL -->
-        <div class="nav-scrollable">
-            <div class="nav-horizontal">
+        <div class="nav__scroll">
+            <div class="nav__list">
 
-                <div class="nav-item">
-                    <NavLink class="nav-link" href="/home">
-                        <i class="bi bi-house-door-fill"></i>Home
+                <div class="nav__item">
+                    <NavLink href="/home" class="nav__link">
+                        <i class="nav__icon"></i>Home
                     </NavLink>
                 </div>
 
-                <div class="nav-item">
-                    <NavLink class="nav-link" href="/clients/new">
-                        <i class="bi bi-person-vcard-fill"></i>Nuovo Cliente
+                <div class="nav__item">
+                    <NavLink href="/clients/new" class="nav__link">
+                        <i class="nav__icon"></i>Nuovo Cliente
                     </NavLink>
                 </div>
 
-                <div class="nav-item">
-                    <NavLink class="nav-link" href="/reports" Match="NavLinkMatch.All">
-                        <i class="bi bi-folder-fill"></i>Lista di Rapportini
+                <div class="nav__item">
+                    <NavLink href="/reports" Match="NavLinkMatch.All" class="nav__link">
+                        <i class="nav__icon"></i>Lista di Rapportini
                     </NavLink>
                 </div>
 
-                <div class="nav-item">
-                    <NavLink class="nav-link" href="/reports/new">
-                        <i class="bi bi-file-earmark-text-fill"></i>Nuovo Rapportino
+                <div class="nav__item">
+                    <NavLink href="/reports/new" class="nav__link">
+                        <i class="nav__icon"></i>Nuovo Rapportino
                     </NavLink>
                 </div>
 
                 @if (AuthState.IsAdmin)
                 {
-                    <div class="nav-item">
-                        <NavLink class="nav-link" href="/services/new">
-                            <i class="bi bi-wrench-adjustable-circle-fill"></i>Nuovo Tipo di Servizio
+                    <div class="nav__item">
+                        <NavLink href="/services/new" class="nav__link">
+                            <i class="nav__icon"></i>Nuovo Tipo di Servizio
                         </NavLink>
                     </div>
 
-                    <div class="nav-item">
-                        <NavLink class="nav-link" href="/technicians/new">
-                            <i class="bi bi-person-plus-fill"></i>Nuovo Tecnico
+                    <div class="nav__item">
+                        <NavLink href="/technicians/new" class="nav__link">
+                            <i class="nav__icon"></i>Nuovo Tecnico
                         </NavLink>
                     </div>
 
-                    <div class="nav-item">
-                        <NavLink class="nav-link" href="/clients" Match="NavLinkMatch.All">
-                            <i class="bi bi-person-lines-fill"></i>Lista dei Clienti
+                    <div class="nav__item">
+                        <NavLink href="/clients" Match="NavLinkMatch.All" class="nav__link">
+                            <i class="nav__icon"></i>Lista dei Clienti
                         </NavLink>
                     </div>
 
-                    <div class="nav-item">
-                        <NavLink class="nav-link" href="/technicians" Match="NavLinkMatch.All">
-                            <i class="bi bi-people-fill"></i>Lista dei Tecnici
+                    <div class="nav__item">
+                        <NavLink href="/technicians" Match="NavLinkMatch.All" class="nav__link">
+                            <i class="nav__icon"></i>Lista dei Tecnici
                         </NavLink>
                     </div>
 
-                    <div class="nav-item">
-                        <NavLink class="nav-link" href="/services" Match="NavLinkMatch.All">
-                            <i class="bi bi-tools"></i>Lista dei Servizi
+                    <div class="nav__item">
+                        <NavLink href="/services" Match="NavLinkMatch.All" class="nav__link">
+                            <i class="nav__icon"></i>Lista dei Servizi
                         </NavLink>
                     </div>
                 }
 
                 @if (AuthState.IsAuthenticated)
                 {
-                    <div class="nav-item nav-logout">
-                        <button class="nav-button" @onclick="Logout">
-                            <i class="bi bi-box-arrow-right"></i> Logout
+                    <div class="nav__item nav__item--logout">
+                        <button class="nav__logout-button" @onclick="Logout">
+                            <i class="nav__icon"></i> Logout
                         </button>
                     </div>
                 }
-
 
             </div>
         </div>
        
     </nav>
-    <div class="nav-user">
-     Connesso: @AuthState.CurrentTechnician?.Username
+
+    <div class="header__user">
+        Connesso: @AuthState.CurrentTechnician?.Username
     </div>
 </header>
+
+
 
 @code {
     [Inject] private RapportinoServer.Services.AuthStateService AuthState { get; set; } = default!;

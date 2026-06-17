@@ -1,95 +1,70 @@
-﻿<header class="header">
-    <nav class="nav">
+﻿@inject IJSRuntime JS
 
-        <!-- Botão Hamburguer (mobile) -->
-        <input id="navbar-toggler" type="checkbox" class="nav__toggle-input" />
+<header class="nav">
+    <nav class="nav__container">
 
-        <label for="navbar-toggler" class="nav__toggle-button">
-            <span class="nav__toggle-line"></span>
-            <span class="nav__toggle-line"></span>
-            <span class="nav__toggle-line"></span>
-        </label>
+        <button class="nav__toggle" aria-label="Abrir menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
 
+        <ul class="nav__menu">
 
-        <!-- MENU HORIZONTAL -->
-        <div class="nav__scroll">
-            <div class="nav__list">
+            <li class="nav__item">
+                <NavLink href="/home" class="nav__link">Home</NavLink>
+            </li>
 
-                <div class="nav__item">
-                    <NavLink href="/home" class="nav__link">
-                        <i class="nav__icon"></i>Home
-                    </NavLink>
-                </div>
+            <li class="nav__item">
+                <NavLink href="/clients/new" class="nav__link">Nuovo Cliente</NavLink>
+            </li>
 
-                <div class="nav__item">
-                    <NavLink href="/clients/new" class="nav__link">
-                        <i class="nav__icon"></i>Nuovo Cliente
-                    </NavLink>
-                </div>
+            <li class="nav__item">
+                <NavLink href="/reports" Match="NavLinkMatch.All" class="nav__link">Lista di Rapportini</NavLink>
+            </li>
 
-                <div class="nav__item">
-                    <NavLink href="/reports" Match="NavLinkMatch.All" class="nav__link">
-                        <i class="nav__icon"></i>Lista di Rapportini
-                    </NavLink>
-                </div>
+            <li class="nav__item">
+                <NavLink href="/reports/new" class="nav__link">Nuovo Rapportino</NavLink>
+            </li>
 
-                <div class="nav__item">
-                    <NavLink href="/reports/new" class="nav__link">
-                        <i class="nav__icon"></i>Nuovo Rapportino
-                    </NavLink>
-                </div>
+            @if (AuthState.IsAdmin)
+            {
+                <li class="nav__item">
+                    <NavLink href="/services/new" class="nav__link">Nuovo Tipo di Servizio</NavLink>
+                </li>
 
-                @if (AuthState.IsAdmin)
-                {
-                    <div class="nav__item">
-                        <NavLink href="/services/new" class="nav__link">
-                            <i class="nav__icon"></i>Nuovo Tipo di Servizio
-                        </NavLink>
-                    </div>
+                <li class="nav__item">
+                    <NavLink href="/technicians/new" class="nav__link">Nuovo Tecnico</NavLink>
+                </li>
 
-                    <div class="nav__item">
-                        <NavLink href="/technicians/new" class="nav__link">
-                            <i class="nav__icon"></i>Nuovo Tecnico
-                        </NavLink>
-                    </div>
+                <li class="nav__item">
+                    <NavLink href="/clients" Match="NavLinkMatch.All" class="nav__link">Lista dei Clienti</NavLink>
+                </li>
 
-                    <div class="nav__item">
-                        <NavLink href="/clients" Match="NavLinkMatch.All" class="nav__link">
-                            <i class="nav__icon"></i>Lista dei Clienti
-                        </NavLink>
-                    </div>
+                <li class="nav__item">
+                    <NavLink href="/technicians" Match="NavLinkMatch.All" class="nav__link">Lista dei Tecnici</NavLink>
+                </li>
 
-                    <div class="nav__item">
-                        <NavLink href="/technicians" Match="NavLinkMatch.All" class="nav__link">
-                            <i class="nav__icon"></i>Lista dei Tecnici
-                        </NavLink>
-                    </div>
+                <li class="nav__item">
+                    <NavLink href="/services" Match="NavLinkMatch.All" class="nav__link">Lista dei Servizi</NavLink>
+                </li>
+            }
 
-                    <div class="nav__item">
-                        <NavLink href="/services" Match="NavLinkMatch.All" class="nav__link">
-                            <i class="nav__icon"></i>Lista dei Servizi
-                        </NavLink>
-                    </div>
-                }
+            @if (AuthState.IsAuthenticated)
+            {
+                <li class="nav__item">
+                    <button class="nav__link nav__link--logout" @onclick="Logout">Logout</button>
+                </li>
+            }
 
-                @if (AuthState.IsAuthenticated)
-                {
-                    <div class="nav__item nav__item--logout">
-                        <button class="nav__logout-button" @onclick="Logout">
-                            <i class="nav__icon"></i> Logout
-                        </button>
-                    </div>
-                }
+        </ul>
 
-            </div>
+        <div class="nav__user">
+            Connesso: @AuthState.CurrentTechnician?.Username
         </div>
-       
-    </nav>
 
-    <div class="header__user">
-        Connesso: @AuthState.CurrentTechnician?.Username
-    </div>
+    </nav>
 </header>
+
+
 
 
 
@@ -101,5 +76,12 @@
     {
         AuthState.SignOut();
         Nav.NavigateTo("/login", forceLoad: false);
+    }
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            JS.InvokeVoidAsync("initNavMenu");
+        }
     }
 }

@@ -85,5 +85,6 @@
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/RapportinoServer.pdb
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/RapportinoServer.genruntimeconfig.cache
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/ref/RapportinoServer.dll
-/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/u2p4k7z20m-{0}-ancxlivpzb-ancxlivpzb.gz
-/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/tm7c2jv13h-{0}-ancxlivpzb-ancxlivpzb.gz
+/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/suad3f718r-{0}-29a2kkyklw-29a2kkyklw.gz
+/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/u2p4k7z20m-{0}-5uuj2xijs0-5uuj2xijs0.gz
+/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/tm7c2jv13h-{0}-5uuj2xijs0-5uuj2xijs0.gz

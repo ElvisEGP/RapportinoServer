@@ -1,162 +1,149 @@
 /* ===== HEADER ===== */
-.header[b-jnasgoe70l] {
-    width: 100%;
+.nav[b-jnasgoe70l] {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 999;
-    backdrop-filter: blur(18px) saturate(160%);
-    background: rgba(20, 20, 35, 0.45);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    height: 64px;
+    background: #111827;
+    z-index: 9999;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.25);
 }
 
-/* ===== NAV STRUCTURE ===== */
-.nav[b-jnasgoe70l] {
+.nav__container[b-jnasgoe70l] {
+    height: 100%;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-between;
-    padding: 14px 28px;
+    padding: 0 24px;
 }
 
-/* ===== USER INFO ===== */
-.header__user[b-jnasgoe70l] {
-    padding: 10px 28px;
-    font-size: 15px;
-    color: #dcdcdc;
-    text-align: right;
-    background: rgba(0, 0, 0, 0.15);
-}
-
-/* ===== NAV LIST ===== */
-.nav__scroll[b-jnasgoe70l] {
-    overflow-x: auto;
-}
-
-.nav__list[b-jnasgoe70l] {
+/* ===== MENU ===== */
+.nav__menu[b-jnasgoe70l] {
     display: flex;
-    align-items: center;
-    gap: 22px;
-    transition: 0.3s ease;
+    align-items: stretch;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-/* ===== NAV ITEMS ===== */
 .nav__item[b-jnasgoe70l] {
-    display: flex;
+    height: 100%;
 }
 
-.nav__link[b-jnasgoe70l],
-.nav__logout-button[b-jnasgoe70l] {
+/* ===== LINKS (TODOS IGUAIS AO LOGOUT) ===== */
+[b-jnasgoe70l] .nav__link,
+[b-jnasgoe70l] a.nav__link {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 12px 18px;
-    border-radius: 14px;
-    background: rgba(255, 255, 255, 0.06);
-    color: #f0f0f0;
-    font-size: 17px;
+    justify-content: center;
+    height: 100%;
+    padding: 0 22px;
+    font-size: 15px;
     font-weight: 500;
-    letter-spacing: 0.3px;
+    color: #e5e7eb;
     text-decoration: none;
-    transition: 0.25s ease, transform 0.15s ease;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    backdrop-filter: blur(12px) saturate(160%);
-}
-
-.nav__link:hover[b-jnasgoe70l],
-.nav__logout-button:hover[b-jnasgoe70l] {
-    background: rgba(255, 255, 255, 0.18);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(255,255,255,0.18);
-}
-
-.nav__link.active[b-jnasgoe70l] {
-    background: rgba(255, 255, 255, 0.28);
-    color: #ffffff;
-    box-shadow: 0 0 22px rgba(255,255,255,0.35);
-}
-
-/* Ícones */
-.nav__icon[b-jnasgoe70l] {
-    width: 20px;
-    height: 20px;
-    background: linear-gradient(135deg, #ffffff55, #ffffffaa);
-    border-radius: 6px;
-    box-shadow: inset 0 0 6px rgba(255,255,255,0.4);
-}
-
-/* Logout */
-.nav__item--logout .nav__logout-button[b-jnasgoe70l] {
-    background: rgba(255, 0, 0, 0.18);
-    color: #ff8a8a;
-    box-shadow: 0 4px 12px rgba(255,0,0,0.25);
-}
-
-.nav__item--logout .nav__logout-button:hover[b-jnasgoe70l] {
-    background: rgba(255, 0, 0, 0.32);
-    transform: translateY(-2px);
-    box-shadow: 0 0 22px rgba(255,0,0,0.45);
-}
-
-/* ===== HAMBURGER BUTTON ===== */
-.nav__toggle-input[b-jnasgoe70l] {
-    display: none;
-}
-
-.nav__toggle-button[b-jnasgoe70l] {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
+    border: none;
+    background: none;
     cursor: pointer;
+    border-radius: 6px;
+    transition: 0.25s ease;
 }
 
-.nav__toggle-line[b-jnasgoe70l] {
-    width: 26px;
-    height: 3px;
-    background: #ffffffcc;
-    border-radius: 4px;
-    transition: 0.3s ease;
+[b-jnasgoe70l] .nav__link:hover,
+[b-jnasgoe70l] a.nav__link:hover {
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+}
+
+/* ===== ACTIVE (NavLink do Blazor) ===== */
+[b-jnasgoe70l] .nav__link.active,
+[b-jnasgoe70l] a.nav__link.active {
+    background: #5b66eb;
+    color: #fff;
+}
+
+/* ===== LOGOUT ===== */
+[b-jnasgoe70l] .nav__link--logout {
+    width: 100%;
+}
+
+/* ===== USER ===== */
+.nav__user[b-jnasgoe70l] {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #9ca3af;
 }
 
 /* ===== MOBILE ===== */
-@media (max-width: 820px) {
+.nav__toggle[b-jnasgoe70l] {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
 
-    .nav__toggle-button[b-jnasgoe70l] {
+.nav__toggle span[b-jnasgoe70l] {
+    width: 26px;
+    height: 3px;
+    background: #fff;
+    border-radius: 3px;
+}
+
+/* ===== RESPONSIVE ===== */
+/* ===== ANIMAÇÃO DO MENU MOBILE ===== */
+.nav__menu[b-jnasgoe70l] {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateY(-12px);
+    transition:
+        max-height 0.45s cubic-bezier(0.25, 0.1, 0.25, 1),
+        opacity 0.35s ease,
+        transform 0.45s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Estado aberto */
+.nav__menu.open[b-jnasgoe70l] {
+    max-height: 600px; /* grande o suficiente */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+@media (max-width: 768px) {
+
+    .nav__toggle[b-jnasgoe70l] {
         display: flex;
     }
 
-    .nav__list[b-jnasgoe70l] {
-        position: absolute;
-        top: 70px;
+    .nav__menu[b-jnasgoe70l] {
+        position: fixed;
+        top: 64px;
         left: 0;
         width: 100%;
+        background: #111827;
         flex-direction: column;
-        background: rgba(20, 20, 35, 0.75);
-        backdrop-filter: blur(20px) saturate(180%);
-        padding: 20px 0;
-        gap: 16px;
-        opacity: 0;
-        pointer-events: none;
-        transform: translateY(-20px);
+        display: none;
+        padding: 12px 0;
     }
 
-    /* Quando o checkbox está marcado → menu abre */
-    .nav__toggle-input:checked ~ .nav__scroll .nav__list[b-jnasgoe70l] {
-        opacity: 1;
-        pointer-events: auto;
-        transform: translateY(0);
+    .nav__menu.open[b-jnasgoe70l] {
+        display: flex;
     }
 
-    /* Animação do ícone hamburguer */
-    .nav__toggle-input:checked + .nav__toggle-button .nav__toggle-line:nth-child(1)[b-jnasgoe70l] {
-        transform: rotate(45deg) translateY(8px);
+    [b-jnasgoe70l] .nav__link,
+    [b-jnasgoe70l] a.nav__link {
+        justify-content: flex-start;
+        padding: 18px 24px;
+        height: auto;
     }
 
-    .nav__toggle-input:checked + .nav__toggle-button .nav__toggle-line:nth-child(2)[b-jnasgoe70l] {
-        opacity: 0;
-    }
-
-    .nav__toggle-input:checked + .nav__toggle-button .nav__toggle-line:nth-child(3)[b-jnasgoe70l] {
-        transform: rotate(-45deg) translateY(-8px);
+    .nav__user[b-jnasgoe70l] {
+        display: none;
     }
 }

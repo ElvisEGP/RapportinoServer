@@ -13,6 +13,8 @@ namespace RapportinoServer.Models
         public int ReportsThisMonth { get; set; }
         public int ReportsPreviousMonth { get; set; }
         public long WorkedMinutesThisMonth { get; set; }
+        public double WorkedHoursThisMonthForUser { get; set; }
+
 
         public IReadOnlyList<DashboardRecentReport> RecentReports { get; set; } = Array.Empty<DashboardRecentReport>();
         public IReadOnlyList<DashboardServiceSlice> ServiceTypeBreakdown { get; set; } = Array.Empty<DashboardServiceSlice>();

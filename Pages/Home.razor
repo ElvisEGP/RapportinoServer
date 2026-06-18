@@ -9,162 +9,147 @@
 
 <PageTitle>Home — Dashboard</PageTitle>
 
-<div class="mb-4">
-    <h1 class="h2 title-section mb-1">Dashboard</h1>
-    @if (AuthState.IsAuthenticated)
+<div class="page-wrapper">
+
+    <div class="page-header">
+        <h1 class="page-title">Dashboard</h1>
+
+        @if (AuthState.IsAuthenticated)
+        {
+            <p class="page-subtitle">
+                <spam>Benvenuto, </spam>
+                <spam class="name-user-session"><strong>@(AuthState.CurrentTechnician?.TechnicianName ?? AuthState.CurrentTechnician?.Username)</strong></spam>
+            </p>
+        }
+    </div>
+
+    @if (IsLoading)
     {
-        <p class="text-muted mb-0 small">
-            Benvenuto, <strong>@(AuthState.CurrentTechnician?.TechnicianName ?? AuthState.CurrentTechnician?.Username)</strong>
-            @if (AuthState.IsAdmin)
-            {
-                <span class="badge bg-primary ms-1">Admin</span>
-            }
-        </p>
+        <div class="loading-box">
+            <div class="loader"></div>
+            <span>Caricamento metriche…</span>
+        </div>
     }
-</div>
+    else if (LoadError is not null)
+    {
+        <div class="alert alert-danger">@LoadError</div>
+    }
+    else if (Summary is not null)
+    {
+        <!-- GRID DE CARDS PRINCIPAIS -->
+        <div class="grid grid-4 gap-xl">
+            <div class="card stat-card">
+                <div class="stat-content">
+                    <div>
+                        <p class="stat-label">Clienti</p>
+                        <p class="stat-value">@Summary.ClientCount</p>
+                    </div>
+                    <div class="stat-icon text-primary"><i class="bi bi-building"></i></div>
+                </div>
+            </div>
 
-@if (IsLoading)
-{
-    <div class="d-flex align-items-center gap-2 text-muted py-5">
-        <div class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></div>
-        <span>Caricamento metriche…</span>
-    </div>
-}
-else if (LoadError is not null)
-{
-    <div class="alert alert-danger">@LoadError</div>
-}
-else if (Summary is not null)
-{
-    <div class="row g-3 mb-4">
-        <div class="col-6 col-xl-3">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body">
-                    <div class="d-flex align-items-start justify-content-between">
-                        <div>
-                            <p class="text-muted text-uppercase small mb-1">Clienti</p>
-                            <p class="display-6 fw-semibold mb-0">@Summary.ClientCount</p>
-                        </div>
-                        <span class="text-primary fs-3"><i class="bi bi-building"></i></span>
+            <div class="card stat-card">
+                <div class="stat-content">
+                    <div>
+                        <p class="stat-label">Macchine</p>
+                        <p class="stat-value">@Summary.MachineCount</p>
                     </div>
+                    <div class="stat-icon text-green"><i class="bi bi-cpu"></i></div>
                 </div>
             </div>
-        </div>
-        <div class="col-6 col-xl-3">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body">
-                    <div class="d-flex align-items-start justify-content-between">
-                        <div>
-                            <p class="text-muted text-uppercase small mb-1">Macchine</p>
-                            <p class="display-6 fw-semibold mb-0">@Summary.MachineCount</p>
-                        </div>
-                        <span class="text-success fs-3"><i class="bi bi-cpu"></i></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-6 col-xl-3">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body">
-                    <div class="d-flex align-items-start justify-content-between">
-                        <div>
-                            <p class="text-muted text-uppercase small mb-1">Rapportini totali</p>
-                            <p class="display-6 fw-semibold mb-0">@Summary.ReportTotal</p>
-                        </div>
-                        <span class="text-info fs-3"><i class="bi bi-folder2-open"></i></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-6 col-xl-3">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body">
-                    <div class="d-flex align-items-start justify-content-between">
-                        <div>
-                            <p class="text-muted text-uppercase small mb-1">Questo mese</p>
-                            <p class="display-6 fw-semibold mb-0">@Summary.ReportsThisMonth</p>
-                            @if (Summary.MonthOverMonthDeltaPercent > 0)
-                            {
-                                <span class="badge bg-success mt-2">+@Summary.MonthOverMonthDeltaPercent% vs mese scorso</span>
-                            }
-                            else if (Summary.MonthOverMonthDeltaPercent < 0)
-                            {
-                                <span class="badge bg-secondary mt-2">@Summary.MonthOverMonthDeltaPercent% vs mese scorso</span>
-                            }
-                            else if (Summary.ReportsPreviousMonth == 0 && Summary.ReportsThisMonth > 0)
-                            {
-                                <span class="badge bg-success mt-2">Nuovo periodo</span>
-                            }
-                        </div>
-                        <span class="text-warning fs-3"><i class="bi bi-graph-up-arrow"></i></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="row g-3 mb-4">
-        <div class="col-md-4">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body">
-                    <p class="text-muted text-uppercase small mb-1">Tecnici</p>
-                    <p class="fs-2 fw-semibold mb-0">@Summary.TechnicianCount</p>
+            <div class="card stat-card">
+                <div class="stat-content">
+                    <div>
+                        <p class="stat-label">Rapportini totali</p>
+                        <p class="stat-value">@Summary.ReportTotal</p>
+                    </div>
+                    <div class="stat-icon text-blue"><i class="bi bi-folder2-open"></i></div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body">
-                    <p class="text-muted text-uppercase small mb-1">Tipi di servizio</p>
-                    <p class="fs-2 fw-semibold mb-0">@Summary.TypeServiceCount</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body">
-                    <p class="text-muted text-uppercase small mb-1">Ore lavorate (mese)</p>
-                    <p class="fs-2 fw-semibold mb-0">@Summary.WorkedHoursThisMonth <span class="fs-6 text-muted fw-normal">h</span></p>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="row g-3">
-        <div class="col-lg-7">
-            <div class="card border-0 shadow-sm h-100">
-                <div class="card-header bg-white border-bottom py-3 d-flex align-items-center justify-content-between">
-                    <span class="fw-semibold"><i class="bi bi-clock-history me-2 text-primary"></i>Ultimi rapportini</span>
-                    <a class="btn btn-sm btn-outline-primary" href="/reports">Vedi tutti</a>
+            <div class="card stat-card">
+                <div class="stat-content">
+                    <div>
+                        <p class="stat-label">Questo mese</p>
+                        <p class="stat-value">@Summary.ReportsThisMonth</p>
+
+                        @if (Summary.MonthOverMonthDeltaPercent > 0)
+                        {
+                            <span class="badge badge-success">+@Summary.MonthOverMonthDeltaPercent% vs mese scorso</span>
+                        }
+                        else if (Summary.MonthOverMonthDeltaPercent < 0)
+                        {
+                            <span class="badge badge-neutral">@Summary.MonthOverMonthDeltaPercent% vs mese scorso</span>
+                        }
+                        else if (Summary.ReportsPreviousMonth == 0 && Summary.ReportsThisMonth > 0)
+                        {
+                            <span class="badge badge-success">Nuovo periodo</span>
+                        }
+                    </div>
+
+                    <div class="stat-icon text-yellow"><i class="bi bi-graph-up-arrow"></i></div>
                 </div>
-                <div class="card-body p-0">
+            </div>
+        </div>
+
+        <!-- GRID SECUNDÁRIO -->
+        <div class="grid grid-3 gap-xl mt-xl">
+            <div class="card stat-card">
+                <p class="stat-label">Tecnici</p>
+                <p class="stat-value">@Summary.TechnicianCount</p>
+            </div>
+
+            <div class="card stat-card">
+                <p class="stat-label">Tipi di servizio</p>
+                <p class="stat-value">@Summary.TypeServiceCount</p>
+            </div>
+
+            <div class="card stat-card">
+                <p class="stat-label">Ore lavorate (mese)</p>
+                <p class="stat-value">@Summary.WorkedHoursThisMonthForUser <span class="unit">h</span></p>
+
+            </div>
+        </div>
+
+        <!-- GRID PRINCIPAL (TABELA + GRÁFICO) -->
+        <div class="grid grid-2 gap-xl mt-xl">
+
+            <!-- TABELA -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title"><i class="bi bi-clock-history text-primary"></i> Ultimi rapportini</span>
+                    <a class="btn btn-outline" href="/reports">Vedi tutti</a>
+                </div>
+
+                <div class="card-body no-padding">
                     @if (Summary.RecentReports.Count == 0)
                     {
-                        <p class="text-muted p-4 mb-0">Nessun rapportino presente.</p>
+                        <p class="empty">Nessun rapportino presente.</p>
                     }
                     else
                     {
-                        <div class="table-responsive">
-                            <table class="table table-hover align-middle mb-0">
-                                <thead class="table-light">
+                        <div class="table-wrapper">
+                            <table class="table table-striped">
+                                <thead>
                                     <tr>
                                         <th>Data</th>
                                         <th>Seriale</th>
                                         <th>Tecnico</th>
                                         <th>Servizio</th>
-                                        <th class="text-end"></th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach (var r in Summary.RecentReports)
                                     {
                                         <tr>
-                                            <td class="text-nowrap">@r.Data.ToString("dd/MM/yyyy")</td>
+                                            <td>@r.Data.ToString("dd/MM/yyyy")</td>
                                             <td>@r.Serial</td>
                                             <td>@r.TechnicianName</td>
-                                            <td><span class="text-truncate d-inline-block" style="max-width:140px" title="@r.ServiceType">@r.ServiceType</span></td>
-                                            <td class="text-end">
-                                                <a class="btn btn-sm btn-link" href="@($"/reports/details/{r.Id}")">Dettaglio</a>
+                                            <td class="truncate" title="@r.ServiceType">@r.ServiceType</td>
+                                            <td class="text-right">
+                                                <a class="btn btn-link" href="@($"/reports/details/{r.Id}")">Dettaglio</a>
                                             </td>
                                         </tr>
                                     }
@@ -174,35 +159,39 @@ else if (Summary is not null)
                     }
                 </div>
             </div>
-        </div>
-        <div class="col-lg-5">
-            <div class="card border-0 shadow-sm h-100">
-                <div class="card-header bg-white border-bottom py-3">
-                    <span class="fw-semibold"><i class="bi bi-pie-chart me-2 text-primary"></i>Tipi di intervento (top)</span>
+
+            <!-- GRÁFICO -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title"><i class="bi bi-pie-chart text-primary"></i> Tipi di intervento (top)</span>
                 </div>
+
                 <div class="card-body">
                     @if (Summary.ServiceTypeBreakdown.Count == 0)
                     {
-                        <p class="text-muted mb-0">Nessun dato da mostrare.</p>
+                        <p class="empty">Nessun dato da mostrare.</p>
                     }
                     else
                     {
                         @foreach (var slice in Summary.ServiceTypeBreakdown)
                         {
                             var pct = BarPercent(slice.ItemCount, MaxServiceSlice);
-                            <div class="mb-3">
-                                <div class="d-flex justify-content-between small mb-1">
-                                    <span class="text-truncate me-2" title="@slice.Label">@slice.Label</span>
-                                    <span class="text-muted text-nowrap">@slice.ItemCount</span>
+
+                            <div class="bar-item">
+                                <div class="bar-label">
+                                    <span class="truncate" title="@slice.Label">@slice.Label</span>
+                                    <span class="text-muted">@slice.ItemCount</span>
                                 </div>
-                                <div class="progress" style="height: 8px;">
-                                    <div class="progress-bar" role="progressbar" style="width: @(pct)%" aria-valuenow="@pct" aria-valuemin="0" aria-valuemax="100"></div>
+
+                                <div class="progress">
+                                    <div class="progress-bar" style="width:@pct%"></div>
                                 </div>
                             </div>
                         }
                     }
                 </div>
             </div>
+
         </div>
-    </div>
-}
+    }
+</div>

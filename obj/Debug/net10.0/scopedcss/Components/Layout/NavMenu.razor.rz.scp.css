@@ -95,17 +95,6 @@
 }
 
 /* ===== RESPONSIVE ===== */
-/* ===== ANIMAÇÃO DO MENU MOBILE ===== */
-.nav__menu[b-jnasgoe70l] {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transform: translateY(-12px);
-    transition:
-        max-height 0.45s cubic-bezier(0.25, 0.1, 0.25, 1),
-        opacity 0.35s ease,
-        transform 0.45s cubic-bezier(0.25, 0.1, 0.25, 1);
-}
 
 /* Estado aberto */
 .nav__menu.open[b-jnasgoe70l] {

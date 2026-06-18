@@ -1,48 +1,169 @@
 /* ============================================
-   HOME — DASHBOARD iOS STYLE
+   HOME — DASHBOARD
 ============================================ */
 
-.title-section {
-  font-size: 32px;
-  font-weight: 700;
-  letter-spacing: -0.8px;
-  margin-bottom: 6px;
+/* Layout */
+/* BACKGROUND GERAL */
+.page-wrapper {
+    background: #f4f6f9;
+    min-height: 100vh;
+    padding: 2rem;
 }
 
+/* PAGE HEADER */
+.page-header { margin-bottom: 1.5rem; }
+.page-title { font-size: 2rem; font-weight: 700; }
+.page-subtitle { color: #777; margin-top: .3rem; }
+
+/* GRID */
+.grid { display: grid; }
+.grid-4 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.grid-2 { grid-template-columns: 2fr 1fr; }
+.gap-xl { gap: 2rem; }
+.mt-xl { margin-top: 2rem; }
+
+::deep .name-user-session {
+    color: #4e73df;
+}
+/* CARDS */
 .card {
-  background: var(--glass-bg) !important;
-  border: 1px solid var(--glass-border) !important;
-  border-radius: 22px !important;
-  backdrop-filter: blur(26px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(26px) saturate(180%) !important;
-  box-shadow: var(--shadow-ios) !important;
-  transition: 0.25s ease;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,.06);
+    overflow: hidden;
 }
-
-.card:hover {
-  background: var(--glass-hover) !important;
-}
-
 .card-header {
-  background: rgba(255, 255, 255, 0.45) !important;
-  border-bottom: 1px solid rgba(0,0,0,0.08) !important;
-  border-radius: 22px 22px 0 0 !important;
-  backdrop-filter: blur(20px);
+    padding: 1rem 1.4rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card-title { font-weight: 600; font-size: 1rem; }
+.card-body { padding: 1.4rem; }
+.no-padding { padding: 0; }
+
+/* STAT CARDS */
+.stat-card { padding: 1.4rem; }
+.stat-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.stat-label {
+    text-transform: uppercase;
+    font-size: .75rem;
+    color: #999;
+}
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+}
+.stat-icon {
+    font-size: 2.2rem;
+    opacity: .8;
 }
 
+/* COLORS */
+.text-primary { color: #4e73df; }
+.text-green { color: #1cc88a; }
+.text-blue { color: #36b9cc; }
+.text-yellow { color: #f6c23e; }
+
+/* BADGES */
+.badge {
+    padding: .25rem .6rem;
+    border-radius: 6px;
+    font-size: .7rem;
+    font-weight: 600;
+}
+.badge-primary { background: #4e73df; color: #fff; }
+.badge-success { background: #1cc88a; color: #fff; }
+.badge-neutral { background: #858796; color: #fff; }
+
+/* BUTTONS */
+.btn {
+    padding: .45rem .9rem;
+    border-radius: 6px;
+    font-size: .85rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+.btn-outline {
+    border: 1px solid #4e73df;
+    color: #4e73df;
+}
+.btn-link {
+    color: #4e73df;
+    text-decoration: underline;
+}
+
+/* TABLE */
+.table-wrapper { overflow-x: auto; }
+.table { width: 100%; border-collapse: collapse; }
+.table th, .table td {
+    padding: .8rem;
+    border-bottom: 1px solid #eee;
+    font-size: 1rem;
+}
+.table th {
+    background: #f8f9fc;
+    font-weight: 600;
+    text-align: left;
+}
+/* Alternância de linhas estilo formulário contínuo */
+.table-striped tbody tr:nth-child(odd) {
+    background: #ffffff; /* branco */
+}
+
+.table-striped tbody tr:nth-child(even) {
+    background: #f5f6fa; /* cinza muito claro */
+}
+
+/* Hover suave estilo Raveno */
+.table-striped tbody tr:hover {
+    background: #eef1f6;
+    transition: background .2s ease;
+}
+
+/* PROGRESS BAR */
 .progress {
-  background: rgba(0,0,0,0.08);
-  border-radius: 20px;
-  overflow: hidden;
+    width: 100%;
+    height: 6px;
+    background: #e9ecef;
+    border-radius: 4px;
 }
-
 .progress-bar {
-  background: var(--accent);
-  border-radius: 20px;
-  transition: width 0.4s ease;
+    height: 100%;
+    background: #4e73df;
+    border-radius: 4px;
 }
 
-.table-hover tbody tr:hover {
-  background: rgba(255,255,255,0.55);
-  backdrop-filter: blur(12px);
+/* MISC */
+.truncate {
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+.text-right { text-align: right; }
+.empty { padding: 1.5rem; color: #777; }
+
+/* LOADER */
+.loading-box {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    padding: 2rem 0;
+    color: #777;
+}
+.loader {
+    width: 18px;
+    height: 18px;
+    border: 3px solid #ddd;
+    border-top-color: #4e73df;
+    border-radius: 50%;
+    animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }

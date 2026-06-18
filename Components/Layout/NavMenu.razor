@@ -18,21 +18,28 @@
             </li>
 
             <li class="nav__item">
-                <NavLink href="/reports" Match="NavLinkMatch.All" class="nav__link">Lista di Rapportini</NavLink>
+                <NavLink href="/reports/new" class="nav__link">Nuovo Rapportino</NavLink>
             </li>
 
             <li class="nav__item">
-                <NavLink href="/reports/new" class="nav__link">Nuovo Rapportino</NavLink>
+                <NavLink href="/reports" Match="NavLinkMatch.All" class="nav__link">Lista di Rapportini</NavLink>
             </li>
+
+            
 
             @if (AuthState.IsAdmin)
             {
                 <li class="nav__item">
-                    <NavLink href="/services/new" class="nav__link">Nuovo Tipo di Servizio</NavLink>
+                    <span class="nav__link"> | </span>
                 </li>
 
                 <li class="nav__item">
                     <NavLink href="/technicians/new" class="nav__link">Nuovo Tecnico</NavLink>
+                </li>
+                
+
+                <li class="nav__item">
+                    <NavLink href="/services/new" class="nav__link">Nuovo Tipo di Servizio</NavLink>
                 </li>
 
                 <li class="nav__item">
@@ -50,6 +57,9 @@
 
             @if (AuthState.IsAuthenticated)
             {
+                <li class="nav__item">
+                    <span class="nav__link"> | </span>
+                </li>
                 <li class="nav__item">
                     <button class="nav__link nav__link--logout" @onclick="Logout">Logout</button>
                 </li>

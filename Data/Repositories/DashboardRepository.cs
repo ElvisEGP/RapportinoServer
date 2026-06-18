@@ -131,6 +131,23 @@ namespace RapportinoServer.Data.Repositories
 
             return summary;
         }
+        public async Task<double> GetWorkedHoursThisMonthForTechnicianAsync(int technicianId)
+        {
+            const string sql = @"
+                SELECT 
+                    CAST(COALESCE(SUM(DATEDIFF(MINUTE, CAST('00:00:00' AS TIME), wl.WorkedTime)), 0) AS BIGINT)
+                FROM dbo.ReportWorkLog wl
+                INNER JOIN dbo.Report r ON r.Id = wl.ReportId
+                WHERE r.TechnicianId = @TechId
+                AND r.[Data] >= DATEFROMPARTS(YEAR(GETDATE()), MONTH(GETDATE()), 1)
+                AND r.[Data] < DATEADD(MONTH, 1, DATEFROMPARTS(YEAR(GETDATE()), MONTH(GETDATE()), 1));
+            ";
+
+            using var conn = new SqlConnection(_connectionString);
+            return await conn.ExecuteScalarAsync<long>(sql, new { TechId = technicianId });
+        }
+
+        
 
         private sealed class AggregateRow
         {

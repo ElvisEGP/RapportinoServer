@@ -141,6 +141,249 @@
         display: none;
     }
 }
+/* /Pages/Clients/ClientNewPage.razor.rz.scp.css */
+/* ============================================
+   CLIENTE NEW PAGE — FORMULÁRIO MODERNO (BEM)
+   Inspirado no template + dashboard
+============================================ */
+
+h1.page-title[b-pm4cl44dhd] {
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(202 202 202 / 55%);
+}
+
+
+/* ---------- GRID ---------- */
+.form__grid[b-pm4cl44dhd] {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+}
+
+.form__group--full[b-pm4cl44dhd] { grid-column: span 12; }
+.form__group--11[b-pm4cl44dhd]   { grid-column: span 11; }
+.form__group--10[b-pm4cl44dhd]   { grid-column: span 10; }
+.form__group--9[b-pm4cl44dhd]    { grid-column: span 9; }
+.form__group--8[b-pm4cl44dhd]    { grid-column: span 8; }
+.form__group--6[b-pm4cl44dhd]    { grid-column: span 6; }
+.form__group--5[b-pm4cl44dhd]    { grid-column: span 5; }
+.form__group--4[b-pm4cl44dhd]    { grid-column: span 4; }
+.form__group--3[b-pm4cl44dhd]    { grid-column: span 3; }
+.form__group--2[b-pm4cl44dhd]    { grid-column: span 2; }
+
+.page-wrapper[b-pm4cl44dhd] {
+    margin-top: 20px;
+    padding: 0 46px;
+}
+
+
+/* ---------- FORM GROUP ---------- */
+form.form[b-pm4cl44dhd] {
+    margin-top: 25px;
+}
+.form__group[b-pm4cl44dhd] {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---------- LABEL ---------- */
+.form__label[b-pm4cl44dhd] {
+    font-size: .9rem;
+    font-weight: 600;
+    margin-bottom: .4rem;
+    color: #141414;
+}
+
+/* ---------- INPUTS ---------- */
+[b-pm4cl44dhd] .form__input,
+.form__textarea[b-pm4cl44dhd] {   
+    border: 1px solid #d1d3e2;
+    background-color: #fff;
+    display: block;
+    width: 100%;
+    padding: 11px 8px;
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    appearance: none;
+    background-clip: padding-box;
+    border-radius: 12px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+[b-pm4cl44dhd] .textarea--note {
+    border: 1px solid #d1d3e2;
+    background-color: #fff;
+    display: block;
+    width: 100%;
+    padding: 11px 8px;
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    appearance: none;
+    background-clip: padding-box;
+    border-radius: 12px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+[b-pm4cl44dhd] .form__input:focus,
+[b-pm4cl44dhd] .form__textarea:focus {    
+    border-color: #4e73df;
+    box-shadow: 0 0 0 3px rgba(78, 115, 223, .25);
+    outline: none;
+}
+
+.form__textarea[b-pm4cl44dhd] {
+    resize: vertical;
+}
+
+/* ---------- VALIDATION ---------- */
+.validation-message[b-pm4cl44dhd] {
+    color: #e52d27;
+    font-size: .8rem;
+    margin-top: .25rem;
+}
+
+/* ---------- ALERTS ---------- */
+.alert[b-pm4cl44dhd] {
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: .9rem;
+}
+
+.alert--error[b-pm4cl44dhd] {
+    background: #ffe5e5;
+    color: #b30000;
+    border: 1px solid #ffb3b3;
+}
+
+/* ---------- BUTTONS ---------- */
+.btn[b-pm4cl44dhd] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .95rem 1.3rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    margin:.5rem;
+    transition: background .2s ease, border-color .2s ease;
+}
+.group--buttons[b-pm4cl44dhd] {
+    text-align: right;
+    align-items: end;
+}
+.btn--full[b-pm4cl44dhd] {
+    width: 100%;
+}
+
+.btn--primary[b-pm4cl44dhd] {
+    background: #4e73df;
+    color: #fff;
+}
+.btn--primary:hover:not([disabled])[b-pm4cl44dhd] {
+    background: #3c5ec4;
+}
+
+.btn--secondary[b-pm4cl44dhd] {
+    background: #e2e6ea;
+    color: #333;
+}
+.btn--save[b-pm4cl44dhd] {
+    width: 35%;
+    clear: left;
+    float: right;
+}
+.btn--secondary:hover:not([disabled])[b-pm4cl44dhd] {
+    background: #d6dadd;
+}
+
+.btn--outline[b-pm4cl44dhd] {
+    background: transparent;
+    border: 1px solid #4e73df;
+    color: #4e73df;
+}
+.btn--outline:hover:not([disabled])[b-pm4cl44dhd] {
+    background: rgba(78, 115, 223, .1);
+}
+
+.btn--danger[b-pm4cl44dhd] {
+    background: #e52d27;
+    color: #fff;
+        margin-top: 23px;
+}
+.btn--danger:hover:not([disabled])[b-pm4cl44dhd] {
+    background: #b31217;
+}
+
+.btn--small[b-pm4cl44dhd] {
+    padding: 1.3rem .8rem;
+    font-size: 1rem;
+    width: 272px;
+}
+
+/* ---------- LOADER ---------- */
+.loader[b-pm4cl44dhd] {
+    width: 18px;
+    height: 18px;
+    border: 3px solid #ddd;
+    border-top-color: #4e73df;
+    border-radius: 50%;
+    animation: spin-b-pm4cl44dhd .7s linear infinite;
+}
+
+.loader--small[b-pm4cl44dhd] {
+    width: 14px;
+    height: 14px;
+    border-width: 2px;
+}
+
+@keyframes spin-b-pm4cl44dhd {
+    to { transform: rotate(360deg); }
+}
+
+/* ---------- MACHINE CARDS ---------- */
+.form__machines[b-pm4cl44dhd] {
+    margin-top: 1rem;
+}
+
+.machines__header[b-pm4cl44dhd] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .8rem;
+    border-bottom: 1px solid rgb(202 202 202 / 55%);
+}
+
+.machines__title[b-pm4cl44dhd] {
+    font-size: 1.45rem;
+    font-weight: 600;
+}
+
+.machine-card[b-pm4cl44dhd] {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    margin-bottom: 1rem;
+}
+
+.machine-card__body[b-pm4cl44dhd] {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
+}
+
+.machine-card__remove[b-pm4cl44dhd] {
+    display: flex;
+    align-items: end;
+}
+
+/* ---------- TEXT HELPERS ---------- */
+.text--danger[b-pm4cl44dhd] {
+    color: #e52d27;
+}
 /* /Pages/Home.razor.rz.scp.css */
 /* ============================================
    HOME — DASHBOARD

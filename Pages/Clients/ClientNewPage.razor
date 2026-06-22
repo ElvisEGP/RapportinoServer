@@ -6,90 +6,104 @@
 
 <PageTitle>Nuovo Cliente</PageTitle>
 
-<div class="mb-3">
-    <h1 class="h2 title-section">Nuovo Cliente</h1>
+<div class="page-wrapper">
 
-    <EditForm EditContext="EditContext" OnValidSubmit="HandleValidSubmit">
+    <h1 class="page-title">Nuovo Cliente</h1>
+
+    <EditForm EditContext="EditContext" OnValidSubmit="HandleValidSubmit" class="form">
         <DataAnnotationsValidator />
         <ValidationSummary />
 
         @if (!string.IsNullOrEmpty(ErrorMessage))
         {
-            <div class="alert alert-danger">@ErrorMessage</div>
+            <div class="alert alert--error">@ErrorMessage</div>
         }
 
-        <div class="row g-3">
-            <div class="col-md-12">
-                <label class="form-label">Ragione Sociale</label>
-                <InputText class="form-control" @bind-Value="Client.CompanyName" />
+        <div class="form__grid">
+
+            <!-- Ragione Sociale -->
+            <div class="form__group form__group--full">
+                <label class="form__label">Ragione Sociale</label>
+                <InputText class="form__input" @bind-Value="Client.CompanyName" />
                 <ValidationMessage For="@(() => Client.CompanyName)" />
             </div>
 
-            <div class="col-md-8">
-                <label class="form-label">Indirizzo</label>
-                <InputText class="form-control" @bind-Value="Client.Address" />
+            <!-- Indirizzo -->
+            <div class="form__group form__group--8">
+                <label class="form__label">Indirizzo</label>
+                <InputText class="form__input" @bind-Value="Client.Address" />
                 <ValidationMessage For="@(() => Client.Address)" />
             </div>
 
-            <div class="col-md-4">
-                <label class="form-label">Numero Civico</label>
-                <InputText class="form-control" @bind-Value="Client.NumberAddress" />
+            <!-- Numero Civico -->
+            <div class="form__group form__group--4">
+                <label class="form__label">Numero Civico</label>
+                <InputText class="form__input" @bind-Value="Client.NumberAddress" />
                 <ValidationMessage For="@(() => Client.NumberAddress)" />
             </div>
 
-            <div class="col-md-4">
-                <label class="form-label">Città</label>
-                <InputText class="form-control" @bind-Value="Client.City" />
+            <!-- Città -->
+            <div class="form__group form__group--4">
+                <label class="form__label">Città</label>
+                <InputText class="form__input" @bind-Value="Client.City" />
                 <ValidationMessage For="@(() => Client.City)" />
             </div>
 
-            <div class="col-md-2">
-                <label class="form-label">CAP</label>
-                <InputText class="form-control" @bind-Value="Client.PostalCode" />
+            <!-- CAP -->
+            <div class="form__group form__group--2">
+                <label class="form__label">CAP</label>
+                <InputText class="form__input" @bind-Value="Client.PostalCode" />
                 <ValidationMessage For="@(() => Client.PostalCode)" />
             </div>
 
-            <div class="col-md-3">
-                <label class="form-label">Provincia</label>
-                <InputText class="form-control" @bind-Value="Client.State" />
+            <!-- Provincia -->
+            <div class="form__group form__group--3">
+                <label class="form__label">Provincia</label>
+                <InputText class="form__input" @bind-Value="Client.State" />
                 <ValidationMessage For="@(() => Client.State)" />
             </div>
 
-            <div class="col-md-3">
-                <label class="form-label">Nazione</label>
-                <InputText class="form-control" @bind-Value="Client.Country" />
+            <!-- Nazione -->
+            <div class="form__group form__group--3">
+                <label class="form__label">Nazione</label>
+                <InputText class="form__input" @bind-Value="Client.Country" />
                 <ValidationMessage For="@(() => Client.Country)" />
             </div>
 
-            <div class="col-md-6">
-                <label class="form-label">Telefono</label>
-                <InputText class="form-control" @bind-Value="Client.Phone" />
+            <!-- Telefono -->
+            <div class="form__group form__group--6">
+                <label class="form__label">Telefono</label>
+                <InputText class="form__input" @bind-Value="Client.Phone" />
                 <ValidationMessage For="@(() => Client.Phone)" />
             </div>
 
-            <div class="col-md-6">
-                <label class="form-label">Email</label>
-                <InputText type="email" class="form-control" @bind-Value="Client.Email" />
+            <!-- Email -->
+            <div class="form__group form__group--6">
+                <label class="form__label">Email</label>
+                <InputText type="email" class="form__input" @bind-Value="Client.Email" />
                 <ValidationMessage For="@(() => Client.Email)" />
             </div>
 
-            <div class="col-md-12">
-                <label class="form-label">Sito Web</label>
-                <InputText class="form-control" @bind-Value="Client.Website" />
+            <!-- Website -->
+            <div class="form__group form__group--full">
+                <label class="form__label">Sito Web</label>
+                <InputText class="form__input" @bind-Value="Client.Website" />
                 <ValidationMessage For="@(() => Client.Website)" />
             </div>
 
-            <div class="col-md-12">
-                <label class="form-label">Note</label>
-                <InputTextArea class="form-control" rows="3" @bind-Value="Client.Note" />
+            <!-- Note -->
+            <div class="form__group form__group--full">
+                <label class="form__label">Note</label>
+                <InputTextArea class="form__textarea textarea--note" rows="3" @bind-Value="Client.Note" />
             </div>
 
-            <div class="col-md-12 mt-4">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <h2 class="h5 mb-0">Macchine del cliente</h2>
+            <!-- Macchine -->
+            <div class="form__group form__group--full form__machines">
+                <div class="machines__header">
+                    <h2 class="machines__title">Macchine del cliente</h2>
 
                     <button type="button"
-                            class="btn btn-outline-primary btn-sm"
+                            class="btn btn--outline btn--small"
                             @onclick="AddMachine"
                             disabled="@IsSaving">
                         Aggiungi macchina
@@ -100,48 +114,47 @@
                 {
                     var machine = Client.Machines[i];
 
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <div class="row g-3">
-                                <div class="col-md-5">
-                                    <label class="form-label">Modello</label>
-                                    <InputText class="form-control" @bind-Value="machine.Model" />
-                                </div>
+                    <div class="machine-card">
+                        <div class="machine-card__body">
 
-                                <div class="col-md-5">
-                                    <label class="form-label">Matricola <span class="text-danger">*</span></label>
-                                    <InputText class="form-control" @bind-Value="machine.Serial" />
-                                </div>
-
-                                <div class="col-md-2 d-flex align-items-end">
-                                    <button type="button"
-                                            class="btn btn-outline-danger w-100"
-                                            @onclick="() => RemoveMachine(machine)"
-                                            disabled="@IsSaving">
-                                        Rimuovi
-                                    </button>
-                                </div>
+                            <div class="form__group form__group--5">
+                                <label class="form__label">Modello</label>
+                                <InputText class="form__input" @bind-Value="machine.Model" />
                             </div>
+
+                            <div class="form__group form__group--5">
+                                <label class="form__label">Matricola <span class="text--danger">*</span></label>
+                                <InputText class="form__input" @bind-Value="machine.Serial" />
+                            </div>
+
+                            <div class="form__group form__group--2 machine-card__remove">
+                                <button type="button"
+                                        class="btn btn--danger btn--full"
+                                        @onclick="() => RemoveMachine(machine)"
+                                        disabled="@IsSaving">
+                                    Rimuovi
+                                </button>
+                            </div>
+
                         </div>
                     </div>
                 }
             </div>
 
-            <div class="col-md-9 mt-4">
-                <button type="button" class="btn btn-secondary" @onclick="Cancel" disabled="@IsSaving">
-                    Annulla
-                </button>
+            <!-- Botões -->
+            <div class=" group--buttons form__group--full">
+                
+                <div class="form__group form__group--5 group--buttons">
+                    <button type="submit" class="btn btn--primary btn--full btn--save" disabled="@IsSaving">
+                        @if (IsSaving)
+                        {
+                            <span class="loader loader--small"></span>
+                        }
+                        Salva
+                    </button>
+                </div>
             </div>
 
-            <div class="col-md-3 mt-4">
-                <button type="submit" class="btn btn-primary w-100" disabled="@IsSaving">
-                    @if (IsSaving)
-                    {
-                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                    }
-                    Salva
-                </button>
-            </div>
         </div>
     </EditForm>
 </div>

@@ -7,23 +7,26 @@
 
 <PageTitle>Nuovo Rapportino</PageTitle>
 
-<div class="mb-3">
-    <h1 class="h2 title-section">Nuovo Rapportino</h1>
+<div class="report-page">
 
-    <EditForm EditContext="EditContext" OnValidSubmit="HandleValidSubmit" FormName="NewReportForm">
+    <h1 class="report-page__title">Nuovo Rapportino</h1>
+
+    <EditForm EditContext="EditContext" OnValidSubmit="HandleValidSubmit" FormName="NewReportForm" class="report-form">
         <DataAnnotationsValidator />
         <ValidationSummary />
 
         @if (!string.IsNullOrEmpty(SaveError))
         {
-            <div class="alert alert-danger">@SaveError</div>
+            <div class="alert alert--error">@SaveError</div>
         }
 
-        <div class="row g-3">
-            <div class="col-md-12 position-relative">
-                <label class="form-label">Cliente (Azienda)</label>
+        <div class="form__grid">
 
-                <input class="form-control"
+            <!-- CLIENTE -->
+            <div class="form__group form__group--full position-relative">
+                <label class="form__label">Cliente (Azienda)</label>
+
+                <input class="form__input"
                        value="@ClientSearch"
                        @oninput="OnClientSearchInput"
                        @onfocus="ShowClientsList"
@@ -31,12 +34,10 @@
 
                 @if (ShowClientList && FilteredClients.Any())
                 {
-                    <ul class="list-group position-absolute w-100"
-                        style="z-index:1000; max-height:200px; overflow-y:auto;">
+                    <ul class="dropdown-list">
                         @foreach (var c in FilteredClients)
                         {
-                            <li class="list-group-item list-group-item-action"
-                                style="cursor:pointer;"
+                            <li class="dropdown-list__item"
                                 @onmousedown:preventDefault="true"
                                 @onmousedown="@(() => SelectClient(c))">
                                 @c.CompanyName (@c.City)
@@ -48,33 +49,35 @@
                 @if (SelectedClient is null)
                 {
                     <button type="button"
-                            class="btn btn-outline-primary mt-2"
+                            class="btn btn--outline btn--small mt-2"
                             @onclick="NewClient">
                         Nuovo Cliente
                     </button>
                 }
                 else
                 {
-                    <p class="mt-2 text-success fw-bold">
+                    <p class="text--success mt-2">
                         Cliente selezionato: @SelectedClient.CompanyName (@SelectedClient.City)
                     </p>
                 }
             </div>
 
-            <div class="col-md-6">
-                <label class="form-label">Email</label>
+            <!-- EMAIL -->
+            <div class="form__group form__group--6">
+                <label class="form__label">Email</label>
                 <InputText type="email"
-                           class="form-control"
+                           class="form__input"
                            @bind-Value="Report.Email" />
                 <ValidationMessage For="@(() => Report.Email)" />
             </div>
 
-            <div class="col-md-6">
-                <label class="form-label">Seriale</label>
+            <!-- SERIALE -->
+            <div class="form__group form__group--6">
+                <label class="form__label">Seriale</label>
 
                 @if (FilteredMachines.Any())
                 {
-                    <InputSelect class="form-select"
+                    <InputSelect class="form__input"
                                  @bind-Value="SelectedSerial"
                                  @bind-Value:after="OnSerialSelected">
                         <option value="">Seleziona seriale...</option>
@@ -86,23 +89,25 @@
                 }
                 else
                 {
-                    <InputText class="form-control"
+                    <InputText class="form__input"
                                @bind-Value="Report.Serial" />
                     <ValidationMessage For="@(() => Report.Serial)" />
                 }
             </div>
 
-            <div class="col-md-6">
-                <label class="form-label">Modello</label>
-                <InputText class="form-control"
+            <!-- MODELLO -->
+            <div class="form__group form__group--6">
+                <label class="form__label">Modello</label>
+                <InputText class="form__input"
                            @bind-Value="Report.Model"
                            readonly="@(!string.IsNullOrWhiteSpace(SelectedSerial))" />
                 <ValidationMessage For="@(() => Report.Model)" />
             </div>
 
-            <div class="col-md-6">
-                <label class="form-label">Tecnico</label>
-                <InputSelect class="form-select" @bind-Value="Report.TechnicianName">
+            <!-- TECNICO -->
+            <div class="form__group form__group--6">
+                <label class="form__label">Tecnico</label>
+                <InputSelect class="form__input" @bind-Value="Report.TechnicianName">
                     <option value="">Seleziona tecnico...</option>
                     @foreach (var t in Technicians)
                     {
@@ -112,9 +117,10 @@
                 <ValidationMessage For="@(() => Report.TechnicianName)" />
             </div>
 
-            <div class="col-md-6">
-                <label class="form-label">Tipo di Servizio</label>
-                <InputSelect class="form-select" @bind-Value="Report.ServiceType">
+            <!-- SERVIZIO -->
+            <div class="form__group form__group--6">
+                <label class="form__label">Tipo di Servizio</label>
+                <InputSelect class="form__input" @bind-Value="Report.ServiceType">
                     <option value="">Seleziona servizio...</option>
                     @foreach (var s in Services)
                     {
@@ -124,41 +130,45 @@
                 <ValidationMessage For="@(() => Report.ServiceType)" />
             </div>
 
-            <div class="col-md-12">
-                <label class="form-label">Rapporto Generale</label>
-                <InputTextArea class="form-control"
+            <!-- RAPPORTO GENERALE -->
+            <div class="form__group form__group--full">
+                <label class="form__label">Rapporto Generale</label>
+                <InputTextArea class="form__textarea"
                                rows="8"
                                @bind-Value="Report.ReportDescription" />
                 <ValidationMessage For="@(() => Report.ReportDescription)" />
             </div>
-            
-            <div class="col-md-12">
-                <div class="form-check">
-                    <InputCheckbox class="form-check-input" id="safetyCheck" @bind-Value="Report.SafetyDevicesCheck" />
-                    <label class="form-check-label" for="safetyCheck">
+
+            <!-- SICUREZZA -->
+            <div class="form__group form__group--full">
+                <label class="checkbox">
+                    <InputCheckbox class="checkbox__input" @bind-Value="Report.SafetyDevicesCheck" />
+                    <span class="checkbox__label">
                         Macchina con tutti dispositivi di siccurezza presente e funzionante
-                    </label>
-                </div>
+                    </span>
+                </label>
             </div>
-            
-            <div class="col-md-6">
-                <label class="form-label">Materiale Sostituito</label>
-                <InputTextArea class="form-control"
+
+            <!-- MATERIALI -->
+            <div class="form__group form__group--6">
+                <label class="form__label">Materiale Sostituito</label>
+                <InputTextArea class="form__textarea"
                                rows="6"
                                @bind-Value="Report.ChangedMaterial" />
             </div>
 
-            <div class="col-md-6">
-                <label class="form-label">Materiale Ordinato / Preventivale</label>
-                <InputTextArea class="form-control"
+            <div class="form__group form__group--6">
+                <label class="form__label">Materiale Ordinato / Preventivale</label>
+                <InputTextArea class="form__textarea"
                                rows="6"
                                @bind-Value="Report.OrderedMaterial" />
             </div>
 
-            <div class="col-md-12 mt-4">
-                <h5>Ore di Lavoro</h5>
+            <!-- ORE DI LAVORO -->
+            <div class="form__group form__group--full mt-4">
+                <h5 class="form__subtitle">Ore di Lavoro</h5>
 
-                <table class="table text-center">
+                <table class="worklog-table">
                     <thead>
                         <tr>
                             <th>Data</th>
@@ -175,13 +185,12 @@
 
                             <tr>
                                 <td>
-                                    <InputDate class="form-control" @bind-Value="log.WorkedDate" />
+                                    <InputDate class="form__input" @bind-Value="log.WorkedDate" />
                                 </td>
 
                                 <td>
-                                    <div class="d-flex gap-2 justify-content-center">
-                                        <select class="form-select"
-                                                style="width:80px"
+                                    <div class="worklog-time">
+                                        <select class="form__input worklog-time__select"
                                                 value="@logHours[index]"
                                                 @onchange="@(e => SetLogHour(index, e.Value?.ToString()))">
                                             @for (int h = 0; h < 24; h++)
@@ -190,8 +199,7 @@
                                             }
                                         </select>
 
-                                        <select class="form-select"
-                                                style="width:80px"
+                                        <select class="form__input worklog-time__select"
                                                 value="@logMinutes[index]"
                                                 @onchange="@(e => SetLogMinute(index, e.Value?.ToString()))">
                                             @for (int m = 0; m < 60; m += 5)
@@ -204,10 +212,10 @@
 
                                 <td>
                                     <button type="button"
-                                            class="btn btn-outline-danger btn-sm"
+                                            class="btn btn--danger btn--small"
                                             @onclick="@(() => RemoveLogAt(index))"
                                             disabled="@IsSaving">
-                                        <i class="bi bi-trash"></i>
+                                        <i class="add--line"> - </i>
                                     </button>
                                 </td>
                             </tr>
@@ -216,60 +224,59 @@
                 </table>
 
                 <button type="button"
-                        class="btn btn-outline-primary btn-sm"
+                        class="btn btn--outline btn--small"
                         @onclick="AddLog"
                         disabled="@IsSaving">
-                    <i class="bi bi-plus"></i> Aggiungi riga
+                    <i class="bi bi-plus"> Aggiungi riga</i>
                 </button>
             </div>
 
-            <div class="col-md-12 mt-4">
-                <label class="form-label fw-bold">Firma Cliente</label>
-                <div class="border rounded p-2 bg-white">
+            <!-- FIRMA CLIENTE -->
+            <div class="form__group form__group--full mt-4">
+                <label class="form__label form__label--bold">Firma Cliente</label>
+
+                <div class="signature-box">
                     <canvas id="signature-pad"
-                            class="border rounded"
-                            style="width: 100%; height: 200px; touch-action: none;"></canvas>
+                            class="signature-box__canvas"
+                            style="touch-action: none;"></canvas>
                 </div>
 
                 <button type="button"
-                        class="btn btn-outline-secondary btn-sm mt-2"
+                        class="btn btn--outline btn--small mt-2"
                         @onclick="ClearClientSignature">
                     Cancella firma cliente
                 </button>
             </div>
 
-            <div class="col-md-12 mt-4">
-                <label class="form-label fw-bold">Firma Tecnico</label>
-                <div class="border rounded p-2 bg-white">
+            <!-- FIRMA TECNICO -->
+            <div class="form__group form__group--full mt-4">
+                <label class="form__label form__label--bold">Firma Tecnico</label>
+
+                <div class="signature-box">
                     <canvas id="signature-tech"
-                            class="border rounded"
-                            style="width: 100%; height: 200px; touch-action: none;"></canvas>
+                            class="signature-box__canvas"
+                            style="touch-action: none;"></canvas>
                 </div>
 
                 <button type="button"
-                        class="btn btn-outline-secondary btn-sm mt-2"
+                        class="btn btn--outline btn--small"
                         @onclick="ClearTechSignature">
                     Cancella firma tecnico
                 </button>
             </div>
 
-            <div class="col-md-9 mt-5">
-                <button type="button"
-                        class="btn btn-danger"
-                        @onclick="ResetForm"
-                        disabled="@IsSaving">
-                    Cancella Rapportino
-                </button>
-            </div>
-
-            <div class="col-md-3 mt-5">
-                <button type="submit" class="btn btn-primary w-100" disabled="@IsSaving">
-                    @if (IsSaving)
-                    {
-                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                    }
-                    Salva Rapportino
-                </button>
+            <!-- BOTÕES FINAIS -->
+             <div class=" group--buttons form__group--full">
+            
+                <div class="form__group form__group--5 group--buttons">
+                    <button type="submit" class="btn btn--primary btn--full" disabled="@IsSaving">
+                        @if (IsSaving)
+                        {
+                            <span class="loader loader--small"></span>
+                        }
+                        Salva Rapportino
+                    </button>
+                </div>
             </div>
         </div>
     </EditForm>

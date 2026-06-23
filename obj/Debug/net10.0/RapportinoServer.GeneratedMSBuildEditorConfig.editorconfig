@@ -87,10 +87,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUmVwb3J0cy9MaXN0UmVwb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/antracito/Desktop/Rapportino/Pages/Reports/NewReport.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUmVwb3J0cy9OZXdSZXBvcnQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
 [/home/antracito/Desktop/Rapportino/Pages/Reports/ReportDetails.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUmVwb3J0cy9SZXBvcnREZXRhaWxzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -154,6 +150,10 @@ build_metadata.AdditionalFiles.CssScope = b-lbmfdtjvjr
 [/home/antracito/Desktop/Rapportino/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-s9f70bhk5h
+
+[/home/antracito/Desktop/Rapportino/Pages/Reports/NewReport.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUmVwb3J0cy9OZXdSZXBvcnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-za2vpl3trc
 
 [/home/antracito/Desktop/Rapportino/Pages/InputFieldBlurHandler.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5wdXRGaWVsZEJsdXJIYW5kbGVyLmNzaHRtbA==

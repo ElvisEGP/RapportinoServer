@@ -1,14 +1,25 @@
 /* ============================================
-   CLIENTE NEW PAGE — FORMULÁRIO MODERNO (BEM)
+   REPORT NEW PAGE — FORMULÁRIO MODERNO (BEM)
    Inspirado no template + dashboard
 ============================================ */
 
-h1.page-title {
+h1.report-page__title {
     padding: 20px 0;
     border-bottom: 1px solid rgb(202 202 202 / 55%);
     margin-bottom: 22px;
 }
 
+/* ---------- PAGE WRAPPER ---------- */
+
+.report-page {
+    margin-top: 20px;
+    padding: 0 46px;
+}
+
+/* ---------- FORM ---------- */
+.report-form {
+    margin-top: 25px;
+}
 
 /* ---------- GRID ---------- */
 .form__grid {
@@ -28,16 +39,7 @@ h1.page-title {
 .form__group--3    { grid-column: span 3; }
 .form__group--2    { grid-column: span 2; }
 
-.page-wrapper {
-    margin-top: 20px;
-    padding: 0 46px;
-}
-
 /* ---------- FORM GROUP ---------- */
-
-form.form {
-    margin-top: 25px;
-}
 .form__group {
     display: flex;
     flex-direction: column;
@@ -51,9 +53,13 @@ form.form {
     color: #141414;
 }
 
+.form__label--bold {
+    font-weight: 700;
+}
+
 /* ---------- INPUTS ---------- */
 ::deep .form__input,
-.form__textarea {   
+::deep .form__textarea {
     border: 1px solid #d1d3e2;
     background-color: #fff;
     display: block;
@@ -67,22 +73,9 @@ form.form {
     border-radius: 12px;
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
-::deep .textarea--note {
-    border: 1px solid #d1d3e2;
-    background-color: #fff;
-    display: block;
-    width: 100%;
-    padding: 11px 8px;
-    font-size: 1.1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    appearance: none;
-    background-clip: padding-box;
-    border-radius: 12px;
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-}
+
 ::deep .form__input:focus,
-::deep .form__textarea:focus {    
+::deep .form__textarea:focus {
     border-color: #4e73df;
     box-shadow: 0 0 0 3px rgba(78, 115, 223, .25);
     outline: none;
@@ -90,6 +83,49 @@ form.form {
 
 .form__textarea {
     resize: vertical;
+}
+
+/* ---------- DROPDOWN LIST (autocomplete cliente) ---------- */
+.dropdown-list {
+    position: absolute;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #d1d3e2;
+    border-radius: 8px;
+    margin-top: 4px;
+    max-height: 220px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+
+.dropdown-list__item {
+    padding: 10px 12px;
+    cursor: pointer;
+    font-size: .95rem;
+    transition: background .15s ease;
+}
+
+.dropdown-list__item:hover {
+    background: #eef1f6;
+}
+
+/* ---------- CHECKBOX ---------- */
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+}
+
+.checkbox__input {
+    width: 20px;
+    height: 20px;
+    accent-color: #4e73df;
+}
+
+.checkbox__label {
+    font-size: 1rem;
+    color: #141414;
 }
 
 /* ---------- VALIDATION ---------- */
@@ -124,15 +160,16 @@ form.form {
     font-weight: 600;
     cursor: pointer;
     border: none;
-    margin:.5rem;
+    margin: .5rem 0;
     transition: background .2s ease, border-color .2s ease;
 }
-.group--buttons {
-    text-align: right;
-    align-items: end;
-}
+
 .btn--full {
-    width: 100%;
+    width: 35%;
+}
+button.btn.btn--danger.btn--small {
+    width: 35%;
+    display: flex;
 }
 
 .btn--primary {
@@ -146,11 +183,6 @@ form.form {
 .btn--secondary {
     background: #e2e6ea;
     color: #333;
-}
-.btn--save {
-    width: 35%;
-    clear: left;
-    float: right;
 }
 .btn--secondary:hover:not([disabled]) {
     background: #d6dadd;
@@ -168,18 +200,25 @@ form.form {
 .btn--danger {
     background: #e52d27;
     color: #fff;
-        margin-top: 23px;
+    margin-top: 23px;
 }
 .btn--danger:hover:not([disabled]) {
     background: #b31217;
 }
 
 .btn--small {
-    padding: 1.3rem .8rem;
-    font-size: 1rem;
-    width: 272px;
+    padding: .8rem .8rem;
+    font-size: .9rem;
+    width: auto;
 }
-
+.add--line {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+::deep.group--buttons {
+    text-align: right;
+    align-items: end;
+}
 /* ---------- LOADER ---------- */
 .loader {
     width: 18px;
@@ -200,44 +239,51 @@ form.form {
     to { transform: rotate(360deg); }
 }
 
-/* ---------- MACHINE CARDS ---------- */
-.form__machines {
-    margin-top: 1rem;
-}
-
-.machines__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: .8rem;
-    border-bottom: 1px solid rgb(202 202 202 / 55%);
-}
-
-.machines__title {
-    font-size: 1.45rem;
-    font-weight: 600;
-}
-
-.machine-card {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 1rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+/* ---------- WORKLOG TABLE ---------- */
+.worklog-table {
+    width: 100%;
+    border-collapse: collapse;
     margin-bottom: 1rem;
 }
 
-.machine-card__body {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 1rem;
+.worklog-table th,
+.worklog-table td {
+    padding: .8rem;
+    border-bottom: 1px solid #e2e2e2;
+    text-align: center;
+    font-size: 1rem;
 }
 
-.machine-card__remove {
+.worklog-time {
     display: flex;
-    align-items: end;
+    justify-content: center;
+    gap: .8rem;
+}
+
+.worklog-time__select {
+    width: 90px;
+}
+
+/* ---------- SIGNATURE BOX ---------- */
+.signature-box {
+    background: #fff;
+    border: 1px solid #d1d3e2;
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.signature-box__canvas {
+    width: 100%;
+    height: 200px;
+    border-radius: 12px;
+    border: 1px solid #d1d3e2;
 }
 
 /* ---------- TEXT HELPERS ---------- */
+.text--success {
+    color: #38a169;
+}
+
 .text--danger {
     color: #e52d27;
 }

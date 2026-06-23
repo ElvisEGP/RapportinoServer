@@ -86,6 +86,7 @@
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/ref/RapportinoServer.dll
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/suad3f718r-{0}-29a2kkyklw-29a2kkyklw.gz
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/scopedcss/Pages/Clients/ClientNewPage.razor.rz.scp.css
-/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/gdxhy7pssl-{0}-gyx183yubv-gyx183yubv.gz
-/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/u2p4k7z20m-{0}-ctjrr05vz9-ctjrr05vz9.gz
-/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/tm7c2jv13h-{0}-ctjrr05vz9-ctjrr05vz9.gz
+/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/gdxhy7pssl-{0}-xjnx5q54hd-xjnx5q54hd.gz
+/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/scopedcss/Pages/Reports/NewReport.razor.rz.scp.css
+/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/u2p4k7z20m-{0}-m9734n57o3-m9734n57o3.gz
+/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/tm7c2jv13h-{0}-m9734n57o3-m9734n57o3.gz

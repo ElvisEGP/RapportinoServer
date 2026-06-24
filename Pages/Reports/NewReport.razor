@@ -49,14 +49,14 @@
                 @if (SelectedClient is null)
                 {
                     <button type="button"
-                            class="btn btn--outline btn--small mt-2"
+                            class="btn btn--outline btn--small"
                             @onclick="NewClient">
                         Nuovo Cliente
                     </button>
                 }
                 else
                 {
-                    <p class="text--success mt-2">
+                    <p class="text--success">
                         Cliente selezionato: @SelectedClient.CompanyName (@SelectedClient.City)
                     </p>
                 }
@@ -165,7 +165,7 @@
             </div>
 
             <!-- ORE DI LAVORO -->
-            <div class="form__group form__group--full mt-4">
+            <div class="form__group form__group--full">
                 <h5 class="form__subtitle">Ore di Lavoro</h5>
 
                 <table class="worklog-table">
@@ -232,7 +232,7 @@
             </div>
 
             <!-- FIRMA CLIENTE -->
-            <div class="form__group form__group--full mt-4">
+            <div class="form__group form__group--full">
                 <label class="form__label form__label--bold">Firma Cliente</label>
 
                 <div class="signature-box">
@@ -242,14 +242,14 @@
                 </div>
 
                 <button type="button"
-                        class="btn btn--outline btn--small mt-2"
+                        class="btn btn--outline btn--small"
                         @onclick="ClearClientSignature">
                     Cancella firma cliente
                 </button>
             </div>
 
             <!-- FIRMA TECNICO -->
-            <div class="form__group form__group--full mt-4">
+            <div class="form__group form__group--full">
                 <label class="form__label form__label--bold">Firma Tecnico</label>
 
                 <div class="signature-box">

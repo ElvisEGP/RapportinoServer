@@ -141,6 +141,178 @@
         display: none;
     }
 }
+/* /Pages/Clients/ClientListPage.razor.rz.scp.css */
+/* ============================================
+   CLIENTS LIST PAGE — LISTA DE CLIENTI (BEM)
+   Inspirado no template + dashboard
+============================================ */
+
+/* ---------- TITLE ---------- */
+.clients-page__title[b-h2hge5v0c5] {
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(202 202 202 / 55%);
+    margin-bottom: 22px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* ---------- PAGE WRAPPER ---------- */
+.clients-page[b-h2hge5v0c5] {
+    margin-top: 20px;
+    padding: 0 46px;
+}
+
+/* ---------- SEARCH INPUT ---------- */
+.clients-page__search-wrapper[b-h2hge5v0c5] {
+    margin-bottom: 20px;
+}
+
+.clients-page__search[b-h2hge5v0c5] {
+    margin-top: 10px;
+}
+
+/* ---------- INPUT STYLE (GLOBAL BEM) ---------- */
+[b-h2hge5v0c5] .form__input {
+    border: 1px solid #d1d3e2;
+    background-color: #fff;
+    width: 100%;
+    padding: 11px 8px;
+    font-size: 1.1rem;
+    border-radius: 12px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+[b-h2hge5v0c5] .form__input:focus {
+    border-color: #4e73df;
+    box-shadow: 0 0 0 3px rgba(78, 115, 223, .25);
+    outline: none;
+}
+
+/* ---------- STATUS TEXT ---------- */
+.clients-page__loading[b-h2hge5v0c5],
+.clients-page__empty[b-h2hge5v0c5] {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #444;
+}
+
+/* ---------- ALERTS ---------- */
+.alert[b-h2hge5v0c5] {
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    font-size: .9rem;
+}
+
+.alert--error[b-h2hge5v0c5] {
+    background: #ffe5e5;
+    color: #b30000;
+    border: 1px solid #ffb3b3;
+}
+
+/* ---------- TABLE ---------- */
+.clients-table[b-h2hge5v0c5] {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+.clients-table th[b-h2hge5v0c5] {
+    background: #f8f9fc;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1rem;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.clients-table td[b-h2hge5v0c5] {
+    padding: 1rem;
+    font-size: 1rem;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+/* Alternância de linhas */
+.clients-table tbody tr:nth-child(odd)[b-h2hge5v0c5] {
+    background: #ffffff;
+}
+
+.clients-table tbody tr:nth-child(even)[b-h2hge5v0c5] {
+    background: #f5f6fa;
+}
+
+/* Hover */
+.clients-table tbody tr:hover[b-h2hge5v0c5] {
+    background: #eef1f6;
+    transition: background .2s ease;
+}
+
+/* ---------- ACTIONS COLUMN ---------- */
+.clients-table__actions-header[b-h2hge5v0c5] {
+    text-align: right;
+}
+
+.clients-table__actions[b-h2hge5v0c5] {
+    text-align: right;
+    white-space: nowrap;
+}
+
+/* ---------- BUTTONS ---------- */
+.btn[b-h2hge5v0c5] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .7rem 1.1rem;
+    border-radius: 8px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    margin-left: .3rem;
+    transition: background .2s ease, border-color .2s ease;
+}
+
+.btn--primary[b-h2hge5v0c5] {
+    background: #4e73df;
+    color: #fff;
+}
+.btn--primary:hover:not([disabled])[b-h2hge5v0c5] {
+    background: #3c5ec4;
+}
+
+.btn--secondary[b-h2hge5v0c5] {
+    background: #e2e6ea;
+    color: #333;
+}
+.btn--secondary:hover:not([disabled])[b-h2hge5v0c5] {
+    background: #d6dadd;
+}
+
+.btn--outline[b-h2hge5v0c5] {
+    background: transparent;
+    border: 1px solid #4e73df;
+    color: #4e73df;
+}
+.btn--outline:hover:not([disabled])[b-h2hge5v0c5] {
+    background: rgba(78, 115, 223, .1);
+}
+
+.btn--danger[b-h2hge5v0c5] {
+    background: #e52d27;
+    color: #fff;
+}
+.btn--danger:hover:not([disabled])[b-h2hge5v0c5] {
+    background: #b31217;
+}
+
+.btn--small[b-h2hge5v0c5] {
+    padding: .6rem .9rem;
+    font-size: .85rem;
+}
 /* /Pages/Clients/ClientNewPage.razor.rz.scp.css */
 /* ============================================
    CLIENTE NEW PAGE — FORMULÁRIO MODERNO (BEM)
@@ -723,6 +895,149 @@ label.password-login[b-s9f70bhk5h] {
     }
 }
 
+/* /Pages/Reports/ListReports.razor.rz.scp.css */
+/* ============================================
+   REPORT LIST PAGE — LISTA DE RAPPORTINI (BEM)
+   Inspirado no template + dashboard
+============================================ */
+
+/* ---------- TITLE ---------- */
+.reports-page__title[b-6ixws3kexd] {
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(202 202 202 / 55%);
+    margin-bottom: 22px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* ---------- PAGE WRAPPER ---------- */
+.reports-page[b-6ixws3kexd] {
+    margin-top: 20px;
+    padding: 0 46px;
+}
+
+/* ---------- STATUS TEXT ---------- */
+.reports-page__loading[b-6ixws3kexd],
+.reports-page__empty[b-6ixws3kexd] {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #444;
+}
+
+.reports-page__error[b-6ixws3kexd] {
+    margin-top: 15px;
+}
+
+/* ---------- ALERTS ---------- */
+.alert[b-6ixws3kexd] {
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: .9rem;
+}
+
+.alert--error[b-6ixws3kexd] {
+    background: #ffe5e5;
+    color: #b30000;
+    border: 1px solid #ffb3b3;
+}
+
+/* ---------- BUTTONS ---------- */
+.btn[b-6ixws3kexd] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .95rem 1.3rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    margin: .3rem 0;
+    transition: background .2s ease, border-color .2s ease;
+}
+
+.btn--primary[b-6ixws3kexd] {
+    background: #4e73df;
+    color: #fff;
+}
+.btn--primary:hover:not([disabled])[b-6ixws3kexd] {
+    background: #3c5ec4;
+}
+
+.btn--outline[b-6ixws3kexd] {
+    background: transparent;
+    border: 1px solid #4e73df;
+    color: #4e73df;
+}
+.btn--outline:hover:not([disabled])[b-6ixws3kexd] {
+    background: rgba(78, 115, 223, .1);
+}
+
+.btn--danger[b-6ixws3kexd] {
+    background: #e52d27;
+    color: #fff;
+}
+.btn--danger:hover:not([disabled])[b-6ixws3kexd] {
+    background: #b31217;
+}
+
+.btn--small[b-6ixws3kexd] {
+    padding: .6rem .9rem;
+    font-size: .85rem;
+}
+
+/* ---------- TABLE ---------- */
+.reports-table[b-6ixws3kexd] {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+.reports-table th[b-6ixws3kexd] {
+    background: #f8f9fc;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1rem;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.reports-table td[b-6ixws3kexd] {
+    padding: 1rem;
+    font-size: 1rem;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+/* Alternância de linhas */
+.reports-table tbody tr:nth-child(odd)[b-6ixws3kexd] {
+    background: #ffffff;
+}
+
+.reports-table tbody tr:nth-child(even)[b-6ixws3kexd] {
+    background: #f5f6fa;
+}
+
+/* Hover */
+.reports-table tbody tr:hover[b-6ixws3kexd] {
+    background: #eef1f6;
+    transition: background .2s ease;
+}
+
+/* ---------- ACTIONS COLUMN ---------- */
+.reports-table__actions[b-6ixws3kexd] {
+    text-align: right;
+    white-space: nowrap;
+}
+
+/* ---------- TEXT HELPERS ---------- */
+.text--danger[b-6ixws3kexd] {
+    color: #e52d27;
+}
 /* /Pages/Reports/NewReport.razor.rz.scp.css */
 /* ============================================
    REPORT NEW PAGE — FORMULÁRIO MODERNO (BEM)
@@ -1012,4 +1327,608 @@ button.btn.btn--danger.btn--small[b-za2vpl3trc] {
 
 .text--danger[b-za2vpl3trc] {
     color: #e52d27;
+}
+/* /Pages/Services/ListTypeService.razor.rz.scp.css */
+/* ============================================
+   SERVICES LIST PAGE — LISTA DE TIPI DI SERVIZIO (BEM)
+   Inspirado no template + dashboard
+============================================ */
+
+/* ---------- TITLE ---------- */
+.services-page__title[b-kdytr65xbj] {
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(202 202 202 / 55%);
+    margin-bottom: 22px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* ---------- PAGE WRAPPER ---------- */
+.services-page[b-kdytr65xbj] {
+    margin-top: 20px;
+    padding: 0 46px;
+}
+
+/* ---------- HEADER (TITLE + BUTTON) ---------- */
+.services-page__header[b-kdytr65xbj] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ---------- STATUS TEXT ---------- */
+.services-page__loading[b-kdytr65xbj],
+.services-page__empty[b-kdytr65xbj] {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #444;
+}
+
+/* ---------- ALERTS ---------- */
+.alert[b-kdytr65xbj] {
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    font-size: .9rem;
+}
+
+.alert--error[b-kdytr65xbj] {
+    background: #ffe5e5;
+    color: #b30000;
+    border: 1px solid #ffb3b3;
+}
+
+/* ---------- TABLE ---------- */
+.services-table[b-kdytr65xbj] {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+.services-table th[b-kdytr65xbj] {
+    background: #f8f9fc;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1rem;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.services-table td[b-kdytr65xbj] {
+    padding: 1rem;
+    font-size: 1rem;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+/* Alternância de linhas */
+.services-table tbody tr:nth-child(odd)[b-kdytr65xbj] {
+    background: #ffffff;
+}
+
+.services-table tbody tr:nth-child(even)[b-kdytr65xbj] {
+    background: #f5f6fa;
+}
+
+/* Hover */
+.services-table tbody tr:hover[b-kdytr65xbj] {
+    background: #eef1f6;
+    transition: background .2s ease;
+}
+
+/* ---------- ACTIONS COLUMN ---------- */
+.services-table__actions-header[b-kdytr65xbj] {
+    text-align: right;
+}
+
+.services-table__actions[b-kdytr65xbj] {
+    text-align: right;
+    white-space: nowrap;
+}
+
+/* ---------- BUTTONS ---------- */
+.btn[b-kdytr65xbj] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .7rem 1.1rem;
+    border-radius: 8px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    margin-left: .3rem;
+    transition: background .2s ease, border-color .2s ease;
+}
+
+.btn--primary[b-kdytr65xbj] {
+    background: #4e73df;
+    color: #fff;
+}
+.btn--primary:hover:not([disabled])[b-kdytr65xbj] {
+    background: #3c5ec4;
+}
+
+.btn--secondary[b-kdytr65xbj] {
+    background: #e2e6ea;
+    color: #333;
+}
+.btn--secondary:hover:not([disabled])[b-kdytr65xbj] {
+    background: #d6dadd;
+}
+
+.btn--outline[b-kdytr65xbj] {
+    background: transparent;
+    border: 1px solid #4e73df;
+    color: #4e73df;
+}
+.btn--outline:hover:not([disabled])[b-kdytr65xbj] {
+    background: rgba(78, 115, 223, .1);
+}
+
+.btn--danger[b-kdytr65xbj] {
+    background: #e52d27;
+    color: #fff;
+}
+.btn--danger:hover:not([disabled])[b-kdytr65xbj] {
+    background: #b31217;
+}
+
+.btn--small[b-kdytr65xbj] {
+    padding: .6rem .9rem;
+    font-size: .85rem;
+}
+/* /Pages/Services/NewTypeService.razor.rz.scp.css */
+/* ============================================
+   SERVICE NEW PAGE — FORMULÁRIO MODERNO (BEM)
+   Inspirado no template + dashboard
+============================================ */
+
+/* ---------- TITLE ---------- */
+.service-page__title[b-ke525onke7] {
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(202 202 202 / 55%);
+    margin-bottom: 22px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* ---------- PAGE WRAPPER ---------- */
+.service-page[b-ke525onke7] {
+    margin-top: 20px;
+    padding: 0 46px;
+}
+
+/* ---------- FORM ---------- */
+.service-form[b-ke525onke7] {
+    margin-top: 25px;
+}
+
+/* ---------- FORM GROUP ---------- */
+.form__group[b-ke525onke7] {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.3rem;
+}
+
+.form__group--full[b-ke525onke7] {
+    width: 100%;
+}
+
+/* ---------- LABEL ---------- */
+.form__label[b-ke525onke7] {
+    font-size: .9rem;
+    font-weight: 600;
+    margin-bottom: .4rem;
+    color: #141414;
+}
+
+/* ---------- INPUTS ---------- */
+[b-ke525onke7] .form__input {
+    border: 1px solid #d1d3e2;
+    background-color: #fff;
+    display: block;
+    width: 100%;
+    padding: 11px 8px;
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    border-radius: 12px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+[b-ke525onke7] .form__input:focus {
+    border-color: #4e73df;
+    box-shadow: 0 0 0 3px rgba(78, 115, 223, .25);
+    outline: none;
+}
+
+/* ---------- VALIDATION ---------- */
+.validation-message[b-ke525onke7] {
+    color: #e52d27;
+    font-size: .8rem;
+    margin-top: .25rem;
+}
+
+/* ---------- ALERTS ---------- */
+.alert[b-ke525onke7] {
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    font-size: .9rem;
+}
+
+.alert--error[b-ke525onke7] {
+    background: #ffe5e5;
+    color: #b30000;
+    border: 1px solid #ffb3b3;
+}
+
+/* ---------- BUTTONS ---------- */
+.group--buttons[b-ke525onke7] {
+    display: flex;
+    flex-direction: row;   /* ESSENCIAL */
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+
+.btn[b-ke525onke7] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .95rem 1.3rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background .2s ease, border-color .2s ease;
+}
+
+/* Botão principal */
+.btn--primary[b-ke525onke7] {
+    background: #4e73df;
+    color: #fff;
+}
+.btn--primary:hover:not([disabled])[b-ke525onke7] {
+    background: #3c5ec4;
+}
+
+/* Largura do botão salvar */
+.btn--save[b-ke525onke7] {
+    width: 35%;
+}
+
+/* ---------- LOADER ---------- */
+.loader[b-ke525onke7] {
+    width: 18px;
+    height: 18px;
+    border: 3px solid #ddd;
+    border-top-color: #4e73df;
+    border-radius: 50%;
+    animation: spin-b-ke525onke7 .7s linear infinite;
+}
+
+.loader--small[b-ke525onke7] {
+    width: 14px;
+    height: 14px;
+    border-width: 2px;
+}
+
+@keyframes spin-b-ke525onke7 {
+    to { transform: rotate(360deg); }
+}
+/* /Pages/Technicians/ListTechnicians.razor.rz.scp.css */
+/* ============================================
+   TECHNICIANS LIST PAGE — LISTA DE TECNICI (BEM)
+   Inspirado no template + dashboard
+============================================ */
+
+/* ---------- TITLE ---------- */
+.technicians-page__title[b-ntwboyiyuz] {
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(202 202 202 / 55%);
+    margin-bottom: 22px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* ---------- PAGE WRAPPER ---------- */
+.technicians-page[b-ntwboyiyuz] {
+    margin-top: 20px;
+    padding: 0 46px;
+}
+
+/* ---------- STATUS TEXT ---------- */
+.technicians-page__loading[b-ntwboyiyuz],
+.technicians-page__empty[b-ntwboyiyuz] {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #444;
+}
+
+/* ---------- ALERTS ---------- */
+.alert[b-ntwboyiyuz] {
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    font-size: .9rem;
+}
+
+.alert--error[b-ntwboyiyuz] {
+    background: #ffe5e5;
+    color: #b30000;
+    border: 1px solid #ffb3b3;
+}
+
+/* ---------- TABLE ---------- */
+.technicians-table[b-ntwboyiyuz] {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+.technicians-table th[b-ntwboyiyuz] {
+    background: #f8f9fc;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1rem;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.technicians-table td[b-ntwboyiyuz] {
+    padding: 1rem;
+    font-size: 1rem;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+/* Alternância de linhas */
+.technicians-table tbody tr:nth-child(odd)[b-ntwboyiyuz] {
+    background: #ffffff;
+}
+
+.technicians-table tbody tr:nth-child(even)[b-ntwboyiyuz] {
+    background: #f5f6fa;
+}
+
+/* Hover */
+.technicians-table tbody tr:hover[b-ntwboyiyuz] {
+    background: #eef1f6;
+    transition: background .2s ease;
+}
+
+/* ---------- ACTIONS COLUMN ---------- */
+.technicians-table__actions-header[b-ntwboyiyuz] {
+    text-align: right;
+}
+
+.technicians-table__actions[b-ntwboyiyuz] {
+    text-align: right;
+    white-space: nowrap;
+}
+
+/* ---------- BUTTONS ---------- */
+.btn[b-ntwboyiyuz] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .7rem 1.1rem;
+    border-radius: 8px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    margin-left: .3rem;
+    transition: background .2s ease, border-color .2s ease;
+}
+
+.btn--primary[b-ntwboyiyuz] {
+    background: #4e73df;
+    color: #fff;
+}
+.btn--primary:hover:not([disabled])[b-ntwboyiyuz] {
+    background: #3c5ec4;
+}
+
+.btn--secondary[b-ntwboyiyuz] {
+    background: #e2e6ea;
+    color: #333;
+}
+.btn--secondary:hover:not([disabled])[b-ntwboyiyuz] {
+    background: #d6dadd;
+}
+
+.btn--outline[b-ntwboyiyuz] {
+    background: transparent;
+    border: 1px solid #4e73df;
+    color: #4e73df;
+}
+.btn--outline:hover:not([disabled])[b-ntwboyiyuz] {
+    background: rgba(78, 115, 223, .1);
+}
+
+.btn--danger[b-ntwboyiyuz] {
+    background: #e52d27;
+    color: #fff;
+}
+.btn--danger:hover:not([disabled])[b-ntwboyiyuz] {
+    background: #b31217;
+}
+
+.btn--small[b-ntwboyiyuz] {
+    padding: .6rem .9rem;
+    font-size: .85rem;
+}
+/* /Pages/Technicians/NewTechnicians.razor.rz.scp.css */
+/* ============================================
+   TECHNICIAN NEW PAGE — FORMULÁRIO MODERNO (BEM)
+   Inspirado no template + dashboard
+============================================ */
+
+/* ---------- TITLE ---------- */
+.technician-page__title[b-e48vv935vb] {
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(202 202 202 / 55%);
+    margin-bottom: 22px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* ---------- PAGE WRAPPER ---------- */
+.technician-page[b-e48vv935vb] {
+    margin-top: 20px;
+    padding: 0 46px;
+}
+
+/* ---------- FORM ---------- */
+.technician-form[b-e48vv935vb] {
+    margin-top: 25px;
+}
+
+/* ---------- GRID (mesmo padrão das outras páginas) ---------- */
+.form__group--full[b-e48vv935vb] { width: 100%; }
+
+/* ---------- FORM GROUP ---------- */
+.form__group[b-e48vv935vb] {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.3rem;
+}
+
+/* ---------- LABEL ---------- */
+.form__label[b-e48vv935vb] {
+    font-size: .9rem;
+    font-weight: 600;
+    margin-bottom: .4rem;
+    color: #141414;
+}
+
+/* ---------- INPUTS ---------- */
+[b-e48vv935vb] .form__input {
+    border: 1px solid #d1d3e2;
+    background-color: #fff;
+    display: block;
+    width: 100%;
+    padding: 11px 8px;
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    appearance: none;
+    background-clip: padding-box;
+    border-radius: 12px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+[b-e48vv935vb] .form__input:focus {
+    border-color: #4e73df;
+    box-shadow: 0 0 0 3px rgba(78, 115, 223, .25);
+    outline: none;
+}
+
+/* ---------- VALIDATION ---------- */
+.validation-message[b-e48vv935vb] {
+    color: #e52d27;
+    font-size: .8rem;
+    margin-top: .25rem;
+}
+
+/* ---------- ALERTS ---------- */
+.alert[b-e48vv935vb] {
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    font-size: .9rem;
+}
+
+.alert--error[b-e48vv935vb] {
+    background: #ffe5e5;
+    color: #b30000;
+    border: 1px solid #ffb3b3;
+}
+
+/* ---------- BUTTONS ---------- */
+.btn[b-e48vv935vb] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .95rem 1.3rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    margin: .3rem;
+    transition: background .2s ease, border-color .2s ease;
+}
+
+.group--buttons[b-e48vv935vb] {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+[b-e48vv935vb] .btn--primary:hover:not([disabled]) {
+    background: #3c5ec4;
+}
+[b-e48vv935vb] .btn--primary {
+    background: #4e73df;
+    color: #fff;
+}
+
+[b-e48vv935vb]  .btn--secondary {
+    background: #e2e6ea;
+    color: #333;
+}
+[b-e48vv935vb] .btn--secondary:hover:not([disabled]) {
+    background: #d6dadd;
+}
+
+.btn--danger[b-e48vv935vb] {
+    background: #e52d27;
+    color: #fff;
+}
+.btn--danger:hover:not([disabled])[b-e48vv935vb] {
+    background: #b31217;
+}
+
+.btn--save[b-e48vv935vb] {
+    width: 35%;
+    clear: left;
+    float: right;
+}
+
+.btn--small[b-e48vv935vb] {
+    padding: .8rem .8rem;
+    font-size: .9rem;
+}
+
+/* ---------- LOADER ---------- */
+.loader[b-e48vv935vb] {
+    width: 18px;
+    height: 18px;
+    border: 3px solid #ddd;
+    border-top-color: #4e73df;
+    border-radius: 50%;
+    animation: spin-b-e48vv935vb .7s linear infinite;
+}
+
+.loader--small[b-e48vv935vb] {
+    width: 14px;
+    height: 14px;
+    border-width: 2px;
+}
+
+@keyframes spin-b-e48vv935vb {
+    to { transform: rotate(360deg); }
 }

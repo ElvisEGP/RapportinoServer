@@ -1,0 +1,145 @@
+/* ============================================
+   TECHNICIANS LIST PAGE — LISTA DE TECNICI (BEM)
+   Inspirado no template + dashboard
+============================================ */
+
+/* ---------- TITLE ---------- */
+.technicians-page__title {
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(202 202 202 / 55%);
+    margin-bottom: 22px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* ---------- PAGE WRAPPER ---------- */
+.technicians-page {
+    margin-top: 20px;
+    padding: 0 46px;
+}
+
+/* ---------- STATUS TEXT ---------- */
+.technicians-page__loading,
+.technicians-page__empty {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #444;
+}
+
+/* ---------- ALERTS ---------- */
+.alert {
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    font-size: .9rem;
+}
+
+.alert--error {
+    background: #ffe5e5;
+    color: #b30000;
+    border: 1px solid #ffb3b3;
+}
+
+/* ---------- TABLE ---------- */
+.technicians-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+.technicians-table th {
+    background: #f8f9fc;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1rem;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.technicians-table td {
+    padding: 1rem;
+    font-size: 1rem;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+/* Alternância de linhas */
+.technicians-table tbody tr:nth-child(odd) {
+    background: #ffffff;
+}
+
+.technicians-table tbody tr:nth-child(even) {
+    background: #f5f6fa;
+}
+
+/* Hover */
+.technicians-table tbody tr:hover {
+    background: #eef1f6;
+    transition: background .2s ease;
+}
+
+/* ---------- ACTIONS COLUMN ---------- */
+.technicians-table__actions-header {
+    text-align: right;
+}
+
+.technicians-table__actions {
+    text-align: right;
+    white-space: nowrap;
+}
+
+/* ---------- BUTTONS ---------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .7rem 1.1rem;
+    border-radius: 8px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    margin-left: .3rem;
+    transition: background .2s ease, border-color .2s ease;
+}
+
+.btn--primary {
+    background: #4e73df;
+    color: #fff;
+}
+.btn--primary:hover:not([disabled]) {
+    background: #3c5ec4;
+}
+
+.btn--secondary {
+    background: #e2e6ea;
+    color: #333;
+}
+.btn--secondary:hover:not([disabled]) {
+    background: #d6dadd;
+}
+
+.btn--outline {
+    background: transparent;
+    border: 1px solid #4e73df;
+    color: #4e73df;
+}
+.btn--outline:hover:not([disabled]) {
+    background: rgba(78, 115, 223, .1);
+}
+
+.btn--danger {
+    background: #e52d27;
+    color: #fff;
+}
+.btn--danger:hover:not([disabled]) {
+    background: #b31217;
+}
+
+.btn--small {
+    padding: .6rem .9rem;
+    font-size: .85rem;
+}

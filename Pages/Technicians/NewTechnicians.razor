@@ -7,57 +7,64 @@
 
 <PageTitle>Nuovo Tecnico</PageTitle>
 
-<div class="mb-3">
-    <h1 class="h2 title-section">Nuovo Tecnico</h1>
+<div class="technician-page">
 
-    <EditForm EditContext="EditContext" OnValidSubmit="HandleValidSubmit">
+    <h1 class="technician-page__title">Nuovo Tecnico</h1>
+
+    <EditForm EditContext="EditContext" OnValidSubmit="HandleValidSubmit" class="technician-form">
         <DataAnnotationsValidator />
         <ValidationSummary />
 
-        <div class="mb-3">
-            <label class="form-label">Nome Tecnico</label>
-            <InputText class="form-control" @bind-Value="Technician.TechnicianName" />
+        <!-- Nome -->
+        <div class="form__group form__group--full">
+            <label class="form__label">Nome Tecnico</label>
+            <InputText class="form__input" @bind-Value="Technician.TechnicianName" />
             <ValidationMessage For="@(() => Technician.TechnicianName)" />
         </div>
 
-        <div class="mb-3">
-            <label class="form-label">Cognome</label>
-            <InputText class="form-control" @bind-Value="Technician.Surname" />
+        <!-- Cognome -->
+        <div class="form__group form__group--full">
+            <label class="form__label">Cognome</label>
+            <InputText class="form__input" @bind-Value="Technician.Surname" />
             <ValidationMessage For="@(() => Technician.Surname)" />
         </div>
 
-        <div class="mb-3">
-            <label class="form-label">Username</label>
-            <InputText class="form-control" @bind-Value="Technician.Username" />
+        <!-- Username -->
+        <div class="form__group form__group--full">
+            <label class="form__label">Username</label>
+            <InputText class="form__input" @bind-Value="Technician.Username" />
             <ValidationMessage For="@(() => Technician.Username)" />
         </div>
 
-        <div class="mb-3">
-            <label class="form-label">Password</label>
-            <InputText type="password" class="form-control" @bind-Value="Technician.Password" />
+        <!-- Password -->
+        <div class="form__group form__group--full">
+            <label class="form__label">Password</label>
+            <InputText type="password" class="form__input" @bind-Value="Technician.Password" />
             <ValidationMessage For="@(() => Technician.Password)" />
         </div>
 
-        <div class="mb-3">
-            <label class="form-label">Ruolo</label>
-            <InputText class="form-control" @bind-Value="Technician.Role" />
+        <!-- Ruolo -->
+        <div class="form__group form__group--full">
+            <label class="form__label">Ruolo</label>
+            <InputText class="form__input" @bind-Value="Technician.Role" />
             <ValidationMessage For="@(() => Technician.Role)" />
         </div>
 
-        <div class="d-flex gap-2">
-            <button class="btn btn-secondary" type="button" @onclick="Cancel" disabled="@IsSaving">Annulla</button>
-            <button class="btn btn-primary" type="submit" disabled="@IsSaving">
-                @if (IsSaving)
-                {
-                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                }
-                Salva
-            </button>
-        </div>
+        <!-- Botões -->
+        <div class=" group--buttons form__group--full">
 
+                <button class="btn btn--primary btn--save" type="submit" disabled="@IsSaving">
+                    @if (IsSaving)
+                    {
+                        <span class="loader loader--small"></span>
+                    }
+                    Salva
+                </button>
+
+        </div>
         @if (!string.IsNullOrEmpty(ErrorMessage))
         {
-            <div class="alert alert-danger mt-3">@ErrorMessage</div>
+            <div class="alert alert--error">@ErrorMessage</div>
         }
     </EditForm>
 </div>

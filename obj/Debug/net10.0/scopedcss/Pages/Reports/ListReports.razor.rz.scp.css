@@ -1,0 +1,142 @@
+/* ============================================
+   REPORT LIST PAGE — LISTA DE RAPPORTINI (BEM)
+   Inspirado no template + dashboard
+============================================ */
+
+/* ---------- TITLE ---------- */
+.reports-page__title[b-6ixws3kexd] {
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(202 202 202 / 55%);
+    margin-bottom: 22px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* ---------- PAGE WRAPPER ---------- */
+.reports-page[b-6ixws3kexd] {
+    margin-top: 20px;
+    padding: 0 46px;
+}
+
+/* ---------- STATUS TEXT ---------- */
+.reports-page__loading[b-6ixws3kexd],
+.reports-page__empty[b-6ixws3kexd] {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #444;
+}
+
+.reports-page__error[b-6ixws3kexd] {
+    margin-top: 15px;
+}
+
+/* ---------- ALERTS ---------- */
+.alert[b-6ixws3kexd] {
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: .9rem;
+}
+
+.alert--error[b-6ixws3kexd] {
+    background: #ffe5e5;
+    color: #b30000;
+    border: 1px solid #ffb3b3;
+}
+
+/* ---------- BUTTONS ---------- */
+.btn[b-6ixws3kexd] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .95rem 1.3rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    margin: .3rem 0;
+    transition: background .2s ease, border-color .2s ease;
+}
+
+.btn--primary[b-6ixws3kexd] {
+    background: #4e73df;
+    color: #fff;
+}
+.btn--primary:hover:not([disabled])[b-6ixws3kexd] {
+    background: #3c5ec4;
+}
+
+.btn--outline[b-6ixws3kexd] {
+    background: transparent;
+    border: 1px solid #4e73df;
+    color: #4e73df;
+}
+.btn--outline:hover:not([disabled])[b-6ixws3kexd] {
+    background: rgba(78, 115, 223, .1);
+}
+
+.btn--danger[b-6ixws3kexd] {
+    background: #e52d27;
+    color: #fff;
+}
+.btn--danger:hover:not([disabled])[b-6ixws3kexd] {
+    background: #b31217;
+}
+
+.btn--small[b-6ixws3kexd] {
+    padding: .6rem .9rem;
+    font-size: .85rem;
+}
+
+/* ---------- TABLE ---------- */
+.reports-table[b-6ixws3kexd] {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+.reports-table th[b-6ixws3kexd] {
+    background: #f8f9fc;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1rem;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.reports-table td[b-6ixws3kexd] {
+    padding: 1rem;
+    font-size: 1rem;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+/* Alternância de linhas */
+.reports-table tbody tr:nth-child(odd)[b-6ixws3kexd] {
+    background: #ffffff;
+}
+
+.reports-table tbody tr:nth-child(even)[b-6ixws3kexd] {
+    background: #f5f6fa;
+}
+
+/* Hover */
+.reports-table tbody tr:hover[b-6ixws3kexd] {
+    background: #eef1f6;
+    transition: background .2s ease;
+}
+
+/* ---------- ACTIONS COLUMN ---------- */
+.reports-table__actions[b-6ixws3kexd] {
+    text-align: right;
+    white-space: nowrap;
+}
+
+/* ---------- TEXT HELPERS ---------- */
+.text--danger[b-6ixws3kexd] {
+    color: #e52d27;
+}

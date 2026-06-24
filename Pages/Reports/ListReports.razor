@@ -10,13 +10,6 @@
 
     <h1 class="reports-page__title">Rapportini</h1>
 
-    <button type="button"
-            class="btn btn--primary"
-            @onclick="NewReport"
-            disabled="@IsLoading || IsDeleting">
-        Nuovo Rapportino
-    </button>
-
     @if (IsLoading)
     {
         <p class="reports-page__loading">Caricamento in corso...</p>
@@ -39,6 +32,7 @@
                     <th>Matricola</th>
                     <th>Modello</th>
                     <th>Email</th>
+                    <th>Technician</th>
                     <th></th>
                 </tr>
             </thead>
@@ -52,6 +46,7 @@
                         <td>@r.Serial</td>
                         <td>@r.Model</td>
                         <td>@r.Email</td>
+                        <td>@r.TechnicianName</td>
 
                         <td class="reports-table__actions">
                             <button class="btn btn--outline btn--small"

@@ -7,30 +7,34 @@
 
 <PageTitle>Nuovo Tipo di Servizio</PageTitle>
 
-<div class="mb-3">
-    <h1 class="h2 title-section">Nuovo Tipo di Servizio</h1>
+<div class="service-page">
 
-    <EditForm EditContext="EditContext" OnValidSubmit="HandleValidSubmit">
+    <h1 class="service-page__title">Nuovo Tipo di Servizio</h1>
+
+    <EditForm EditContext="EditContext" OnValidSubmit="HandleValidSubmit" class="service-form">
         <DataAnnotationsValidator />
         <ValidationSummary />
 
-        <div class="mb-3">
-            <label class="form-label">Nome</label>
-            <InputText class="form-control" @bind-Value="Service.Name" />
+        <!-- Nome -->
+        <div class="form__group form__group--full">
+            <label class="form__label">Nome</label>
+            <InputText class="form__input" @bind-Value="Service.Name" />
             <ValidationMessage For="@(() => Service.Name)" />
         </div>
 
-        <div class="d-flex gap-2">
-            <button class="btn btn-secondary" type="button" @onclick="Cancel" disabled="@IsSaving">Annulla</button>
-            <button class="btn btn-primary" type="submit" disabled="@IsSaving">
-                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" hidden="@(!IsSaving)"></span>
+        <!-- Botões -->
+        <div class="form__group form__group--full group--buttons">
+
+
+            <button class="btn btn--primary btn--save" type="submit" disabled="@IsSaving">
+                <span class="loader loader--small" hidden="@(!IsSaving)"></span>
                 Salva
             </button>
         </div>
 
         @if (!string.IsNullOrEmpty(ErrorMessage))
         {
-            <div class="alert alert-danger mt-3">@ErrorMessage</div>
+            <div class="alert alert--error">@ErrorMessage</div>
         }
     </EditForm>
 </div>

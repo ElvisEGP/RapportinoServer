@@ -3,45 +3,64 @@
 
 @namespace RapportinoServer.Pages.Services
 
-
 @inherits ListTypeServicePageBase
 
 <PageTitle>Tipi di Servizio</PageTitle>
 
-<div class="mb-3">
-    <h1 class="h2 title-section">Tipi di Servizio</h1>
-    <button class="btn btn-primary" @onclick="NewService" disabled="@IsLoading || IsDeleting">Nuovo Tipo</button>
+<div class="services-page">
+
+    <div class="services-page__header">
+        <h1 class="services-page__title">Tipi di Servizio</h1>
+
+        <button class="btn btn--primary"
+                @onclick="NewService"
+                disabled="@IsLoading || IsDeleting">
+            Nuovo Tipo
+        </button>
+    </div>
+
 </div>
 
 @if (IsLoading)
 {
-    <p>Caricamento...</p>
+    <p class="services-page__loading">Caricamento...</p>
 }
 else if (LoadError is not null)
 {
-    <div class="alert alert-danger">@LoadError</div>
+    <div class="alert alert--error">@LoadError</div>
 }
 else if (Services is null || !Services.Any())
 {
-    <p class="mt-2">Nessun tipo di servizio presente.</p>
+    <p class="services-page__empty">Nessun tipo di servizio presente.</p>
 }
 else
 {
-    <table class="table table-striped">
+    <table class="services-table">
         <thead>
         <tr>
             <th>Nome</th>
-            <th></th>
+            <th class="services-table__actions-header"></th>
         </tr>
         </thead>
+
         <tbody>
         @foreach (var s in Services)
         {
             <tr>
                 <td>@s.Name</td>
-                <td class="text-end">
-                    <button class="btn btn-warning btn-sm me-1" @onclick="() => Edit(s.Id)" disabled="@IsDeleting">Modifica</button>
-                    <button class="btn btn-danger btn-sm" @onclick="() => ConfirmDelete(s.Id, s.Name)" disabled="@IsDeleting">Elimina</button>
+
+                <td class="services-table__actions">
+                    <button class="btn btn--secondary btn--small"
+                            @onclick="() => Edit(s.Id)"
+                            disabled="@IsDeleting">
+                        Modifica
+                    </button>
+
+                    <button class="btn btn--danger btn--small"
+                            @onclick="() => ConfirmDelete(s.Id, s.Name)"
+                            disabled="@IsDeleting">
+                        Elimina
+                    </button>
                 </td>
             </tr>
         }

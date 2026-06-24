@@ -5,41 +5,42 @@
 
 <PageTitle>Clienti</PageTitle>
 
-<div class="mb-3">
-    <h1 class="h2 title-section">Clienti</h1>
+<div class="clients-page">
 
-    <InputText class="form-control"
+    <h1 class="clients-page__title">Clienti</h1>
+
+    <InputText class="form__input clients-page__search"
                @bind-Value="SearchTerm"
                @bind-Value:event="oninput" />
 </div>
 
 @if (IsLoading)
 {
-    <p>Caricamento...</p>
+    <p class="clients-page__loading">Caricamento...</p>
 }
 else if (LoadError is not null)
 {
-    <div class="alert alert-danger">@LoadError</div>
+    <div class="alert alert--error">@LoadError</div>
 }
 else if (Clients is null || !Clients.Any())
 {
-    <p class="mt-2">Nessun cliente presente.</p>
+    <p class="clients-page__empty">Nessun cliente presente.</p>
 }
 else
 {
-    <div class="mb-3">
-        <InputText class="form-control"
+    <div class="clients-page__search-wrapper">
+        <InputText class="form__input clients-page__search"
                    @bind-Value="SearchTerm"
                    @bind-Value:event="oninput"
                    placeholder="Cerca cliente..." />
     </div>
 
-    <table class="table table-striped">
+    <table class="clients-table">
         <thead>
         <tr>
             <th>Ragione Sociale</th>
             <th>Città</th>
-            <th class="text-end">Azioni</th>
+            <th class="clients-table__actions-header">Azioni</th>
         </tr>
         </thead>
         <tbody>
@@ -48,10 +49,10 @@ else
             <tr @key="c.Id">
                 <td>@c.CompanyName</td>
                 <td>@c.City</td>
-                <td class="text-end">
-                    <button class="btn btn-sm btn-outline-secondary me-1" @onclick="() => Details(c.Id)">Dettagli</button>
-                    <button class="btn btn-sm btn-warning me-1" @onclick="() => Edit(c.Id)">Modifica</button>
-                    <button class="btn btn-sm btn-danger" @onclick="() => ConfirmDelete(c.Id, c.CompanyName)">Elimina</button>
+                <td class="clients-table__actions">
+                    <button class="btn btn--outline btn--small" @onclick="() => Details(c.Id)">Dettagli</button>
+                    <button class="btn btn--secondary btn--small" @onclick="() => Edit(c.Id)">Modifica</button>
+                    <button class="btn btn--danger btn--small" @onclick="() => ConfirmDelete(c.Id, c.CompanyName)">Elimina</button>
                 </td>
             </tr>
         }

@@ -5,40 +5,58 @@
 
 <PageTitle>Tecnici</PageTitle>
 
-<div class="d-flex justify-content-between align-items-center mb-3">
-    <h1 class="h2 title-section w-100">Tecnici</h1>
+<div class="technicians-page">
+
+    <h1 class="technicians-page__title">Tecnici</h1>
+
 </div>
 
 @if (IsLoading)
 {
-    <p>Caricamento...</p>
+    <p class="technicians-page__loading">Caricamento...</p>
 }
 else if (LoadError is not null)
 {
-    <div class="alert alert-danger">@LoadError</div>
+    <div class="alert alert--error">@LoadError</div>
 }
 else if (Technicians is null || !Technicians.Any())
 {
-    <p class="mt-2">Nessun tecnico presente.</p>
+    <p class="technicians-page__empty">Nessun tecnico presente.</p>
 }
 else
 {
-    <table class="table table-striped">
+    <table class="technicians-table">
         <thead>
         <tr>
             <th>Nome</th>
-            <th class="text-end">Azioni</th>
+            <th class="technicians-table__actions-header">Azioni</th>
         </tr>
         </thead>
+
         <tbody>
         @foreach (var t in Technicians)
         {
             <tr @key="t.Id">
                 <td>@t.TechnicianName</td>
-                <td class="text-end">
-                    <button class="btn btn-sm btn-outline-secondary me-1" @onclick="() => Details(t.Id)" disabled="@IsDeleting">Dettagli</button>
-                    <button class="btn btn-sm btn-warning me-1" @onclick="() => Edit(t.Id)" disabled="@IsDeleting">Modifica</button>
-                    <button class="btn btn-sm btn-danger" @onclick="() => ConfirmDelete(t.Id, t.TechnicianName)" disabled="@IsDeleting">Elimina</button>
+
+                <td class="technicians-table__actions">
+                    <button class="btn btn--outline btn--small"
+                            @onclick="() => Details(t.Id)"
+                            disabled="@IsDeleting">
+                        Dettagli
+                    </button>
+
+                    <button class="btn btn--secondary btn--small"
+                            @onclick="() => Edit(t.Id)"
+                            disabled="@IsDeleting">
+                        Modifica
+                    </button>
+
+                    <button class="btn btn--danger btn--small"
+                            @onclick="() => ConfirmDelete(t.Id, t.TechnicianName)"
+                            disabled="@IsDeleting">
+                        Elimina
+                    </button>
                 </td>
             </tr>
         }

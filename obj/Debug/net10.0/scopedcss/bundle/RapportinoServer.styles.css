@@ -141,6 +141,381 @@
         display: none;
     }
 }
+/* /Pages/Clients/ClientDetailsPage.razor.rz.scp.css */
+/* ============================================
+   CLIENT DETAILS PAGE — BEM VERSION
+   Consistente com todo o dashboard
+============================================ */
+
+/* ---------- PAGE WRAPPER ---------- */
+.client-details-page[b-a8p8utdz8r] {
+    margin-top: 20px;
+    padding: 0 46px;
+    width: 100%;
+}
+
+/* ---------- LOADING / EMPTY ---------- */
+.client-details__loading[b-a8p8utdz8r] {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #444;
+}
+
+/* ---------- ALERTAS ---------- */
+.alert[b-a8p8utdz8r] {
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    font-size: .9rem;
+}
+
+.alert--error[b-a8p8utdz8r] {
+    background: #ffe5e5;
+    color: #b30000;
+    border: 1px solid #ffb3b3;
+}
+
+.alert--warning[b-a8p8utdz8r] {
+    background: #fff4d6;
+    color: #8a6d00;
+    border: 1px solid #ffe9a8;
+}
+
+/* ---------- HEADER ---------- */
+.client-details__header[b-a8p8utdz8r] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.client-details__title[b-a8p8utdz8r] {
+    width: 100%;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(202 202 202 / 55%);
+}
+
+.client-details__subtitle[b-a8p8utdz8r] {
+    width: 100%;
+    margin-top: 5px;
+    color: #666;
+    font-size: .95rem;
+}
+
+/* ---------- BOTÕES (PADRÃO GLOBAL) ---------- */
+.btn[b-a8p8utdz8r] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .8rem 1.2rem;
+    border-radius: 8px;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background .2s ease;
+}
+
+.btn--primary[b-a8p8utdz8r] {
+    background: #4e73df;
+    color: #fff;
+}
+.btn--primary:hover:not([disabled])[b-a8p8utdz8r] {
+    background: #3c5ec4;
+}
+
+.btn--secondary[b-a8p8utdz8r] {
+    background: #e2e6ea;
+    color: #333;
+}
+.btn--secondary:hover:not([disabled])[b-a8p8utdz8r] {
+    background: #d6dadd;
+}
+
+.btn--danger[b-a8p8utdz8r] {
+    background: #e52d27;
+    color: #fff;
+}
+.btn--danger:hover:not([disabled])[b-a8p8utdz8r] {
+    background: #b31217;
+}
+
+/* ---------- GRID PRINCIPAL ---------- */
+.client-details__grid[b-a8p8utdz8r] {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+/* Para elementos que ocupam toda a linha */
+.info-card--full[b-a8p8utdz8r] {
+    grid-column: 1 / -1;
+}
+
+/* ---------- INFO CARDS ---------- */
+.info-card[b-a8p8utdz8r] {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    border: 1px solid #e6e6e6;
+}
+
+.info-card__title[b-a8p8utdz8r] {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #e2e2e2;
+    color: #444;
+}
+
+.info-card p[b-a8p8utdz8r] {
+    margin-bottom: 6px;
+    font-size: .95rem;
+}
+
+/* ---------- TABELA DE MÁQUINAS ---------- */
+.client-machines-table[b-a8p8utdz8r] {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.client-machines-table th[b-a8p8utdz8r] {
+    background: #f8f9fc;
+    padding: 10px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.client-machines-table td[b-a8p8utdz8r] {
+    padding: 10px;
+    border-bottom: 1px solid #e2e2e2;
+    font-size: .95rem;
+}
+
+/* Alternância */
+.client-machines-table tbody tr:nth-child(even)[b-a8p8utdz8r] {
+    background: #f5f6fa;
+}
+
+/* Hover */
+.client-machines-table tbody tr:hover[b-a8p8utdz8r] {
+    background: #eef1f6;
+    transition: background .2s ease;
+}
+
+/* ---------- RESPONSIVIDADE ---------- */
+@media (max-width: 900px) {
+    .client-details__grid[b-a8p8utdz8r] {
+        grid-template-columns: 1fr;
+    }
+}
+/* /Pages/Clients/ClientEditPage.razor.rz.scp.css */
+/* ============================================
+   CLIENT EDIT PAGE — BEM VERSION
+   Consistente com todo o dashboard
+============================================ */
+
+/* ---------- PAGE WRAPPER ---------- */
+.client-edit-page[b-s9c8p80jbt] {
+    margin-top: 20px;
+    padding: 0 46px;
+}
+
+/* ---------- TITLE ---------- */
+.client-edit__title[b-s9c8p80jbt] {
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(202 202 202 / 55%);
+    margin-bottom: 25px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* ---------- LOADING ---------- */
+.client-edit__loading[b-s9c8p80jbt] {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #444;
+}
+
+/* ---------- ALERTAS ---------- */
+.alert[b-s9c8p80jbt] {
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    font-size: .9rem;
+}
+
+.alert--error[b-s9c8p80jbt] {
+    background: #ffe5e5;
+    color: #b30000;
+    border: 1px solid #ffb3b3;
+}
+
+.alert--warning[b-s9c8p80jbt] {
+    background: #fff4d6;
+    color: #8a6d00;
+    border: 1px solid #ffe9a8;
+}
+
+/* ---------- FORM ---------- */
+.client-edit__form[b-s9c8p80jbt] {
+    margin-top: 20px;
+}
+
+/* GRID PRINCIPAL */
+.form-grid[b-s9c8p80jbt] {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+}
+
+/* ---------- FORM GROUPS ---------- */
+.form__group[b-s9c8p80jbt] {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__group--full[b-s9c8p80jbt] {
+    grid-column: span 12;
+}
+
+.form__group--large[b-s9c8p80jbt] {
+    grid-column: span 8;
+}
+
+.form__group--medium[b-s9c8p80jbt] {
+    grid-column: span 4;
+}
+
+.form__group--small[b-s9c8p80jbt] {
+    grid-column: span 2;
+}
+
+/* ---------- LABEL ---------- */
+.form__label[b-s9c8p80jbt] {
+    font-size: .9rem;
+    font-weight: 600;
+    margin-bottom: .4rem;
+    color: #141414;
+}
+
+/* ---------- INPUTS ---------- */
+[b-s9c8p80jbt] .form__input {
+    border: 1px solid #d1d3e2;
+    background-color: #fff;
+    width: 100%;
+    padding: 11px 8px;
+    font-size: 1.05rem;
+    border-radius: 12px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+[b-s9c8p80jbt] .form__input:focus {
+    border-color: #4e73df;
+    box-shadow: 0 0 0 3px rgba(78, 115, 223, .25);
+    outline: none;
+}
+
+/* ---------- VALIDATION ---------- */
+.validation-message[b-s9c8p80jbt] {
+    color: #e52d27;
+    font-size: .8rem;
+    margin-top: .25rem;
+}
+
+/* ---------- BUTTONS ---------- */
+.form__buttons[b-s9c8p80jbt] {
+    grid-column: span 12;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 30px;
+}
+
+.btn[b-s9c8p80jbt] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .9rem 1.3rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background .2s ease;
+}
+
+.btn--primary[b-s9c8p80jbt] {
+    background: #4e73df;
+    color: #fff;
+}
+.btn--primary:hover:not([disabled])[b-s9c8p80jbt] {
+    background: #3c5ec4;
+}
+
+.btn--secondary[b-s9c8p80jbt] {
+    background: #e2e6ea;
+    color: #333;
+}
+.btn--secondary:hover:not([disabled])[b-s9c8p80jbt] {
+    background: #d6dadd;
+}
+
+.btn--save[b-s9c8p80jbt] {
+    width: 220px;
+    display: flex;
+    justify-content: center;
+}
+
+/* ---------- LOADER ---------- */
+.loader[b-s9c8p80jbt] {
+    width: 18px;
+    height: 18px;
+    border: 3px solid #ddd;
+    border-top-color: #4e73df;
+    border-radius: 50%;
+    animation: spin-b-s9c8p80jbt .7s linear infinite;
+}
+
+.loader--small[b-s9c8p80jbt] {
+    width: 14px;
+    height: 14px;
+    border-width: 2px;
+}
+
+@keyframes spin-b-s9c8p80jbt {
+    to { transform: rotate(360deg); }
+}
+
+/* ---------- RESPONSIVIDADE ---------- */
+@media (max-width: 900px) {
+    .form-grid[b-s9c8p80jbt] {
+        grid-template-columns: 1fr;
+    }
+
+    .form__group--large[b-s9c8p80jbt],
+    .form__group--medium[b-s9c8p80jbt],
+    .form__group--small[b-s9c8p80jbt],
+    .form__group--full[b-s9c8p80jbt] {
+        grid-column: span 1;
+    }
+
+    .form__buttons[b-s9c8p80jbt] {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn--save[b-s9c8p80jbt] {
+        width: 100%;
+    }
+}
 /* /Pages/Clients/ClientListPage.razor.rz.scp.css */
 /* ============================================
    CLIENTS LIST PAGE — LISTA DE CLIENTI (BEM)
@@ -1328,6 +1703,319 @@ button.btn.btn--danger.btn--small[b-za2vpl3trc] {
 .text--danger[b-za2vpl3trc] {
     color: #e52d27;
 }
+/* /Pages/Reports/ReportDetails.razor.rz.scp.css */
+/* ============================================
+   REPORT DETAILS PAGE — BEM VERSION
+   Consistente com todo o dashboard
+============================================ */
+
+/* ---------- AÇÕES SUPERIORES ---------- */
+.report-actions[b-kmng3bzv71] {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+/* ---------- BOTÕES (PADRÃO GLOBAL) ---------- */
+.btn[b-kmng3bzv71] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .8rem 1.2rem;
+    border-radius: 8px;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background .2s ease;
+}
+
+.btn--primary[b-kmng3bzv71] {
+    background: #4e73df;
+    color: #fff;
+}
+.btn--primary:hover:not([disabled])[b-kmng3bzv71] {
+    background: #3c5ec4;
+}
+
+.btn--secondary[b-kmng3bzv71] {
+    background: #e2e6ea;
+    color: #333;
+}
+.btn--secondary:hover:not([disabled])[b-kmng3bzv71] {
+    background: #d6dadd;
+}
+
+.btn--danger[b-kmng3bzv71] {
+    background: #e52d27;
+    color: #fff;
+}
+.btn--danger:hover:not([disabled])[b-kmng3bzv71] {
+    background: #b31217;
+}
+
+/* ---------- ALERTAS ---------- */
+.alert[b-kmng3bzv71] {
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    font-size: .9rem;
+}
+
+.alert--error[b-kmng3bzv71] {
+    background: #ffe5e5;
+    color: #b30000;
+    border: 1px solid #ffb3b3;
+}
+
+.alert--warning[b-kmng3bzv71] {
+    background: #fff4d6;
+    color: #8a6d00;
+    border: 1px solid #ffe9a8;
+}
+
+/* ---------- MODAL ---------- */
+.modal-overlay[b-kmng3bzv71] {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal[b-kmng3bzv71] {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,.2);
+}
+
+.modal__title[b-kmng3bzv71] {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.modal__actions[b-kmng3bzv71] {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+/* ---------- LOADING ---------- */
+.loading[b-kmng3bzv71] {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.loader[b-kmng3bzv71] {
+    width: 28px;
+    height: 28px;
+    border: 3px solid #ddd;
+    border-top-color: #4e73df;
+    border-radius: 50%;
+    animation: spin-b-kmng3bzv71 .7s linear infinite;
+    margin: 0 auto 10px;
+}
+
+@keyframes spin-b-kmng3bzv71 {
+    to { transform: rotate(360deg); }
+}
+
+/* ---------- CONTAINER PRINCIPAL ---------- */
+.report[b-kmng3bzv71] {
+    background: #fff;
+    padding: 25px;
+    max-width: 900px;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+/* ---------- HEADER ---------- */
+.report__header[b-kmng3bzv71] {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #333;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+}
+
+.report__title[b-kmng3bzv71] {
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.report__meta[b-kmng3bzv71] {
+    text-align: right;
+    font-size: 14px;
+}
+
+/* ---------- INFO SECTIONS ---------- */
+.report__info-section[b-kmng3bzv71] {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.info-box[b-kmng3bzv71] {
+    border: 1px solid #ddd;
+    padding: 12px;
+    border-radius: 6px;
+}
+
+.info-box__title[b-kmng3bzv71] {
+    font-size: 15px;
+    margin: 0 0 6px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #eee;
+    color: #555;
+}
+
+.info-row[b-kmng3bzv71] {
+    margin-bottom: 4px;
+}
+
+.info-label[b-kmng3bzv71] {
+    font-weight: 600;
+    color: #333;
+}
+
+.info-text[b-kmng3bzv71] {
+    white-space: pre-wrap;
+}
+
+/* ---------- DESCRIÇÃO ---------- */
+.report__description[b-kmng3bzv71] {
+    margin-bottom: 20px;
+}
+
+.description__title[b-kmng3bzv71] {
+    font-weight: 600;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.description__box[b-kmng3bzv71] {
+    border: 1px solid #ddd;
+    padding: 12px;
+    border-radius: 6px;
+    background: #f9f9f9;
+    min-height: 60px;
+    white-space: pre-wrap;
+}
+
+/* ---------- SAFETY CHECK ---------- */
+.safety[b-kmng3bzv71] {
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+.safety--ok[b-kmng3bzv71] {
+    color: #2e7d32;
+}
+
+.safety--fail[b-kmng3bzv71] {
+    color: #c62828;
+}
+
+/* ---------- WORKLOG TABLE ---------- */
+.worklog__title[b-kmng3bzv71] {
+    font-size: 18px;
+    margin: 20px 0 10px;
+}
+
+.worklog-table[b-kmng3bzv71] {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.worklog-table th[b-kmng3bzv71],
+.worklog-table td[b-kmng3bzv71] {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.worklog-table th[b-kmng3bzv71] {
+    background: #f2f2f2;
+}
+
+/* ---------- SIGNATURES ---------- */
+.signatures[b-kmng3bzv71] {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.signature[b-kmng3bzv71] {
+    text-align: center;
+}
+
+.signature__image[b-kmng3bzv71] {
+    max-width: 100%;
+    max-height: 100px;
+    border-bottom: 1px solid #333;
+    margin-bottom: 6px;
+}
+
+.signature__placeholder[b-kmng3bzv71] {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #333;
+    margin-bottom: 6px;
+    color: #999;
+    font-style: italic;
+}
+
+.signature__label[b-kmng3bzv71] {
+    font-weight: 600;
+    font-size: 13px;
+}
+
+/* ---------- PRINT MODE ---------- */
+@media print {
+    .no-print[b-kmng3bzv71],
+    .modal-overlay[b-kmng3bzv71] {
+        display: none !important;
+    }
+
+    body[b-kmng3bzv71] {
+        background: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .report[b-kmng3bzv71] {
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+        width: 100%;
+        border: none;
+    }
+
+    @page {
+        size: A4;
+        margin: 10mm;
+    }
+
+    .report[b-kmng3bzv71] {
+        page-break-inside: avoid;
+    }
+}
 /* /Pages/Services/ListTypeService.razor.rz.scp.css */
 /* ============================================
    SERVICES LIST PAGE — LISTA DE TIPI DI SERVIZIO (BEM)
@@ -1336,6 +2024,7 @@ button.btn.btn--danger.btn--small[b-za2vpl3trc] {
 
 /* ---------- TITLE ---------- */
 .services-page__title[b-kdytr65xbj] {
+    width: 100%;
     padding: 20px 0;
     border-bottom: 1px solid rgb(202 202 202 / 55%);
     margin-bottom: 22px;
@@ -1622,6 +2311,186 @@ button.btn.btn--danger.btn--small[b-za2vpl3trc] {
 
 @keyframes spin-b-ke525onke7 {
     to { transform: rotate(360deg); }
+}
+/* /Pages/Technicians/EditTechnicians.razor.rz.scp.css */
+/* ============================================
+   TECHNICIAN EDIT PAGE — BEM VERSION
+============================================ */
+
+/* ---------- PAGE WRAPPER ---------- */
+.technician-edit-page[b-7u71mj25a4] {
+    margin-top: 20px;
+    padding: 0 46px;
+}
+
+/* ---------- TITLE ---------- */
+.technician-edit__title[b-7u71mj25a4] {
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(202 202 202 / 55%);
+    margin-bottom: 25px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* ---------- LOADING ---------- */
+.technician-edit__loading[b-7u71mj25a4] {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #444;
+}
+
+/* ---------- ALERTAS ---------- */
+.alert[b-7u71mj25a4] {
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    font-size: .9rem;
+}
+
+.alert--error[b-7u71mj25a4] {
+    background: #ffe5e5;
+    color: #b30000;
+    border: 1px solid #ffb3b3;
+}
+
+.alert--warning[b-7u71mj25a4] {
+    background: #fff4d6;
+    color: #8a6d00;
+    border: 1px solid #ffe9a8;
+}
+
+/* ---------- FORM ---------- */
+.technician-edit__form[b-7u71mj25a4] {
+    margin-top: 20px;
+}
+
+/* GRID PRINCIPAL */
+.form-grid[b-7u71mj25a4] {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+}
+
+/* ---------- FORM GROUPS ---------- */
+.form__group[b-7u71mj25a4] {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__group--full[b-7u71mj25a4] {
+    grid-column: span 12;
+}
+
+/* ---------- LABEL ---------- */
+.form__label[b-7u71mj25a4] {
+    font-size: .9rem;
+    font-weight: 600;
+    margin-bottom: .4rem;
+    color: #141414;
+}
+
+/* ---------- INPUTS ---------- */
+[b-7u71mj25a4] .form__input {
+    border: 1px solid #d1d3e2;
+    background-color: #fff;
+    width: 100%;
+    padding: 11px 8px;
+    font-size: 1.05rem;
+    border-radius: 12px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+[b-7u71mj25a4] .form__input:focus {
+    border-color: #4e73df;
+    box-shadow: 0 0 0 3px rgba(78, 115, 223, .25);
+    outline: none;
+}
+
+/* ---------- VALIDATION ---------- */
+.validation-message[b-7u71mj25a4] {
+    color: #e52d27;
+    font-size: .8rem;
+    margin-top: .25rem;
+}
+
+/* ---------- BUTTONS ---------- */
+.form__buttons[b-7u71mj25a4] {
+    grid-column: span 12;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 30px;
+}
+
+.btn[b-7u71mj25a4] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .9rem 1.3rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background .2s ease;
+}
+
+.btn--primary[b-7u71mj25a4] {
+    background: #4e73df;
+    color: #fff;
+}
+.btn--primary:hover:not([disabled])[b-7u71mj25a4] {
+    background: #3c5ec4;
+}
+
+.btn--secondary[b-7u71mj25a4] {
+    background: #e2e6ea;
+    color: #333;
+}
+.btn--secondary:hover:not([disabled])[b-7u71mj25a4] {
+    background: #d6dadd;
+}
+
+.btn--save[b-7u71mj25a4] {
+    width: 180px;
+    display: flex;
+    justify-content: center;
+}
+
+/* ---------- LOADER ---------- */
+.loader[b-7u71mj25a4] {
+    width: 18px;
+    height: 18px;
+    border: 3px solid #ddd;
+    border-top-color: #4e73df;
+    border-radius: 50%;
+    animation: spin-b-7u71mj25a4 .7s linear infinite;
+}
+
+.loader--small[b-7u71mj25a4] {
+    width: 14px;
+    height: 14px;
+    border-width: 2px;
+}
+
+@keyframes spin-b-7u71mj25a4 {
+    to { transform: rotate(360deg); }
+}
+
+/* ---------- RESPONSIVIDADE ---------- */
+@media (max-width: 900px) {
+    .form-grid[b-7u71mj25a4] {
+        grid-template-columns: 1fr;
+    }
+
+    .form__buttons[b-7u71mj25a4] {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn--save[b-7u71mj25a4] {
+        width: 100%;
+    }
 }
 /* /Pages/Technicians/ListTechnicians.razor.rz.scp.css */
 /* ============================================
@@ -1931,4 +2800,129 @@ button.btn.btn--danger.btn--small[b-za2vpl3trc] {
 
 @keyframes spin-b-e48vv935vb {
     to { transform: rotate(360deg); }
+}
+/* /Pages/Technicians/TechnicianDetailsPage.razor.rz.scp.css */
+/* ============================================
+   TECHNICIAN DETAILS PAGE — BEM VERSION
+============================================ */
+
+/* ---------- PAGE WRAPPER ---------- */
+.technician-details-page[b-zlbm6nqsj6] {
+    margin-top: 20px;
+    padding: 0 46px;
+}
+
+/* ---------- LOADING ---------- */
+.technician-details__loading[b-zlbm6nqsj6] {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #444;
+}
+
+/* ---------- ALERTAS ---------- */
+.alert[b-zlbm6nqsj6] {
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    font-size: .9rem;
+}
+
+.alert--error[b-zlbm6nqsj6] {
+    background: #ffe5e5;
+    color: #b30000;
+    border: 1px solid #ffb3b3;
+}
+
+.alert--warning[b-zlbm6nqsj6] {
+    background: #fff4d6;
+    color: #8a6d00;
+    border: 1px solid #ffe9a8;
+}
+
+/* ---------- HEADER ---------- */
+.technician-details__header[b-zlbm6nqsj6] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.technician-details__title[b-zlbm6nqsj6] {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(202 202 202 / 55%);
+}
+
+.technician-details__subtitle[b-zlbm6nqsj6] {
+    margin-top: 5px;
+    color: #666;
+    font-size: .95rem;
+}
+
+/* ---------- BUTTONS (GLOBAL) ---------- */
+.btn[b-zlbm6nqsj6] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .8rem 1.2rem;
+    border-radius: 8px;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background .2s ease;
+}
+
+.btn--secondary[b-zlbm6nqsj6] {
+    background: #e2e6ea;
+    color: #333;
+}
+.btn--secondary:hover:not([disabled])[b-zlbm6nqsj6] {
+    background: #d6dadd;
+}
+
+/* ---------- GRID PRINCIPAL ---------- */
+.technician-details__grid[b-zlbm6nqsj6] {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+/* ---------- INFO CARDS ---------- */
+.info-card[b-zlbm6nqsj6] {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    border: 1px solid #e6e6e6;
+}
+
+.info-card__title[b-zlbm6nqsj6] {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #e2e2e2;
+    color: #444;
+}
+
+.info-card p[b-zlbm6nqsj6] {
+    margin-bottom: 6px;
+    font-size: .95rem;
+}
+
+.info-card__note[b-zlbm6nqsj6] {
+    margin-top: 8px;
+    font-size: .85rem;
+    color: #777;
+    font-style: italic;
+}
+
+/* ---------- RESPONSIVIDADE ---------- */
+@media (max-width: 900px) {
+    .technician-details__grid[b-zlbm6nqsj6] {
+        grid-template-columns: 1fr;
+    }
 }

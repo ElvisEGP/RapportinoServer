@@ -6,51 +6,55 @@
 
 <PageTitle>Dettagli Tecnico #@Technician?.Id</PageTitle>
 
-<div class="container mt-4">
+<div class="technician-details-page">
+
     @if (IsLoading)
     {
-        <p>Caricamento...</p>
+        <p class="technician-details__loading">Caricamento...</p>
     }
     else if (LoadError is not null)
     {
-        <div class="alert alert-danger">@LoadError</div>
+        <div class="alert alert--error">@LoadError</div>
     }
     else if (Technician is null)
     {
-        <div class="alert alert-warning">Tecnico non trovato.</div>
+        <div class="alert alert--warning">Tecnico non trovato.</div>
     }
     else
     {
-        <div class="mb-3 d-flex justify-content-between align-items-center">
+        <!-- HEADER -->
+        <div class="technician-details__header">
             <div>
-                <h1 class="h2 title-section">Dettagli Tecnico</h1>
-                <p class="text-muted mb-0">#@Technician.Id - @Technician.TechnicianName</p>
+                <h1 class="technician-details__title">Dettagli Tecnico</h1>
+                <p class="technician-details__subtitle">#@Technician.Id - @Technician.TechnicianName</p>
             </div>
-            <button class="btn btn-secondary" @onclick="BackToList">Torna ai tecnici</button>
+
+            <button class="btn btn--secondary" @onclick="BackToList">
+                Torna ai tecnici
+            </button>
         </div>
 
-        <div class="row g-4">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Informazioni tecniche</h5>
-                        <p class="mb-1"><strong>Nome:</strong> @Technician.TechnicianName</p>
-                        <p class="mb-1"><strong>Cognome:</strong> @Technician.Surname</p>
-                        <p class="mb-1"><strong>Username:</strong> @Technician.Username</p>
-                        <p class="mb-1"><strong>Ruolo:</strong> @Technician.Role</p>
-                    </div>
-                </div>
+        <!-- GRID PRINCIPAL -->
+        <div class="technician-details__grid">
+
+            <!-- INFO TECNICHE -->
+            <div class="info-card">
+                <h3 class="info-card__title">Informazioni tecniche</h3>
+
+                <p><strong>Nome:</strong> @Technician.TechnicianName</p>
+                <p><strong>Cognome:</strong> @Technician.Surname</p>
+                <p><strong>Username:</strong> @Technician.Username</p>
+                <p><strong>Ruolo:</strong> @Technician.Role</p>
             </div>
 
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Accesso</h5>
-                        <p class="mb-1"><strong>Password:</strong> ******</p>
-                        <p class="text-muted small">La password non è mostrata per motivi di sicurezza.</p>
-                    </div>
-                </div>
+            <!-- ACCESSO -->
+            <div class="info-card">
+                <h3 class="info-card__title">Accesso</h3>
+
+                <p><strong>Password:</strong> ******</p>
+                <p class="info-card__note">La password non è mostrata per motivi di sicurezza.</p>
             </div>
+
         </div>
     }
 </div>

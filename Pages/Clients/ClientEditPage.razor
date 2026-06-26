@@ -6,103 +6,109 @@
 
 <PageTitle>Modifica Cliente</PageTitle>
 
-<div class="container mt-4">
-    <h1 class="h2 title-section">Modifica Cliente</h1>
+<div class="client-edit-page">
+
+    <h1 class="client-edit__title">Modifica Cliente</h1>
 
     @if (IsLoading)
     {
-        <p>Caricamento...</p>
+        <p class="client-edit__loading">Caricamento...</p>
     }
     else if (LoadError is not null)
     {
-        <div class="alert alert-danger">@LoadError</div>
+        <div class="alert alert--error">@LoadError</div>
     }
     else if (Client is null)
     {
-        <div class="alert alert-warning">Cliente non trovato.</div>
+        <div class="alert alert--warning">Cliente non trovato.</div>
     }
     else
     {
-        <EditForm EditContext="EditContext" OnValidSubmit="HandleValidSubmit">
+        <EditForm EditContext="EditContext" OnValidSubmit="HandleValidSubmit" class="client-edit__form">
             <DataAnnotationsValidator />
             <ValidationSummary />
 
-            <div class="row g-3">
+            <div class="form-grid">
 
                 <!-- Nome Azienda -->
-                <div class="col-md-12">
-                    <label class="form-label">Nome Azienda</label>
-                    <InputText class="form-control" @bind-Value="Client.CompanyName" />
+                <div class="form__group form__group--full">
+                    <label class="form__label">Nome Azienda</label>
+                    <InputText class="form__input" @bind-Value="Client.CompanyName" />
                     <ValidationMessage For="@(() => Client.CompanyName)" />
                 </div>
 
                 <!-- Indirizzo -->
-                <div class="col-md-8">
-                    <label class="form-label">Indirizzo</label>
-                    <InputText class="form-control" @bind-Value="Client.Address" />
+                <div class="form__group form__group--large">
+                    <label class="form__label">Indirizzo</label>
+                    <InputText class="form__input" @bind-Value="Client.Address" />
                 </div>
 
-                <div class="col-md-2">
-                    <label class="form-label">Numero Civico</label>
-                    <InputText class="form-control" @bind-Value="Client.NumberAddress" />
+                <div class="form__group form__group--small">
+                    <label class="form__label">Numero Civico</label>
+                    <InputText class="form__input" @bind-Value="Client.NumberAddress" />
                 </div>
 
-                <div class="col-md-4">
-                    <label class="form-label">Città</label>
-                    <InputText class="form-control" @bind-Value="Client.City" />
+                <div class="form__group form__group--medium">
+                    <label class="form__label">Città</label>
+                    <InputText class="form__input" @bind-Value="Client.City" />
                 </div>
 
-                <div class="col-md-2">
-                    <label class="form-label">CAP</label>
-                    <InputText class="form-control" @bind-Value="Client.PostalCode" />
+                <div class="form__group form__group--small">
+                    <label class="form__label">CAP</label>
+                    <InputText class="form__input" @bind-Value="Client.PostalCode" />
                 </div>
 
-                <div class="col-md-2">
-                    <label class="form-label">Provincia</label>
-                    <InputText class="form-control" @bind-Value="Client.State" />
+                <div class="form__group form__group--small">
+                    <label class="form__label">Provincia</label>
+                    <InputText class="form__input" @bind-Value="Client.State" />
                 </div>
 
-                <div class="col-md-2">
-                    <label class="form-label">Nazione</label>
-                    <InputText class="form-control" @bind-Value="Client.Country" />
+                <div class="form__group form__group--small">
+                    <label class="form__label">Nazione</label>
+                    <InputText class="form__input" @bind-Value="Client.Country" />
                 </div>
 
                 <!-- Contatti -->
-                <div class="col-md-4">
-                    <label class="form-label">Telefono</label>
-                    <InputText class="form-control" @bind-Value="Client.Phone" />
+                <div class="form__group form__group--medium">
+                    <label class="form__label">Telefono</label>
+                    <InputText class="form__input" @bind-Value="Client.Phone" />
                 </div>
 
-                <div class="col-md-8">
-                    <label class="form-label">Email</label>
-                    <InputText class="form-control" @bind-Value="Client.Email" />
+                <div class="form__group form__group--large">
+                    <label class="form__label">Email</label>
+                    <InputText class="form__input" @bind-Value="Client.Email" />
                 </div>
 
-                <div class="col-md-12">
-                    <label class="form-label">Sito Web</label>
-                    <InputText class="form-control" @bind-Value="Client.Website" />
+                <div class="form__group form__group--full">
+                    <label class="form__label">Sito Web</label>
+                    <InputText class="form__input" @bind-Value="Client.Website" />
                 </div>
 
-                <div class="col-12">
-                    <label class="form-label">Note</label>
-                    <InputTextArea class="form-control" rows="3" @bind-Value="Client.Note" />
+                <div class="form__group form__group--full">
+                    <label class="form__label">Note</label>
+                    <InputTextArea class="form__input" rows="3" @bind-Value="Client.Note" />
                 </div>
 
-                <!-- Data (DateOnly) -->
-                <div class="col-md-4">
-                    <label class="form-label">Data</label>
-                    <InputDate TValue="DateTime" class="form-control" @bind-Value="DataAsDateTime" />
+                <!-- Data -->
+                <div class="form__group form__group--medium">
+                    <label class="form__label">Data</label>
+                    <InputDate TValue="DateTime" class="form__input" @bind-Value="DataAsDateTime" />
                     <ValidationMessage For="@(() => DataAsDateTime)" />
                 </div>
 
                 <!-- Botões -->
-                <div class="col-md-9 mt-5">
-                    <button type="button" class="btn btn-secondary" @onclick="GoBack" disabled="@IsSaving">Indietro</button>
-                </div>
+                <div class="form__buttons">
+                    <button type="button"
+                            class="btn btn--secondary"
+                            @onclick="GoBack"
+                            disabled="@IsSaving">
+                        Indietro
+                    </button>
 
-                <div class="col-md-3 mt-5">
-                    <button type="submit" class="btn btn-primary w-100" disabled="@IsSaving">
-                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" hidden="@(!IsSaving)"></span>
+                    <button type="submit"
+                            class="btn btn--primary btn--save"
+                            disabled="@IsSaving">
+                        <span class="loader loader--small" hidden="@(!IsSaving)"></span>
                         Salva Modifiche
                     </button>
                 </div>
@@ -112,7 +118,7 @@
 
         @if (!string.IsNullOrEmpty(ErrorMessage))
         {
-            <div class="alert alert-danger mt-3">@ErrorMessage</div>
+            <div class="alert alert--error">@ErrorMessage</div>
         }
     }
 </div>

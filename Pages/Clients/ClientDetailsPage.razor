@@ -6,90 +6,86 @@
 
 <PageTitle>Dettagli Cliente #@Client?.Id</PageTitle>
 
-<div class="container mt-4">
+<div class="client-details-page">
+
     @if (IsLoading)
     {
-        <p>Caricamento...</p>
+        <p class="client-details__loading">Caricamento...</p>
     }
     else if (LoadError is not null)
     {
-        <div class="alert alert-danger">@LoadError</div>
+        <div class="alert alert--error">@LoadError</div>
     }
     else if (Client is null)
     {
-        <div class="alert alert-warning">Cliente non trovato.</div>
+        <div class="alert alert--warning">Cliente non trovato.</div>
     }
     else
     {
-        <div class="mb-3 d-flex justify-content-between align-items-center">
-            <div>
-                <h1 class="h2 title-section">Dettagli Cliente</h1>
-                <p class="text-muted mb-0">#@Client.Id - @Client.CompanyName</p>
-            </div>
-            <button class="btn btn-secondary" @onclick="BackToList">Torna ai clienti</button>
+        <!-- HEADER -->
+        <div class="client-details__header">
+                <h1 class="client-details__title">Dettagli Cliente</h1>
         </div>
 
-        <div class="row g-4">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Informazioni principali</h5>
-                        <p class="mb-1"><strong>Ragione sociale:</strong> @Client.CompanyName</p>
-                        <p class="mb-1"><strong>Telefono:</strong> @Client.Phone</p>
-                        <p class="mb-1"><strong>Email:</strong> @Client.Email</p>
-                        <p class="mb-1"><strong>Sito web:</strong> @Client.Website</p>
-                        <p class="mb-1"><strong>Data registrazione:</strong> @Client.Data.ToString("dd/MM/yyyy")</p>
-                    </div>
-                </div>
+        <!-- GRID PRINCIPAL -->
+        <div class="client-details__grid">
+
+            <!-- INFO PRINCIPALI -->
+            <div class="info-card">
+                <h3 class="info-card__title">Informazioni principali</h3>
+
+                <p><strong>Ragione sociale:</strong> @Client.CompanyName</p>
+                <p><strong>Telefono:</strong> @Client.Phone</p>
+                <p><strong>Email:</strong> @Client.Email</p>
+                <p><strong>Sito web:</strong> @Client.Website</p>
+                <p><strong>Data registrazione:</strong> @Client.Data.ToString("dd/MM/yyyy")</p>
             </div>
 
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Indirizzo</h5>
-                        <p class="mb-1">@Client.Address @Client.NumberAddress</p>
-                        <p class="mb-1">@Client.City - @Client.PostalCode (@Client.State)</p>
-                        <p class="mb-1">@Client.Country</p>
-                    </div>
-                </div>
+            <!-- INDIRIZZO -->
+            <div class="info-card">
+                <h3 class="info-card__title">Indirizzo</h3>
+                <p>@Client.Address @Client.NumberAddress</p>
+                <p>@Client.City</p>
+                <p>@Client.PostalCode</p>
+                <p>@Client.State</p>
+                <p>@Client.Country</p>
             </div>
 
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Note</h5>
-                        <p class="mb-0">@(!string.IsNullOrWhiteSpace(Client.Note) ? Client.Note : "Nessuna nota disponibile.")</p>
-                    </div>
-                </div>
+            <!-- NOTE -->
+            <div class="info-card info-card--full">
+                <h3 class="info-card__title">Note</h3>
+
+                <p>@(!string.IsNullOrWhiteSpace(Client.Note)
+                    ? Client.Note
+                    : "Nessuna nota disponibile.")</p>
             </div>
 
+            <!-- MACCHINE ASSOCIATE -->
             @if (Client.Machines?.Any() == true)
             {
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Macchine associate</h5>
-                            <table class="table table-sm mb-0">
-                                <thead>
-                                    <tr>
-                                        <th>Modello</th>
-                                        <th>Matricola</th>
-                                        <th>ClientId</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var machine in Client.Machines)
-                                    {
-                                        <tr>
-                                            <td>@machine.Model</td>
-                                            <td>@machine.Serial</td>
-                                            <td>@machine.ClientId</td>
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                <div class="info-card info-card--full">
+                    <h3 class="info-card__title">Macchine associate</h3>
+
+                    <table class="client-machines-table">
+                        <thead>
+                            <tr>
+                                <th>Modello</th>
+                                <th>Matricola</th>
+                                <th>ClientId</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var machine in Client.Machines)
+                            {
+                                <tr>
+                                    <td>@machine.Model</td>
+                                    <td>@machine.Serial</td>
+                                    <td>@machine.ClientId</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
                 </div>
             }
         </div>

@@ -75,10 +75,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2VydmljZXMvRGVsZXRlVHlwZVNlcnZpY2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/antracito/Desktop/Rapportino/Pages/Services/EditTypeService.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2VydmljZXMvRWRpdFR5cGVTZXJ2aWNlLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [/home/antracito/Desktop/Rapportino/Pages/Technicians/DeleteTechnicians.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVGVjaG5pY2lhbnMvRGVsZXRlVGVjaG5pY2lhbnMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -130,6 +126,10 @@ build_metadata.AdditionalFiles.CssScope = b-za2vpl3trc
 [/home/antracito/Desktop/Rapportino/Pages/Reports/ReportDetails.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUmVwb3J0cy9SZXBvcnREZXRhaWxzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-kmng3bzv71
+
+[/home/antracito/Desktop/Rapportino/Pages/Services/EditTypeService.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2VydmljZXMvRWRpdFR5cGVTZXJ2aWNlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-ilngk1pzlx
 
 [/home/antracito/Desktop/Rapportino/Pages/Services/ListTypeService.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2VydmljZXMvTGlzdFR5cGVTZXJ2aWNlLnJhem9y

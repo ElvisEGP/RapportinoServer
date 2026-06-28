@@ -363,6 +363,10 @@
     color: #8a6d00;
     border: 1px solid #ffe9a8;
 }
+/* ---------- Tables ---------- */
+.azioni[b-s9c8p80jbt] {
+    text-align: center !important;
+}
 
 /* ---------- FORM ---------- */
 .client-edit__form[b-s9c8p80jbt] {
@@ -2014,6 +2018,186 @@ button.btn.btn--danger.btn--small[b-za2vpl3trc] {
 
     .report[b-kmng3bzv71] {
         page-break-inside: avoid;
+    }
+}
+/* /Pages/Services/EditTypeService.razor.rz.scp.css */
+/* ============================================
+   SERVICE EDIT PAGE — BEM VERSION
+============================================ */
+
+/* ---------- PAGE WRAPPER ---------- */
+.service-edit-page[b-ilngk1pzlx] {
+    margin-top: 20px;
+    padding: 0 46px;
+}
+
+/* ---------- TITLE ---------- */
+.service-edit__title[b-ilngk1pzlx] {
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(202 202 202 / 55%);
+    margin-bottom: 25px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* ---------- LOADING ---------- */
+.service-edit__loading[b-ilngk1pzlx] {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #444;
+}
+
+/* ---------- ALERTAS ---------- */
+.alert[b-ilngk1pzlx] {
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    font-size: .9rem;
+}
+
+.alert--error[b-ilngk1pzlx] {
+    background: #ffe5e5;
+    color: #b30000;
+    border: 1px solid #ffb3b3;
+}
+
+.alert--warning[b-ilngk1pzlx] {
+    background: #fff4d6;
+    color: #8a6d00;
+    border: 1px solid #ffe9a8;
+}
+
+/* ---------- FORM ---------- */
+.service-edit__form[b-ilngk1pzlx] {
+    margin-top: 20px;
+}
+
+/* GRID PRINCIPAL */
+.form-grid[b-ilngk1pzlx] {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+}
+
+/* ---------- FORM GROUPS ---------- */
+.form__group[b-ilngk1pzlx] {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__group--full[b-ilngk1pzlx] {
+    grid-column: span 12;
+}
+
+/* ---------- LABEL ---------- */
+.form__label[b-ilngk1pzlx] {
+    font-size: .9rem;
+    font-weight: 600;
+    margin-bottom: .4rem;
+    color: #141414;
+}
+
+/* ---------- INPUTS ---------- */
+[b-ilngk1pzlx] .form__input {
+    border: 1px solid #d1d3e2;
+    background-color: #fff;
+    width: 100%;
+    padding: 11px 8px;
+    font-size: 1.05rem;
+    border-radius: 12px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+[b-ilngk1pzlx] .form__input:focus {
+    border-color: #4e73df;
+    box-shadow: 0 0 0 3px rgba(78, 115, 223, .25);
+    outline: none;
+}
+
+/* ---------- VALIDATION ---------- */
+.validation-message[b-ilngk1pzlx] {
+    color: #e52d27;
+    font-size: .8rem;
+    margin-top: .25rem;
+}
+
+/* ---------- BUTTONS ---------- */
+.form__buttons[b-ilngk1pzlx] {
+    grid-column: span 12;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 30px;
+}
+
+.btn[b-ilngk1pzlx] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .9rem 1.3rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background .2s ease;
+}
+
+.btn--primary[b-ilngk1pzlx] {
+    background: #4e73df;
+    color: #fff;
+}
+.btn--primary:hover:not([disabled])[b-ilngk1pzlx] {
+    background: #3c5ec4;
+}
+
+.btn--secondary[b-ilngk1pzlx] {
+    background: #e2e6ea;
+    color: #333;
+}
+.btn--secondary:hover:not([disabled])[b-ilngk1pzlx] {
+    background: #d6dadd;
+}
+
+.btn--save[b-ilngk1pzlx] {
+    width: 180px;
+    display: flex;
+    justify-content: center;
+}
+
+/* ---------- LOADER ---------- */
+.loader[b-ilngk1pzlx] {
+    width: 18px;
+    height: 18px;
+    border: 3px solid #ddd;
+    border-top-color: #4e73df;
+    border-radius: 50%;
+    animation: spin-b-ilngk1pzlx .7s linear infinite;
+}
+
+.loader--small[b-ilngk1pzlx] {
+    width: 14px;
+    height: 14px;
+    border-width: 2px;
+}
+
+@keyframes spin-b-ilngk1pzlx {
+    to { transform: rotate(360deg); }
+}
+
+/* ---------- RESPONSIVIDADE ---------- */
+@media (max-width: 900px) {
+    .form-grid[b-ilngk1pzlx] {
+        grid-template-columns: 1fr;
+    }
+
+    .form__buttons[b-ilngk1pzlx] {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn--save[b-ilngk1pzlx] {
+        width: 100%;
     }
 }
 /* /Pages/Services/ListTypeService.razor.rz.scp.css */

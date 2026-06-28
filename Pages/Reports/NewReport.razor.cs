@@ -408,21 +408,32 @@ namespace RapportinoServer.Pages.Reports
             IsSaving = true;
             SaveError = null;
 
-            using var saveCts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+            // 🔥 GARANTE que o SignaturePad está inicializado ANTES de capturar as assinaturas
+            await JS.InvokeVoidAsync("signaturePadInterop.init");
+
+            using var saveCts = new CancellationTokenSource(TimeSpan.FromSeconds(40));
 
             try
             {
+                // Atualiza horas/minutos
                 for (var i = 0; i < Report.WorkLogs.Count; i++)
                     UpdateWorkLogTime(i);
 
                 try
                 {
-                    // Forçamos um timeout menor para o JS para não travar o salvamento se o browser demorar
-                    using var jsCts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
-                    
-                    var clientSig = await JS.InvokeAsync<string>("signaturePadInterop.getClientSignature", jsCts.Token);
-                    var techSig = await JS.InvokeAsync<string>("signaturePadInterop.getTechSignature", jsCts.Token);
-                    
+                    // 🔥 Timeout aumentado para evitar TaskCanceledException
+                    using var jsCts = new CancellationTokenSource(TimeSpan.FromSeconds(120));
+
+                    var clientSig = await JS.InvokeAsync<string>(
+                        "signaturePadInterop.getClientSignature",
+                        jsCts.Token
+                    );
+
+                    var techSig = await JS.InvokeAsync<string>(
+                        "signaturePadInterop.getTechSignature",
+                        jsCts.Token
+                    );
+
                     Logger.LogInformation("Firma cliente capturada: {Length} chars", clientSig?.Length ?? 0);
                     Logger.LogInformation("Firma tecnico capturada: {Length} chars", techSig?.Length ?? 0);
 
@@ -453,6 +464,7 @@ namespace RapportinoServer.Pages.Reports
                 await InvokeAsync(StateHasChanged);
             }
         }
+
 
         protected async Task ResetForm()
         {

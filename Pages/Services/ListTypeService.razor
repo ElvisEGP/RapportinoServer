@@ -1,6 +1,5 @@
 ﻿@page "/services"
 @using Microsoft.AspNetCore.Components.Web
-
 @namespace RapportinoServer.Pages.Services
 
 @inherits ListTypeServicePageBase
@@ -31,33 +30,33 @@ else
 {
     <table class="services-table">
         <thead>
-        <tr>
-            <th>Nome</th>
-            <th class="services-table__actions-header"></th>
-        </tr>
+            <tr>
+                <th>Nome</th>
+                <th class="services-table__actions-header"></th>
+            </tr>
         </thead>
 
         <tbody>
-        @foreach (var s in Services)
-        {
-            <tr>
-                <td>@s.Name</td>
+            @foreach (var s in Services)
+            {
+                <tr>
+                    <td>@s.Name</td>
 
-                <td class="services-table__actions">
-                    <button class="btn btn--secondary btn--small"
-                            @onclick="() => Edit(s.Id)"
-                            disabled="@IsDeleting">
-                        Modifica
-                    </button>
+                    <td class="services-table__actions">
+                        <button class="btn btn--secondary btn--small"
+                                @onclick="() => Edit(s.Id)"
+                                disabled="@IsDeleting">
+                            Modifica
+                        </button>
 
-                    <button class="btn btn--danger btn--small"
-                            @onclick="() => ConfirmDelete(s.Id, s.Name)"
-                            disabled="@IsDeleting">
-                        Elimina
-                    </button>
-                </td>
-            </tr>
-        }
+                        <button class="btn btn--danger btn--small"
+                                @onclick="() => ConfirmDelete(s.Id, s.Name)"
+                                disabled="@IsDeleting">
+                            Elimina
+                        </button>
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
 }

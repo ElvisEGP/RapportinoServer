@@ -1,16 +1,15 @@
 /* ============================================
-   CLIENT EDIT PAGE — BEM VERSION
-   Consistente com todo o dashboard
+   SERVICE EDIT PAGE — BEM VERSION
 ============================================ */
 
 /* ---------- PAGE WRAPPER ---------- */
-.client-edit-page {
+.service-edit-page {
     margin-top: 20px;
     padding: 0 46px;
 }
 
 /* ---------- TITLE ---------- */
-.client-edit__title {
+.service-edit__title {
     padding: 20px 0;
     border-bottom: 1px solid rgb(202 202 202 / 55%);
     margin-bottom: 25px;
@@ -19,7 +18,7 @@
 }
 
 /* ---------- LOADING ---------- */
-.client-edit__loading {
+.service-edit__loading {
     margin-top: 20px;
     font-size: 1rem;
     color: #444;
@@ -44,13 +43,9 @@
     color: #8a6d00;
     border: 1px solid #ffe9a8;
 }
-/* ---------- Tables ---------- */
-.azioni {
-    text-align: center !important;
-}
 
 /* ---------- FORM ---------- */
-.client-edit__form {
+.service-edit__form {
     margin-top: 20px;
 }
 
@@ -69,18 +64,6 @@
 
 .form__group--full {
     grid-column: span 12;
-}
-
-.form__group--large {
-    grid-column: span 8;
-}
-
-.form__group--medium {
-    grid-column: span 4;
-}
-
-.form__group--small {
-    grid-column: span 2;
 }
 
 /* ---------- LABEL ---------- */
@@ -154,7 +137,7 @@
 }
 
 .btn--save {
-    width: 220px;
+    width: 180px;
     display: flex;
     justify-content: center;
 }
@@ -183,13 +166,6 @@
 @media (max-width: 900px) {
     .form-grid {
         grid-template-columns: 1fr;
-    }
-
-    .form__group--large,
-    .form__group--medium,
-    .form__group--small,
-    .form__group--full {
-        grid-column: span 1;
     }
 
     .form__buttons {

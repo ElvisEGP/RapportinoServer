@@ -8,44 +8,60 @@
 
 <PageTitle>Modifica Tipo di Servizio</PageTitle>
 
-@if (IsLoading)
-{
-    <p>Caricamento...</p>
-}
-else if (LoadError is not null)
-{
-    <div class="alert alert-danger">@LoadError</div>
-}
-else
-{
-    if (Service is null)
+<div class="service-edit-page">
+
+    @if (IsLoading)
     {
-        <div class="alert alert-warning">Tipo di servizio non trovato.</div>
+        <p class="service-edit__loading">Caricamento...</p>
+    }
+    else if (LoadError is not null)
+    {
+        <div class="alert alert--error">@LoadError</div>
+    }
+    else if (Service is null)
+    {
+        <div class="alert alert--warning">Tipo di servizio non trovato.</div>
     }
     else
     {
-        <EditForm EditContext="EditContext" OnValidSubmit="HandleValidSubmit">
-        <DataAnnotationsValidator />
-        <ValidationSummary />
+        <h1 class="service-edit__title">Modifica Tipo di Servizio</h1>
 
-        <div class="mb-3">
-            <label class="form-label">Nome</label>
-            <InputText class="form-control" @bind-Value="Service.Name" />
-            <ValidationMessage For="@(() => Service.Name)" />
-        </div>
+        <EditForm EditContext="EditContext" OnValidSubmit="HandleValidSubmit" class="service-edit__form">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
 
-        <div class="d-flex gap-2">
-            <button class="btn btn-secondary" type="button" @onclick="Cancel" disabled="@IsSaving">Annulla</button>
-            <button class="btn btn-primary" type="submit" disabled="@IsSaving">
-                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" hidden="@(!IsSaving)"></span>
-                Salva
-            </button>
-        </div>
+            <div class="form-grid">
 
-        @if (!string.IsNullOrEmpty(ErrorMessage))
-        {
-            <div class="alert alert-danger mt-3">@ErrorMessage</div>
-        }
-    </EditForm>
+                <!-- Nome -->
+                <div class="form__group form__group--full">
+                    <label class="form__label">Nome</label>
+                    <InputText class="form__input" @bind-Value="Service.Name" />
+                    <ValidationMessage For="@(() => Service.Name)" />
+                </div>
+
+                <!-- Botões -->
+                <div class="form__buttons">
+                    <button class="btn btn--secondary"
+                            type="button"
+                            @onclick="Cancel"
+                            disabled="@IsSaving">
+                        Annulla
+                    </button>
+
+                    <button class="btn btn--primary btn--save"
+                            type="submit"
+                            disabled="@IsSaving">
+                        <span class="loader loader--small" hidden="@(!IsSaving)"></span>
+                        Salva
+                    </button>
+                </div>
+
+            </div>
+
+            @if (!string.IsNullOrEmpty(ErrorMessage))
+            {
+                <div class="alert alert--error">@ErrorMessage</div>
+            }
+        </EditForm>
     }
-}
+</div>

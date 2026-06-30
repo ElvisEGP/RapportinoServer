@@ -411,7 +411,7 @@ namespace RapportinoServer.Pages.Reports
             // 🔥 GARANTE que o SignaturePad está inicializado ANTES de capturar as assinaturas
             await JS.InvokeVoidAsync("signaturePadInterop.init");
 
-            using var saveCts = new CancellationTokenSource(TimeSpan.FromSeconds(40));
+            using var saveCts = new CancellationTokenSource(TimeSpan.FromSeconds(60));
 
             try
             {
@@ -421,7 +421,7 @@ namespace RapportinoServer.Pages.Reports
 
                 try
                 {
-                    // 🔥 Timeout aumentado para evitar TaskCanceledException
+                    // Timeout aumentado para evitar TaskCanceledException
                     using var jsCts = new CancellationTokenSource(TimeSpan.FromSeconds(120));
 
                     var clientSig = await JS.InvokeAsync<string>(

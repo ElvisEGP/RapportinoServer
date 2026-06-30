@@ -69,7 +69,6 @@
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/scopedcss/bundle/RapportinoServer.styles.css
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/scopedcss/projectbundle/RapportinoServer.bundle.scp.css
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/d8qk1ivjmr-{0}-py2rm8ny0w-py2rm8ny0w.gz
-/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/ngaxmuvery-{0}-0ucv3i0vgd-0ucv3i0vgd.gz
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/b4swnj981r-{0}-abdmv1u4y3-abdmv1u4y3.gz
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/drbtis5erm-{0}-ne14ti1q68-ne14ti1q68.gz
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/puac7qrmye-{0}-ig5xotzpx5-ig5xotzpx5.gz
@@ -102,3 +101,4 @@
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/scopedcss/Pages/Services/EditTypeService.razor.rz.scp.css
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/u2p4k7z20m-{0}-ph1ptdr8y0-ph1ptdr8y0.gz
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/tm7c2jv13h-{0}-ph1ptdr8y0-ph1ptdr8y0.gz
+/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/ngaxmuvery-{0}-oy04xodlxe-oy04xodlxe.gz

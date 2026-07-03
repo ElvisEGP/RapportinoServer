@@ -1684,21 +1684,6 @@ button.btn.btn--danger.btn--small[b-za2vpl3trc] {
     width: 90px;
 }
 
-/* ---------- SIGNATURE BOX ---------- */
-.signature-box[b-za2vpl3trc] {
-    background: #fff;
-    border: 1px solid #d1d3e2;
-    border-radius: 12px;
-    padding: 1rem;
-}
-
-.signature-box__canvas[b-za2vpl3trc] {
-    width: 100%;
-    height: 200px;
-    border-radius: 12px;
-    border: 1px solid #d1d3e2;
-}
-
 /* ---------- TEXT HELPERS ---------- */
 .text--success[b-za2vpl3trc] {
     color: #38a169;

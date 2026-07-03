@@ -101,4 +101,4 @@
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/scopedcss/Pages/Services/EditTypeService.razor.rz.scp.css
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/u2p4k7z20m-{0}-ph1ptdr8y0-ph1ptdr8y0.gz
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/tm7c2jv13h-{0}-ph1ptdr8y0-ph1ptdr8y0.gz
-/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/ngaxmuvery-{0}-oy04xodlxe-oy04xodlxe.gz
+/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/ngaxmuvery-{0}-uwm0x4ul00-uwm0x4ul00.gz

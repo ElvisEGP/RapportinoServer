@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.Extensions.Logging;
-using Microsoft.JSInterop;
 using RapportinoServer.Data.Repositories;
 using RapportinoServer.Models;
 
@@ -21,7 +20,6 @@ namespace RapportinoServer.Pages.Reports
         [Inject] protected TypeServiceRepository RepoService { get; set; } = default!;
         [Inject] protected NavigationManager Nav { get; set; } = default!;
         [Inject] protected ILogger<NewReportPageBase> Logger { get; set; } = default!;
-        [Inject] protected IJSRuntime JS { get; set; } = default!;
 
         protected Report Report { get; set; } = new();
         protected EditContext EditContext { get; set; } = default!;
@@ -72,7 +70,6 @@ namespace RapportinoServer.Pages.Reports
                     .OrderBy(s => s);
 
         private CancellationTokenSource? _cts;
-        private bool _signaturePadInitialized;
 
         protected override async Task OnInitializedAsync()
         {
@@ -81,24 +78,6 @@ namespace RapportinoServer.Pages.Reports
             EnsureLogHelpers();
 
             await LoadDataAsync().ConfigureAwait(false);
-        }
-
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            if (firstRender && !_signaturePadInitialized)
-            {
-                try
-                {
-                    await JS.InvokeVoidAsync("signaturePadInterop.init");
-                    _signaturePadInitialized = true;
-                }
-                catch (Exception ex)
-                {
-                    Logger.LogError(ex, "Errore inizializzazione firme");
-                    SaveError = "Errore durante l'inizializzazione delle firme.";
-                    await InvokeAsync(StateHasChanged);
-                }
-            }
         }
 
         private static Report CreateEmptyReport()
@@ -266,9 +245,8 @@ namespace RapportinoServer.Pages.Reports
                 return;
             }
 
-            // Busca a máquina com esse serial
-            var machine = Machines.FirstOrDefault(m => 
-                m.ClientId == SelectedClient?.Id && 
+            var machine = Machines.FirstOrDefault(m =>
+                m.ClientId == SelectedClient?.Id &&
                 m.Serial == SelectedSerial);
 
             if (machine is not null)
@@ -355,51 +333,6 @@ namespace RapportinoServer.Pages.Reports
             Report.WorkLogs[index].WorkedTime = new TimeSpan(logHours[index], logMinutes[index], 0);
         }
 
-        protected async Task ClearClientSignature()
-        {
-            try
-            {
-                await JS.InvokeVoidAsync("signaturePadInterop.clearClient");
-            }
-            catch (Exception ex)
-            {
-                Logger.LogError(ex, "Errore cancellazione firma cliente");
-            }
-        }
-
-        protected async Task ClearTechSignature()
-        {
-            try
-            {
-                await JS.InvokeVoidAsync("signaturePadInterop.clearTech");
-            }
-            catch (Exception ex)
-            {
-                Logger.LogError(ex, "Errore cancellazione firma tecnico");
-            }
-        }
-
-        private void EnsureLogHelpers()
-        {
-            while (logHours.Count < Report.WorkLogs.Count)
-                logHours.Add(0);
-
-            while (logMinutes.Count < Report.WorkLogs.Count)
-                logMinutes.Add(0);
-
-            if (logHours.Count > Report.WorkLogs.Count)
-                logHours.RemoveRange(Report.WorkLogs.Count, logHours.Count - Report.WorkLogs.Count);
-
-            if (logMinutes.Count > Report.WorkLogs.Count)
-                logMinutes.RemoveRange(Report.WorkLogs.Count, logMinutes.Count - Report.WorkLogs.Count);
-
-            for (var i = 0; i < Report.WorkLogs.Count; i++)
-            {
-                logHours[i] = Report.WorkLogs[i].WorkedTime.Hours;
-                logMinutes[i] = Report.WorkLogs[i].WorkedTime.Minutes;
-            }
-        }
-
         protected async Task HandleValidSubmit()
         {
             if (IsSaving)
@@ -408,42 +341,12 @@ namespace RapportinoServer.Pages.Reports
             IsSaving = true;
             SaveError = null;
 
-            // 🔥 GARANTE que o SignaturePad está inicializado ANTES de capturar as assinaturas
-            await JS.InvokeVoidAsync("signaturePadInterop.init");
-
             using var saveCts = new CancellationTokenSource(TimeSpan.FromSeconds(60));
 
             try
             {
-                // Atualiza horas/minutos
                 for (var i = 0; i < Report.WorkLogs.Count; i++)
                     UpdateWorkLogTime(i);
-
-                try
-                {
-                    // Timeout aumentado para evitar TaskCanceledException
-                    using var jsCts = new CancellationTokenSource(TimeSpan.FromSeconds(120));
-
-                    var clientSig = await JS.InvokeAsync<string>(
-                        "signaturePadInterop.getClientSignature",
-                        jsCts.Token
-                    );
-
-                    var techSig = await JS.InvokeAsync<string>(
-                        "signaturePadInterop.getTechSignature",
-                        jsCts.Token
-                    );
-
-                    Logger.LogInformation("Firma cliente capturada: {Length} chars", clientSig?.Length ?? 0);
-                    Logger.LogInformation("Firma tecnico capturada: {Length} chars", techSig?.Length ?? 0);
-
-                    Report.ClientSignature = clientSig;
-                    Report.TechnicianSignature = techSig;
-                }
-                catch (Exception jsEx)
-                {
-                    Logger.LogWarning(jsEx, "Errore durante il recupero delle firme via JS interop.");
-                }
 
                 await RepoReport.InsertAsync(Report, saveCts.Token).ConfigureAwait(true);
 
@@ -464,6 +367,21 @@ namespace RapportinoServer.Pages.Reports
                 await InvokeAsync(StateHasChanged);
             }
         }
+        protected async Task HandleClientSignatureUpload(InputFileChangeEventArgs e)
+        {
+            var file = e.File;
+            using var ms = new MemoryStream();
+            await file.OpenReadStream().CopyToAsync(ms);
+            Report.ClientSignature = $"data:{file.ContentType};base64,{Convert.ToBase64String(ms.ToArray())}";
+        }
+
+        protected async Task HandleTechSignatureUpload(InputFileChangeEventArgs e)
+        {
+            var file = e.File;
+            using var ms = new MemoryStream();
+            await file.OpenReadStream().CopyToAsync(ms);
+            Report.TechnicianSignature = $"data:{file.ContentType};base64,{Convert.ToBase64String(ms.ToArray())}";
+        }
 
 
         protected async Task ResetForm()
@@ -481,15 +399,7 @@ namespace RapportinoServer.Pages.Reports
             logMinutes.Clear();
             EnsureLogHelpers();
 
-            try
-            {
-                await JS.InvokeVoidAsync("signaturePadInterop.clearClient");
-                await JS.InvokeVoidAsync("signaturePadInterop.clearTech");
-            }
-            catch (Exception ex)
-            {
-                Logger.LogError(ex, "Errore reset firme");
-            }
+            await Task.CompletedTask;
         }
 
         public async ValueTask DisposeAsync()

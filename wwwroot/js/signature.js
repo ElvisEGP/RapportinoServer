@@ -2,20 +2,26 @@
 let techPad = null;
 let resizeHandlerRegistered = false;
 
+document.addEventListener("DOMContentLoaded", () => {
+    window.signaturePadInterop.init();
+});
+
+window.addEventListener("load", () => {
+    window.signaturePadInterop.init();
+});
+
 /* ============================================================
    RESIZE CANVAS — SEGURO, NÃO APAGA ASSINATURA
 ============================================================ */
 function resizeCanvas(canvas, pad) {
     if (!canvas) return;
 
-    // Evita reset quando o canvas ainda não tem tamanho real
     if (canvas.offsetWidth < 10 || canvas.offsetHeight < 10) {
         return;
     }
 
     const ratio = Math.max(window.devicePixelRatio || 1, 1);
 
-    // Salva o desenho atual de forma segura
     let data = null;
     if (pad && typeof pad.toData === "function" && !pad.isEmpty()) {
         try {
@@ -31,7 +37,6 @@ function resizeCanvas(canvas, pad) {
     const context = canvas.getContext("2d");
     context.setTransform(ratio, 0, 0, ratio, 0, 0);
 
-    // Restaura o desenho de forma segura
     if (pad && data) {
         try {
             pad.fromData(data);
@@ -54,8 +59,7 @@ window.signaturePadInterop = {
         const clientCanvas = document.getElementById("signature-pad");
         const techCanvas = document.getElementById("signature-tech");
 
-        // Inicializa pad do cliente
-        if (clientCanvas) {
+        if (clientCanvas && !clientPad) {
             try {
                 clientPad = new SignaturePad(clientCanvas, {
                     backgroundColor: "rgb(255, 255, 255)",
@@ -68,8 +72,7 @@ window.signaturePadInterop = {
             }
         }
 
-        // Inicializa pad do técnico
-        if (techCanvas) {
+        if (techCanvas && !techPad) {
             try {
                 techPad = new SignaturePad(techCanvas, {
                     backgroundColor: "rgb(255, 255, 255)",
@@ -82,7 +85,6 @@ window.signaturePadInterop = {
             }
         }
 
-        // Registra resize apenas uma vez
         if (!resizeHandlerRegistered) {
             window.addEventListener("resize", () => {
                 const c1 = document.getElementById("signature-pad");
@@ -96,9 +98,6 @@ window.signaturePadInterop = {
         }
     },
 
-    /* ============================================================
-       LIMPAR ASSINATURA — SEGURO
-    ============================================================ */
     clearClient: () => {
         if (clientPad && typeof clientPad.clear === "function") {
             try {
@@ -119,9 +118,6 @@ window.signaturePadInterop = {
         }
     },
 
-    /* ============================================================
-       CAPTURAR ASSINATURA — SEGURO
-    ============================================================ */
     getClientSignature: () => {
         if (clientPad &&
             typeof clientPad.isEmpty === "function" &&
@@ -154,3 +150,21 @@ window.signaturePadInterop = {
         return "";
     }
 };
+
+/* ============================================================
+   REINICIALIZA PAD SE O BLAZOR QUEBRAR O OBJETO
+============================================================ */
+setInterval(() => {
+    const clientCanvas = document.getElementById("signature-pad");
+    const techCanvas = document.getElementById("signature-tech");
+
+    if (clientCanvas && !clientPad) {
+        console.warn("clientPad estava null — reinicializando automaticamente.");
+        window.signaturePadInterop.init();
+    }
+
+    if (techCanvas && !techPad) {
+        console.warn("techPad estava null — reinicializando automaticamente.");
+        window.signaturePadInterop.init();
+    }
+}, 500);

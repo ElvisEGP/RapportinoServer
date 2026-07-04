@@ -263,6 +263,22 @@ button.btn.btn--danger.btn--small {
 .worklog-time__select {
     width: 90px;
 }
+
+/* ---------- SIGNATURE BOX ---------- */
+.signature-box {
+    background: #fff;
+    border: 1px solid #d1d3e2;
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.signature-box__canvas {
+    width: 100%;
+    height: 200px;
+    border-radius: 12px;
+    border: 1px solid #d1d3e2;
+}
+
 /* ---------- TEXT HELPERS ---------- */
 .text--success {
     color: #38a169;

@@ -1,4 +1,6 @@
-﻿@inject IJSRuntime JS
+﻿@using Microsoft.Extensions.Logging
+@inject IJSRuntime JS
+@inject ILogger<NavMenu> Logger
 
 <header class="nav">
     <nav class="nav__container">
@@ -87,11 +89,18 @@
         AuthState.SignOut();
         Nav.NavigateTo("/login", forceLoad: false);
     }
-    protected override void OnAfterRender(bool firstRender)
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            JS.InvokeVoidAsync("initNavMenu");
+            try
+            {
+                await JS.InvokeVoidAsync("initNavMenu");
+            }
+            catch (Exception ex)
+            {
+                Logger.LogWarning(ex, "Falha ao inicializar o menu de navegação via JS interop.");
+            }
         }
     }
 }

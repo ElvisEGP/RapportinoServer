@@ -6,7 +6,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Razor Components + Blazor Server
 builder.Services.AddRazorComponents()
-    .AddInteractiveServerComponents();
+    .AddInteractiveServerComponents(options =>
+    {
+        options.DetailedErrors = true;
+    });
 
 // Repositories / DI
 builder.Services.AddScoped<ClientRepository>();
@@ -19,7 +22,11 @@ builder.Services.AddScoped<AuthStateService>();
 
 var app = builder.Build();
 
-if (!app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+else
 {
     app.UseExceptionHandler("/Error");
     app.UseHsts();

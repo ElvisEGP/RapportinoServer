@@ -57,7 +57,17 @@ namespace RapportinoServer.Pages.Reports
             finally
             {
                 IsLoading = false;
-                await InvokeAsync(StateHasChanged);
+                await InvokeAsync(() =>
+                {
+                    try
+                    {
+                        StateHasChanged();
+                    }
+                    catch
+                    {
+                        // Component may have been unloaded while the async operation was running.
+                    }
+                });
             }
         }
 
@@ -107,7 +117,17 @@ namespace RapportinoServer.Pages.Reports
             finally
             {
                 IsDeleting = false;
-                await InvokeAsync(StateHasChanged);
+                await InvokeAsync(() =>
+                {
+                    try
+                    {
+                        StateHasChanged();
+                    }
+                    catch
+                    {
+                        // Component may have been unloaded while the async operation was running.
+                    }
+                });
             }
         }
 

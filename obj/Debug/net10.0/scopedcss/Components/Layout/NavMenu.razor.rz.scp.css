@@ -5,9 +5,11 @@
     left: 0;
     width: 100%;
     height: 64px;
-    background: #111827;
     z-index: 9999;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+    background: rgb(40 40 40 / 82%);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: 0 10px 41px rgba(0, 0, 0, 0.76);
 }
 
 .nav__container[b-jnasgoe70l] {

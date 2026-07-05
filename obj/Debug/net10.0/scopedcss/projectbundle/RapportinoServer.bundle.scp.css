@@ -1,6 +1,6 @@
 /* /Components/Layout/MainLayout.razor.rz.scp.css */
-.page[b-0lwjgk58vn] {
-    padding-top: 4.5rem;
+body .page[b-0lwjgk58vn] {
+    margin-top: 75px;
 }
 /* /Components/Layout/NavMenu.razor.rz.scp.css */
 /* ===== HEADER ===== */
@@ -10,9 +10,11 @@
     left: 0;
     width: 100%;
     height: 64px;
-    background: #111827;
     z-index: 9999;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+    background: rgb(40 40 40 / 82%);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: 0 10px 41px rgba(0, 0, 0, 0.76);
 }
 
 .nav__container[b-jnasgoe70l] {
@@ -944,7 +946,6 @@ form.form[b-pm4cl44dhd] {
 /* Layout */
 /* BACKGROUND GERAL */
 .page-wrapper[b-lbmfdtjvjr] {
-    background: #f4f6f9;
     min-height: 100vh;
     padding: 2rem;
 }
@@ -1587,9 +1588,9 @@ h1.report-page__title[b-za2vpl3trc] {
 .btn--full[b-za2vpl3trc] {
     width: 35%;
 }
-button.btn.btn--danger.btn--small[b-za2vpl3trc] {
-    width: 35%;
-    display: flex;
+button.btn.btn--danger[b-za2vpl3trc] {
+    padding: .95rem 1.5rem;
+    font-size: .90rem;
 }
 
 .btn--primary[b-za2vpl3trc] {

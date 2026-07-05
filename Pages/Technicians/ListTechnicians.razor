@@ -9,7 +9,7 @@
 
     <h1 class="technicians-page__title">Tecnici</h1>
 
-</div>
+
 
 @if (IsLoading)
 {
@@ -29,7 +29,10 @@ else
         <thead>
         <tr>
             <th>Nome</th>
-            <th class="technicians-table__actions-header">Azioni</th>
+            <th>Cognome</th>
+            <th>Ruolo</th>
+            <th>User Name</th>
+            <th></th>
         </tr>
         </thead>
 
@@ -38,6 +41,9 @@ else
         {
             <tr @key="t.Id">
                 <td>@t.TechnicianName</td>
+                <td>@t.Surname</td>
+                <td>@t.Role</td>
+                <td>@t.Username</td>
 
                 <td class="technicians-table__actions">
                     <button class="btn btn--outline btn--small"
@@ -63,3 +69,4 @@ else
         </tbody>
     </table>
 }
+</div>

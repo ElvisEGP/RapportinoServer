@@ -9,3 +9,13 @@ audio, canvas, svg, form, fieldset, legend, blockquote, hr {
   box-sizing: border-box;
   font-family: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, system-ui, -apple-system, BlinkMacSystemFont;
 }
+body {
+  background-color: #f3f4f6;
+  color: #1f2937;
+  background-image: url("/images/gray-bars.jpg");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  margin: 0;
+}

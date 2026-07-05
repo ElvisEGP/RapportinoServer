@@ -167,9 +167,9 @@ h1.report-page__title {
 .btn--full {
     width: 35%;
 }
-button.btn.btn--danger.btn--small {
-    width: 35%;
-    display: flex;
+button.btn.btn--danger {
+    padding: .95rem 1.5rem;
+    font-size: .90rem;
 }
 
 .btn--primary {

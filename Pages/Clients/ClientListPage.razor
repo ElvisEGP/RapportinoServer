@@ -9,11 +9,7 @@
 
     <h1 class="clients-page__title">Clienti</h1>
 
-    <InputText class="form__input clients-page__search"
-               @bind-Value="SearchTerm"
-               @bind-Value:event="oninput" />
-</div>
-
+    
 @if (IsLoading)
 {
     <p class="clients-page__loading">Caricamento...</p>
@@ -28,19 +24,12 @@ else if (Clients is null || !Clients.Any())
 }
 else
 {
-    <div class="clients-page__search-wrapper">
-        <InputText class="form__input clients-page__search"
-                   @bind-Value="SearchTerm"
-                   @bind-Value:event="oninput"
-                   placeholder="Cerca cliente..." />
-    </div>
-
     <table class="clients-table">
         <thead>
         <tr>
             <th>Ragione Sociale</th>
             <th>Città</th>
-            <th class="azioni">Azioni</th>
+            <th class="azioni"></th>
         </tr>
         </thead>
         <tbody>
@@ -59,3 +48,4 @@ else
         </tbody>
     </table>
 }
+</div>

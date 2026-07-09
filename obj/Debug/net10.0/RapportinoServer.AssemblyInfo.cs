@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RapportinoServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f4e9079e8fa2d2317def8b1b1ef13588a9006a05")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b7b315acc1b001eda70ffe838447088aac227c56")]
 [assembly: System.Reflection.AssemblyProductAttribute("RapportinoServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RapportinoServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

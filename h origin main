@@ -1,0 +1,131 @@
+[33mcommit b7b315acc1b001eda70ffe838447088aac227c56[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mrapportino-linux[m[33m, [m[1;31morigin/rapportino-linux[m[33m)[m
+Author: ElvisEGP <elvis.egp@outlook.com>
+Date:   Thu Jul 9 22:19:23 2026 +0200
+
+    removed signaturepad
+
+[33mcommit f4e9079e8fa2d2317def8b1b1ef13588a9006a05[m
+Author: ElvisEGP <elvis.egp@outlook.com>
+Date:   Thu Jul 9 22:14:02 2026 +0200
+
+    removed signaturepad
+
+[33mcommit b48c9b1947542c683c5dc8c024c167da852f000b[m
+Author: ElvisEGP <elvis.egp@outlook.com>
+Date:   Sun Jul 5 20:31:43 2026 +0200
+
+    Fixbug files .razor, css, buttons, field search removed because is not work
+
+[33mcommit 9fe05c26b7824b3bf1349849efb36f3a58bdb11b[m
+Author: ElvisEGP <elvis.egp@outlook.com>
+Date:   Sat Jul 4 10:32:53 2026 +0200
+
+    Fix bugs from the signature.js, download a PDF Raport and erros from main.razor
+
+[33mcommit 7e288137c4ae99f23c5ee2b3790474b7104ab98c[m
+Author: ElvisEGP <elvis.egp@outlook.com>
+Date:   Fri Jul 3 22:40:57 2026 +0200
+
+    delete Js signature
+
+[33mcommit 46c401961afbf3dd8481cd45bb3c428c034fdea5[m
+Author: ElvisEGP <elvis.egp@outlook.com>
+Date:   Tue Jun 30 22:54:56 2026 +0200
+
+    Try make js signature work, results problems now
+
+[33mcommit c572722519dffb1f23874d6757b16098c055ab2f[m
+Author: ElvisEGP <elvis.egp@outlook.com>
+Date:   Sun Jun 28 18:00:03 2026 +0200
+
+    Problems with assignature for clients, do not save in the database
+
+[33mcommit 8083214a6f21f665a5321ab295281234635dc8cd[m
+Author: ElvisEGP <elvis.egp@outlook.com>
+Date:   Fri Jun 26 18:37:08 2026 +0200
+
+    css, html and some code
+
+[33mcommit d340b12186770498ae59545380620ddc65c9226a[m
+Author: ElvisEGP <elvis.egp@outlook.com>
+Date:   Wed Jun 24 22:41:58 2026 +0200
+
+    css, html, and codice
+
+[33mcommit 20eb5c73c84c787582ce65ed121dc0ca7241d0f7[m
+Author: ElvisEGP <elvis.egp@outlook.com>
+Date:   Tue Jun 23 22:17:54 2026 +0200
+
+    New Css for New Clients and for List Reports
+
+[33mcommit 0f7c9f80a900a00ec484047e4a52ce62bfde5157[m
+Author: ElvisEGP <elvis.egp@outlook.com>
+Date:   Mon Jun 22 22:39:20 2026 +0200
+
+    css, NewClient
+
+[33mcommit b6f12f68e3f3fdc3ff4c8ad1c6019e32c512a79e[m
+Author: ElvisEGP <elvis.egp@outlook.com>
+Date:   Thu Jun 18 22:21:05 2026 +0200
+
+    menu, dashboard, hours of tecnic
+
+[33mcommit 606c91ba21b57b447b2f00e8d7ec692923e03100[m
+Author: ElvisEGP <elvis.egp@outlook.com>
+Date:   Wed Jun 17 22:41:12 2026 +0200
+
+    menu style, css, html, razor
+
+[33mcommit 67a23a7613d9d0e5374ca19d8143d275128b9b4c[m
+Author: ElvisEGP <elvis.egp@outlook.com>
+Date:   Tue Jun 16 22:23:16 2026 +0200
+
+    update login, start css of menu
+
+[33mcommit 5a5ea25ef2f29a72f591a86a769db134d2ab4b40[m
+Author: ElvisEGP <elvis.egp@outlook.com>
+Date:   Mon Jun 15 22:19:49 2026 +0200
+
+    update login, css and layout
+
+[33mcommit f9008ecff5b188f6005f35d6e34a714be99d30b3[m
+Author: antracito <antracito@antracito.Antracito>
+Date:   Sun Jun 14 11:52:24 2026 +0200
+
+    ajusts of css and html
+
+[33mcommit 281cd90855e79d1511305ae3de6d9db856967e3e[m
+Author: Elvis <elvis.egp@outlook.com>
+Date:   Fri Jun 12 22:02:36 2026 +0200
+
+    Update README.md
+    
+    🇮🇹 Descrizione (Italiano)
+    Backend in sviluppo per la gestione dei rapportini, attività lavorative e flussi operativi. Progettato per offrire API modulari, sicure e facilmente integrabili con applicazioni client.
+    
+    🇬🇧 Description (English)
+    Backend under development for managing work reports, daily activities, and operational workflows. Designed to provide modular, secure, and easily integrable APIs for client applications.
+
+[33mcommit 75deda13de5db3cb2ed39e8a9564f32b009d0265[m
+Author: Elvis <elvis.egp@outlook.com>
+Date:   Fri Jun 12 21:59:55 2026 +0200
+
+    Create README.md
+    
+    🇮🇹 Descrizione (Italiano)
+    Backend in sviluppo per la gestione dei rapportini, attività lavorative e flussi operativi. Progettato per offrire API modulari, sicure e facilmente integrabili con applicazioni client.
+    
+    🇬🇧 Description (English)
+    Backend under development for managing work reports, daily activities, and operational workflows. Designed to provide modular, secure, and easily integrable APIs for client applications.
+
+[33mcommit 012ce4c90a1723f1cbd3153086135c9a9745fee7[m
+Author: Elvis <elvis.egp@outlook.com>
+Date:   Fri Jun 12 21:46:33 2026 +0200
+
+    Create dotnet.yml
+
+[33mcommit b28d2c8a191b7f9ae96b697230defa44b59fd485[m
+Author: Elvis Goncalves Pereira <elvis.egp@outlook.com>
+Date:   Fri Jun 12 21:22:24 2026 +0200
+
+    Primeiro commit limpo

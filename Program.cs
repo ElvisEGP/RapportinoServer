@@ -20,6 +20,10 @@ builder.Services.AddScoped<TechnicianRepository>();
 builder.Services.AddScoped<DashboardRepository>();
 builder.Services.AddScoped<AuthStateService>();
 
+builder.Services.AddMemoryCache();
+builder.Services.AddScoped<OtpService>();
+
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

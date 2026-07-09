@@ -72,7 +72,6 @@ namespace RapportinoServer.Pages.Reports
                     .OrderBy(s => s);
 
         private CancellationTokenSource? _cts;
-        private bool _signaturePadInitialized;
 
         protected override async Task OnInitializedAsync()
         {
@@ -81,34 +80,6 @@ namespace RapportinoServer.Pages.Reports
             EnsureLogHelpers();
 
             await LoadDataAsync().ConfigureAwait(false);
-        }
-
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            if (firstRender && !_signaturePadInitialized)
-            {
-                try
-                {
-                    await JS.InvokeVoidAsync("signaturePadInterop.init");
-                    _signaturePadInitialized = true;
-                }
-                catch (Exception ex)
-                {
-                    Logger.LogError(ex, "Errore inizializzazione firme");
-                    SaveError = "Errore durante l'inizializzazione delle firme.";
-                    await InvokeAsync(() =>
-                    {
-                        try
-                        {
-                            StateHasChanged();
-                        }
-                        catch
-                        {
-                            // Component may have been unloaded while the async operation was running.
-                        }
-                    });
-                }
-            }
         }
 
         private static Report CreateEmptyReport()
@@ -365,30 +336,6 @@ namespace RapportinoServer.Pages.Reports
             Report.WorkLogs[index].WorkedTime = new TimeSpan(logHours[index], logMinutes[index], 0);
         }
 
-        protected async Task ClearClientSignature()
-        {
-            try
-            {
-                await JS.InvokeVoidAsync("signaturePadInterop.clearClient");
-            }
-            catch (Exception ex)
-            {
-                Logger.LogError(ex, "Errore cancellazione firma cliente");
-            }
-        }
-
-        protected async Task ClearTechSignature()
-        {
-            try
-            {
-                await JS.InvokeVoidAsync("signaturePadInterop.clearTech");
-            }
-            catch (Exception ex)
-            {
-                Logger.LogError(ex, "Errore cancellazione firma tecnico");
-            }
-        }
-
         private void EnsureLogHelpers()
         {
             while (logHours.Count < Report.WorkLogs.Count)
@@ -418,9 +365,6 @@ namespace RapportinoServer.Pages.Reports
             IsSaving = true;
             SaveError = null;
 
-            // 🔥 GARANTE que o SignaturePad está inicializado ANTES de capturar as assinaturas
-            await JS.InvokeVoidAsync("signaturePadInterop.init");
-
             using var saveCts = new CancellationTokenSource(TimeSpan.FromSeconds(60));
 
             try
@@ -428,32 +372,6 @@ namespace RapportinoServer.Pages.Reports
                 // Atualiza horas/minutos
                 for (var i = 0; i < Report.WorkLogs.Count; i++)
                     UpdateWorkLogTime(i);
-
-                try
-                {
-                    // Timeout aumentado para evitar TaskCanceledException
-                    using var jsCts = new CancellationTokenSource(TimeSpan.FromSeconds(120));
-
-                    var clientSig = await JS.InvokeAsync<string>(
-                        "signaturePadInterop.getClientSignature",
-                        jsCts.Token
-                    );
-
-                    var techSig = await JS.InvokeAsync<string>(
-                        "signaturePadInterop.getTechSignature",
-                        jsCts.Token
-                    );
-
-                    Logger.LogInformation("Firma cliente capturada: {Length} chars", clientSig?.Length ?? 0);
-                    Logger.LogInformation("Firma tecnico capturada: {Length} chars", techSig?.Length ?? 0);
-
-                    Report.ClientSignature = clientSig;
-                    Report.TechnicianSignature = techSig;
-                }
-                catch (Exception jsEx)
-                {
-                    Logger.LogWarning(jsEx, "Errore durante il recupero delle firme via JS interop.");
-                }
 
                 await RepoReport.InsertAsync(Report, saveCts.Token).ConfigureAwait(true);
 
@@ -500,16 +418,7 @@ namespace RapportinoServer.Pages.Reports
             logHours.Clear();
             logMinutes.Clear();
             EnsureLogHelpers();
-
-            try
-            {
-                await JS.InvokeVoidAsync("signaturePadInterop.clearClient");
-                await JS.InvokeVoidAsync("signaturePadInterop.clearTech");
-            }
-            catch (Exception ex)
-            {
-                Logger.LogError(ex, "Errore reset firme");
-            }
+            await Task.CompletedTask;
         }
 
         public async ValueTask DisposeAsync()

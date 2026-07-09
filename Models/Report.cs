@@ -53,10 +53,6 @@ namespace RapportinoServer.Models
         public string? ChangedMaterial { get; set; }
         public string? OrderedMaterial { get; set; }
 
-        // Assuntos de assinatura e contato
-        public string? ClientSignature { get; set; }
-        public string? TechnicianSignature { get; set; }
-
         [Required]
         [EmailAddress]
         [MaxLength(200)]

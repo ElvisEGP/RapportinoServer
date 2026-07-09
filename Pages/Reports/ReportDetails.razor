@@ -145,32 +145,5 @@ else
             </tbody>
         </table>
 
-        <!-- FIRME -->
-        <div class="signatures">
-            <div class="signature">
-                @if (!string.IsNullOrWhiteSpace(Report.ClientSignature))
-                {
-                    <img src="@Report.ClientSignature" class="signature__image" alt="Firma Cliente" />
-                }
-                else
-                {
-                    <div class="signature__placeholder">(Nessuna firma cliente)</div>
-                }
-                <div class="signature__label">Firma Cliente</div>
-            </div>
-
-            <div class="signature">
-                @if (!string.IsNullOrWhiteSpace(Report.TechnicianSignature))
-                {
-                    <img src="@Report.TechnicianSignature" class="signature__image" alt="Firma Tecnico" />
-                }
-                else
-                {
-                    <div class="signature__placeholder">(Nessuna firma tecnico)</div>
-                }
-                <div class="signature__label">Firma Tecnico</div>
-            </div>
-        </div>
-
     </div>
 }

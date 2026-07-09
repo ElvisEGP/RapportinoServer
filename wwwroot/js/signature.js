@@ -1,170 +1,109 @@
-﻿let clientPad = null;
-let techPad = null;
-let resizeHandlerRegistered = false;
+﻿window.signaturePadInterop = (function () {
+    const pads = {};
 
-document.addEventListener("DOMContentLoaded", () => {
-    window.signaturePadInterop.init();
-});
+    function resizeCanvas(canvas, pad) {
+        if (!canvas) return;
 
-window.addEventListener("load", () => {
-    window.signaturePadInterop.init();
-});
+        const width = canvas.offsetWidth;
+        const height = canvas.offsetHeight;
 
-/* ============================================================
-   RESIZE CANVAS — SEGURO, NÃO APAGA ASSINATURA
-============================================================ */
-function resizeCanvas(canvas, pad) {
-    if (!canvas) return;
+        if (width < 10 || height < 10) return;
 
-    if (canvas.offsetWidth < 10 || canvas.offsetHeight < 10) {
-        return;
-    }
+        const ratio = Math.max(window.devicePixelRatio || 1, 1);
 
-    const ratio = Math.max(window.devicePixelRatio || 1, 1);
-
-    let data = null;
-    if (pad && typeof pad.toData === "function" && !pad.isEmpty()) {
-        try {
-            data = pad.toData();
-        } catch (e) {
-            console.error("Erro ao salvar dados da assinatura:", e);
-        }
-    }
-
-    canvas.width = canvas.offsetWidth * ratio;
-    canvas.height = canvas.offsetHeight * ratio;
-
-    const context = canvas.getContext("2d");
-    context.setTransform(ratio, 0, 0, ratio, 0, 0);
-
-    if (pad && data) {
-        try {
-            pad.fromData(data);
-        } catch (e) {
-            console.error("Erro ao restaurar assinatura:", e);
-        }
-    }
-}
-
-/* ============================================================
-   SIGNATURE PAD INTEROP — SEGURO E ESTÁVEL
-============================================================ */
-window.signaturePadInterop = {
-    init: function () {
-        if (typeof SignaturePad === "undefined") {
-            console.error("SignaturePad non è stato caricato.");
-            return;
-        }
-
-        const clientCanvas = document.getElementById("signature-pad");
-        const techCanvas = document.getElementById("signature-tech");
-
-        if (clientCanvas && !clientPad) {
+        let data = null;
+        if (pad && typeof pad.toData === "function" && !pad.isEmpty()) {
             try {
-                clientPad = new SignaturePad(clientCanvas, {
+                data = pad.toData();
+            } catch (e) {
+                console.error("Erro ao salvar assinatura antes do resize:", e);
+            }
+        }
+
+        canvas.width = width * ratio;
+        canvas.height = height * ratio;
+
+        const context = canvas.getContext("2d");
+        if (context) {
+            context.setTransform(ratio, 0, 0, ratio, 0, 0);
+        }
+
+        if (pad && data) {
+            try {
+                pad.fromData(data);
+            } catch (e) {
+                console.error("Erro ao restaurar assinatura após resize:", e);
+            }
+        }
+    }
+
+    return {
+        init: function (canvasId) {
+            if (typeof SignaturePad === "undefined") {
+                console.error("SignaturePad não foi carregado.");
+                return;
+            }
+
+            const canvas = document.getElementById(canvasId);
+            if (!canvas) {
+                console.error("Canvas não encontrado:", canvasId);
+                return;
+            }
+
+            if (pads[canvasId]) {
+                return;
+            }
+
+            try {
+                const pad = new SignaturePad(canvas, {
                     backgroundColor: "rgb(255, 255, 255)",
                     penColor: "rgb(0, 0, 0)"
                 });
-                resizeCanvas(clientCanvas, clientPad);
-            } catch (e) {
-                console.error("Erro ao inicializzare clientPad:", e);
-                clientPad = null;
-            }
-        }
 
-        if (techCanvas && !techPad) {
-            try {
-                techPad = new SignaturePad(techCanvas, {
-                    backgroundColor: "rgb(255, 255, 255)",
-                    penColor: "rgb(0, 0, 0)"
+                pads[canvasId] = pad;
+                resizeCanvas(canvas, pad);
+
+                window.addEventListener("resize", () => {
+                    const c = document.getElementById(canvasId);
+                    if (c && pads[canvasId]) {
+                        resizeCanvas(c, pads[canvasId]);
+                    }
                 });
-                resizeCanvas(techCanvas, techPad);
             } catch (e) {
-                console.error("Erro ao inicializzare techPad:", e);
-                techPad = null;
+                console.error("Erro ao inicializar SignaturePad:", e);
             }
-        }
+        },
 
-        if (!resizeHandlerRegistered) {
-            window.addEventListener("resize", () => {
-                const c1 = document.getElementById("signature-pad");
-                const c2 = document.getElementById("signature-tech");
-
-                if (c1) resizeCanvas(c1, clientPad);
-                if (c2) resizeCanvas(c2, techPad);
-            });
-
-            resizeHandlerRegistered = true;
-        }
-    },
-
-    clearClient: () => {
-        if (clientPad && typeof clientPad.clear === "function") {
-            try {
-                clientPad.clear();
-            } catch (e) {
-                console.error("Erro ao limpar clientPad:", e);
+        clear: function (canvasId) {
+            const pad = pads[canvasId];
+            if (pad && typeof pad.clear === "function") {
+                try {
+                    pad.clear();
+                } catch (e) {
+                    console.error("Erro ao limpar assinatura:", e);
+                }
             }
-        }
-    },
+        },
 
-    clearTech: () => {
-        if (techPad && typeof techPad.clear === "function") {
-            try {
-                techPad.clear();
-            } catch (e) {
-                console.error("Erro ao limpar techPad:", e);
+        getSignature: function (canvasId) {
+            const pad = pads[canvasId];
+            if (pad &&
+                typeof pad.isEmpty === "function" &&
+                typeof pad.toDataURL === "function" &&
+                !pad.isEmpty()) {
+                try {
+                    return pad.toDataURL("image/png");
+                } catch (e) {
+                    console.error("Erro ao gerar assinatura:", e);
+                    return "";
+                }
             }
+
+            return "";
+        },
+
+        reset: function (canvasId) {
+            delete pads[canvasId];
         }
-    },
-
-    getClientSignature: () => {
-        if (clientPad &&
-            typeof clientPad.isEmpty === "function" &&
-            typeof clientPad.toDataURL === "function" &&
-            !clientPad.isEmpty()) {
-
-            try {
-                return clientPad.toDataURL("image/png");
-            } catch (e) {
-                console.error("Erro ao gerar assinatura cliente:", e);
-                return "";
-            }
-        }
-        return "";
-    },
-
-    getTechSignature: () => {
-        if (techPad &&
-            typeof techPad.isEmpty === "function" &&
-            typeof techPad.toDataURL === "function" &&
-            !techPad.isEmpty()) {
-
-            try {
-                return techPad.toDataURL("image/png");
-            } catch (e) {
-                console.error("Erro ao gerar assinatura tecnico:", e);
-                return "";
-            }
-        }
-        return "";
-    }
-};
-
-/* ============================================================
-   REINICIALIZA PAD SE O BLAZOR QUEBRAR O OBJETO
-============================================================ */
-setInterval(() => {
-    const clientCanvas = document.getElementById("signature-pad");
-    const techCanvas = document.getElementById("signature-tech");
-
-    if (clientCanvas && !clientPad) {
-        console.warn("clientPad estava null — reinicializando automaticamente.");
-        window.signaturePadInterop.init();
-    }
-
-    if (techCanvas && !techPad) {
-        console.warn("techPad estava null — reinicializando automaticamente.");
-        window.signaturePadInterop.init();
-    }
-}, 500);
+    };
+})();

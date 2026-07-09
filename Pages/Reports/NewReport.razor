@@ -1,5 +1,7 @@
 ﻿@page "/reports/new"
 
+@using RapportinoServer.Components
+
 @using Microsoft.AspNetCore.Components.Web
 @using Microsoft.AspNetCore.Components.Forms
 @namespace RapportinoServer.Pages.Reports
@@ -226,35 +228,17 @@
             <!-- FIRMA CLIENTE -->
             <div class="form__group form__group--full">
                 <label class="form__label form__label--bold">Firma Cliente</label>
-
-                <div class="signature-box">
-                    <canvas id="signature-pad"
-                            class="signature-box__canvas"
-                            style="touch-action: none;"></canvas>
+                <div class="signature-pad">
+                    <canvas id="client-signature" class="signature-canvas"></canvas>
                 </div>
-
-                <button type="button"
-                        class="btn btn--outline btn--small"
-                        @onclick="ClearClientSignature">
-                    Cancella firma cliente
-                </button>
             </div>
 
             <!-- FIRMA TECNICO -->
             <div class="form__group form__group--full">
                 <label class="form__label form__label--bold">Firma Tecnico</label>
-
-                <div class="signature-box">
-                    <canvas id="signature-tech"
-                            class="signature-box__canvas"
-                            style="touch-action: none;"></canvas>
+                <div class="signature-pad">
+                    <canvas id="tech-signature" class="signature-canvas"></canvas>
                 </div>
-
-                <button type="button"
-                        class="btn btn--outline btn--small"
-                        @onclick="ClearTechSignature">
-                    Cancella firma tecnico
-                </button>
             </div>
 
             <!-- BOTÕES FINAIS -->

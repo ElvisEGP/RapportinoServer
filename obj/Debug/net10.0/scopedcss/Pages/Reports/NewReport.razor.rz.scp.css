@@ -279,6 +279,32 @@ button.btn.btn--danger[b-za2vpl3trc] {
     border: 1px solid #d1d3e2;
 }
 
+/* ---------- SIGNATURE PAD ---------- */
+.signature-wrapper[b-za2vpl3trc] {
+    width: 100%;
+}
+
+.signature-canvas[b-za2vpl3trc] {
+    width: 100%;
+    height: 220px;
+    display: block;
+    border: 1px solid #ccc;
+    background: #fff;
+    touch-action: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.signature-actions[b-za2vpl3trc] {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+
+
 /* ---------- TEXT HELPERS ---------- */
 .text--success[b-za2vpl3trc] {
     color: #38a169;

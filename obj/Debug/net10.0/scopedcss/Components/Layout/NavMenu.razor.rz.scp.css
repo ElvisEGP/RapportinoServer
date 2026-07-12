@@ -1,0 +1,140 @@
+/* ===== HEADER ===== */
+.nav[b-jnasgoe70l] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    z-index: 9999;
+    background: rgb(40 40 40 / 82%);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: 0 10px 41px rgba(0, 0, 0, 0.76);
+}
+
+.nav__container[b-jnasgoe70l] {
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    padding: 0 24px;
+}
+
+/* ===== MENU ===== */
+.nav__menu[b-jnasgoe70l] {
+    display: flex;
+    align-items: stretch;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__item[b-jnasgoe70l] {
+    height: 100%;
+}
+
+/* ===== LINKS (TODOS IGUAIS AO LOGOUT) ===== */
+[b-jnasgoe70l] .nav__link,
+[b-jnasgoe70l] a.nav__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 22px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #e5e7eb;
+    text-decoration: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.25s ease;
+}
+
+[b-jnasgoe70l] .nav__link:hover,
+[b-jnasgoe70l] a.nav__link:hover {
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+}
+
+/* ===== ACTIVE (NavLink do Blazor) ===== */
+[b-jnasgoe70l] .nav__link.active,
+[b-jnasgoe70l] a.nav__link.active {
+    background: #5b66eb;
+    color: #fff;
+}
+
+/* ===== LOGOUT ===== */
+[b-jnasgoe70l] .nav__link--logout {
+    width: 100%;
+}
+
+/* ===== USER ===== */
+.nav__user[b-jnasgoe70l] {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #9ca3af;
+}
+
+/* ===== MOBILE ===== */
+.nav__toggle[b-jnasgoe70l] {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.nav__toggle span[b-jnasgoe70l] {
+    width: 26px;
+    height: 3px;
+    background: #fff;
+    border-radius: 3px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Estado aberto */
+.nav__menu.open[b-jnasgoe70l] {
+    max-height: 600px; /* grande o suficiente */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+@media (max-width: 768px) {
+
+    .nav__toggle[b-jnasgoe70l] {
+        display: flex;
+    }
+
+    .nav__menu[b-jnasgoe70l] {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        background: #111827;
+        flex-direction: column;
+        display: none;
+        padding: 12px 0;
+    }
+
+    .nav__menu.open[b-jnasgoe70l] {
+        display: flex;
+    }
+
+    [b-jnasgoe70l] .nav__link,
+    [b-jnasgoe70l] a.nav__link {
+        justify-content: flex-start;
+        padding: 18px 24px;
+        height: auto;
+    }
+
+    .nav__user[b-jnasgoe70l] {
+        display: none;
+    }
+}

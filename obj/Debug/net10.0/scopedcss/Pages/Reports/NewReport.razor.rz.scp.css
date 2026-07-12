@@ -1,0 +1,315 @@
+/* ============================================
+   REPORT NEW PAGE — FORMULÁRIO MODERNO (BEM)
+   Inspirado no template + dashboard
+============================================ */
+
+h1.report-page__title[b-za2vpl3trc] {
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(202 202 202 / 55%);
+    margin-bottom: 22px;
+}
+
+/* ---------- PAGE WRAPPER ---------- */
+
+.report-page[b-za2vpl3trc] {
+    margin-top: 20px;
+    padding: 0 46px;
+}
+
+/* ---------- FORM ---------- */
+.report-form[b-za2vpl3trc] {
+    margin-top: 25px;
+}
+
+/* ---------- GRID ---------- */
+.form__grid[b-za2vpl3trc] {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+}
+
+.form__group--full[b-za2vpl3trc] { grid-column: span 12; }
+.form__group--11[b-za2vpl3trc]   { grid-column: span 11; }
+.form__group--10[b-za2vpl3trc]   { grid-column: span 10; }
+.form__group--9[b-za2vpl3trc]    { grid-column: span 9; }
+.form__group--8[b-za2vpl3trc]    { grid-column: span 8; }
+.form__group--6[b-za2vpl3trc]    { grid-column: span 6; }
+.form__group--5[b-za2vpl3trc]    { grid-column: span 5; }
+.form__group--4[b-za2vpl3trc]    { grid-column: span 4; }
+.form__group--3[b-za2vpl3trc]    { grid-column: span 3; }
+.form__group--2[b-za2vpl3trc]    { grid-column: span 2; }
+
+/* ---------- FORM GROUP ---------- */
+.form__group[b-za2vpl3trc] {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---------- LABEL ---------- */
+.form__label[b-za2vpl3trc] {
+    font-size: .9rem;
+    font-weight: 600;
+    margin-bottom: .4rem;
+    color: #141414;
+}
+
+.form__label--bold[b-za2vpl3trc] {
+    font-weight: 700;
+}
+
+/* ---------- INPUTS ---------- */
+[b-za2vpl3trc] .form__input,
+[b-za2vpl3trc] .form__textarea {
+    border: 1px solid #d1d3e2;
+    background-color: #fff;
+    display: block;
+    width: 100%;
+    padding: 11px 8px;
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    appearance: none;
+    background-clip: padding-box;
+    border-radius: 12px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+[b-za2vpl3trc] .form__input:focus,
+[b-za2vpl3trc] .form__textarea:focus {
+    border-color: #4e73df;
+    box-shadow: 0 0 0 3px rgba(78, 115, 223, .25);
+    outline: none;
+}
+
+.form__textarea[b-za2vpl3trc] {
+    resize: vertical;
+}
+
+/* ---------- DROPDOWN LIST (autocomplete cliente) ---------- */
+.dropdown-list[b-za2vpl3trc] {
+    position: absolute;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #d1d3e2;
+    border-radius: 8px;
+    margin-top: 4px;
+    max-height: 220px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+
+.dropdown-list__item[b-za2vpl3trc] {
+    padding: 10px 12px;
+    cursor: pointer;
+    font-size: .95rem;
+    transition: background .15s ease;
+}
+
+.dropdown-list__item:hover[b-za2vpl3trc] {
+    background: #eef1f6;
+}
+
+/* ---------- CHECKBOX ---------- */
+.checkbox[b-za2vpl3trc] {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+}
+
+.checkbox__input[b-za2vpl3trc] {
+    width: 20px;
+    height: 20px;
+    accent-color: #4e73df;
+}
+
+.checkbox__label[b-za2vpl3trc] {
+    font-size: 1rem;
+    color: #141414;
+}
+
+/* ---------- VALIDATION ---------- */
+.validation-message[b-za2vpl3trc] {
+    color: #e52d27;
+    font-size: .8rem;
+    margin-top: .25rem;
+}
+
+/* ---------- ALERTS ---------- */
+.alert[b-za2vpl3trc] {
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: .9rem;
+}
+
+.alert--error[b-za2vpl3trc] {
+    background: #ffe5e5;
+    color: #b30000;
+    border: 1px solid #ffb3b3;
+}
+
+/* ---------- BUTTONS ---------- */
+.btn[b-za2vpl3trc] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .95rem 1.3rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    margin: .5rem 0;
+    transition: background .2s ease, border-color .2s ease;
+}
+
+.btn--full[b-za2vpl3trc] {
+    width: 35%;
+}
+button.btn.btn--danger[b-za2vpl3trc] {
+    padding: .95rem 1.5rem;
+    font-size: .90rem;
+}
+
+.btn--primary[b-za2vpl3trc] {
+    background: #4e73df;
+    color: #fff;
+}
+.btn--primary:hover:not([disabled])[b-za2vpl3trc] {
+    background: #3c5ec4;
+}
+
+.btn--secondary[b-za2vpl3trc] {
+    background: #e2e6ea;
+    color: #333;
+}
+.btn--secondary:hover:not([disabled])[b-za2vpl3trc] {
+    background: #d6dadd;
+}
+
+.btn--outline[b-za2vpl3trc] {
+    background: transparent;
+    border: 1px solid #4e73df;
+    color: #4e73df;
+}
+.btn--outline:hover:not([disabled])[b-za2vpl3trc] {
+    background: rgba(78, 115, 223, .1);
+}
+
+.btn--danger[b-za2vpl3trc] {
+    background: #e52d27;
+    color: #fff;
+    margin-top: 23px;
+}
+.btn--danger:hover:not([disabled])[b-za2vpl3trc] {
+    background: #b31217;
+}
+
+.btn--small[b-za2vpl3trc] {
+    padding: .8rem .8rem;
+    font-size: .9rem;
+    width: auto;
+}
+.add--line[b-za2vpl3trc] {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+[b-za2vpl3trc].group--buttons {
+    text-align: right;
+    align-items: end;
+}
+/* ---------- LOADER ---------- */
+.loader[b-za2vpl3trc] {
+    width: 18px;
+    height: 18px;
+    border: 3px solid #ddd;
+    border-top-color: #4e73df;
+    border-radius: 50%;
+    animation: spin-b-za2vpl3trc .7s linear infinite;
+}
+
+.loader--small[b-za2vpl3trc] {
+    width: 14px;
+    height: 14px;
+    border-width: 2px;
+}
+
+@keyframes spin-b-za2vpl3trc {
+    to { transform: rotate(360deg); }
+}
+
+/* ---------- WORKLOG TABLE ---------- */
+.worklog-table[b-za2vpl3trc] {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+.worklog-table th[b-za2vpl3trc],
+.worklog-table td[b-za2vpl3trc] {
+    padding: .8rem;
+    border-bottom: 1px solid #e2e2e2;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.worklog-time[b-za2vpl3trc] {
+    display: flex;
+    justify-content: center;
+    gap: .8rem;
+}
+
+.worklog-time__select[b-za2vpl3trc] {
+    width: 90px;
+}
+
+/* ---------- SIGNATURE BOX ---------- */
+.signature-box[b-za2vpl3trc] {
+    background: #fff;
+    border: 1px solid #d1d3e2;
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.signature-box__canvas[b-za2vpl3trc] {
+    width: 100%;
+    height: 200px;
+    border-radius: 12px;
+    border: 1px solid #d1d3e2;
+}
+
+/* ---------- SIGNATURE PAD ---------- */
+.signature-wrapper[b-za2vpl3trc] {
+    width: 100%;
+}
+
+.signature-canvas[b-za2vpl3trc] {
+    width: 100%;
+    height: 220px;
+    display: block;
+    border: 1px solid #ccc;
+    background: #fff;
+    touch-action: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.signature-actions[b-za2vpl3trc] {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+
+
+/* ---------- TEXT HELPERS ---------- */
+.text--success[b-za2vpl3trc] {
+    color: #38a169;
+}
+
+.text--danger[b-za2vpl3trc] {
+    color: #e52d27;
+}

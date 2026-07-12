@@ -68,7 +68,8 @@ else
         <!-- HEADER -->
         <div class="report__header">
             <h1 class="report__title">Rapportino di Intervento</h1>
-
+            <p class="text--success">
+            </p>
             <div class="report__meta">
                 <div><strong>N°:</strong> #@Report.Id</div>
                 <div><strong>Data:</strong> @Report.Data.ToString("dd/MM/yyyy")</div>
@@ -129,21 +130,39 @@ else
 
         <table class="worklog-table">
             <thead>
-                <tr>
-                    <th>Data</th>
-                    <th>Tempo Impiegato</th>
-                </tr>
+            <tr>
+                <th>Data</th>
+                <th>Tempo Impiegato</th>
+            </tr>
             </thead>
             <tbody>
-                @foreach (var log in Report.WorkLogs)
-                {
-                    <tr>
-                        <td>@log.WorkedDate.ToString("dd/MM/yyyy")</td>
-                        <td>@log.WorkedTime.ToString(@"hh\:mm")</td>
-                    </tr>
-                }
+            @foreach (var log in Report.WorkLogs)
+            {
+                <tr>
+                    <td>@log.WorkedDate.ToString("dd/MM/yyyy")</td>
+                    <td>@log.WorkedTime.ToString(@"hh\:mm")</td>
+                </tr>
+            }
             </tbody>
         </table>
+        <!-- SEZIONE FIRME -->
+        <!-- SEZIONE FIRME -->
+        <div class="signature-section">
+            <h3 class="signature-title">Firme</h3>
 
+            <div class="signature-row">
+                <!-- Firma Cliente -->
+                <div class="signature-column">
+                    <div class="signature-line"></div>
+                    <div class="signature-name">Azienda / Responsabile</div>
+                </div>
+
+                <!-- Firma Tecnico -->
+                <div class="signature-column">
+                    <div class="signature-line"></div>
+                    <div class="signature-name">@Report.TechnicianName</div>
+                </div>
+            </div>
+        </div>
     </div>
 }

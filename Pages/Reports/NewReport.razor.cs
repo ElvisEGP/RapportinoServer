@@ -1,11 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
-using Microsoft.Extensions.Logging;
 using Microsoft.JSInterop;
 using RapportinoServer.Data.Repositories;
 using RapportinoServer.Models;
@@ -21,7 +15,7 @@ namespace RapportinoServer.Pages.Reports
         [Inject] protected TypeServiceRepository RepoService { get; set; } = default!;
         [Inject] protected NavigationManager Nav { get; set; } = default!;
         [Inject] protected ILogger<NewReportPageBase> Logger { get; set; } = default!;
-        [Inject] protected IJSRuntime JS { get; set; } = default!;
+        [Inject] protected IJSRuntime Js { get; set; } = default!;
 
         protected Report Report { get; set; } = new();
         protected EditContext EditContext { get; set; } = default!;

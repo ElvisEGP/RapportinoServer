@@ -15,19 +15,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e798e2ca-a91a-4de9-b22d-b1bc7b6a836b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RapportinoServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RapportinoServer/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/App.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Components/App.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/Repositories/ReportRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Repositories/ReportRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Reports/ListReports.razor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Reports/ListReports.razor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Reports/NewReport.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Reports/NewReport.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Reports/NewReport.razor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Reports/NewReport.razor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pages/Reports/ReportDetails.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Reports/ReportDetails.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pages/Reports/ReportDetails.razor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Reports/ReportDetails.razor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pages/Reports/ReportDetails.razor.css" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Reports/ReportDetails.razor.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RapportinoServer.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/RapportinoServer.sln.DotSettings.user" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net10.0/RapportinoServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net10.0/RapportinoServer.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net10.0/RapportinoServer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net10.0/RapportinoServer.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net10.0/RapportinoServer.staticwebassets.endpoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net10.0/RapportinoServer.staticwebassets.endpoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net10.0/RapportinoServer.staticwebassets.runtime.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net10.0/RapportinoServer.staticwebassets.runtime.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/compressed/ngaxmuvery-{0}-8grgobs5ap-8grgobs5ap.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/compressed/suad3f718r-{0}-tcf6aadlhd-tcf6aadlhd.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/compressed/tm7c2jv13h-{0}-iemiy7hmhi-iemiy7hmhi.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/compressed/u2p4k7z20m-{0}-iemiy7hmhi-iemiy7hmhi.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/compressed/x0vegzkoru-{0}-q8q6k9s58f-q8q6k9s58f.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/rbcswa.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/rbcswa.dswa.cache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/ref/RapportinoServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/ref/RapportinoServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/refint/RapportinoServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/refint/RapportinoServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/rjimswa.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/rjimswa.dswa.cache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/rjsmrazor.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/rjsmrazor.dswa.cache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/rpswa.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/rpswa.dswa.cache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/scopedcss/Pages/Reports/ReportDetails.razor.rz.scp.css" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/scopedcss/Pages/Reports/ReportDetails.razor.rz.scp.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/scopedcss/bundle/RapportinoServer.styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/scopedcss/bundle/RapportinoServer.styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/scopedcss/projectbundle/RapportinoServer.bundle.scp.css" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/scopedcss/projectbundle/RapportinoServer.bundle.scp.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/staticwebassets.build.endpoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/staticwebassets.build.endpoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/staticwebassets.build.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/staticwebassets.build.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/staticwebassets.build.json.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/staticwebassets.build.json.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/staticwebassets.development.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/staticwebassets.development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qodana.yaml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/wwwroot/js/signature-old.jsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/wwwroot/js/signature.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wwwroot/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/js/site.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,18 +81,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "ElvisEGP"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ElvisEGP&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/ElvisEGP/RapportinoServer.git",
-    "accountId": "0727e0be-2d15-4aa7-99de-63c3818bec1b"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ElvisEGP/RapportinoServer.git&quot;,
+    &quot;accountId&quot;: &quot;0727e0be-2d15-4aa7-99de-63c3818bec1b&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Data/Repositories/ReportRepository.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -72,62 +103,65 @@
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="3.344207106719803E-255" />
-      <entry key="MS500" value="1.2773820010188176E-51" />
-      <entry key="S2" value="2.3441224747085246E-13" />
-      <entry key="S5" value="1.274407569518392E-5" />
-      <entry key="S10" value="0.005032392228442914" />
-      <entry key="S30" value="0.3031491403977148" />
-      <entry key="S60" value="0.9208904757986589" />
-      <entry key="M2" value="1.712937108100245" />
-      <entry key="M5" value="3.3563675897903607" />
-      <entry key="M10" value="7.5862688189046725" />
-      <entry key="M15" value="11.635060440401132" />
-      <entry key="M30" value="19.099351675607597" />
-      <entry key="H1" value="24.971927312696188" />
-      <entry key="H2" value="28.672107470736805" />
-      <entry key="H4" value="30.75123153097788" />
-      <entry key="D1" value="32.61284241322077" />
-      <entry key="W1" value="32.944381117863905" />
-    </decayedCancelled>
-    <decayedSelected>
       <entry key="MS100" value="1.0" />
       <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0000000041234527" />
-      <entry key="S5" value="1.000443009777173" />
-      <entry key="S10" value="1.0216744372049602" />
-      <entry key="S30" value="1.401081458462047" />
-      <entry key="S60" value="2.0190291453415616" />
-      <entry key="M2" value="2.7151684018573667" />
-      <entry key="M5" value="3.3878475658871516" />
-      <entry key="M10" value="3.6744604485424754" />
-      <entry key="M15" value="3.778382704263956" />
-      <entry key="M30" value="3.8868254365543944" />
-      <entry key="H1" value="3.94280763270782" />
-      <entry key="H2" value="3.9712508084472256" />
-      <entry key="H4" value="3.985586932911578" />
-      <entry key="D1" value="3.9975924601911466" />
-      <entry key="W1" value="3.999655934183399" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0000000000000373" />
+      <entry key="S10" value="1.0000006625440025" />
+      <entry key="S30" value="1.0455861408507752" />
+      <entry key="S60" value="1.739400447821983" />
+      <entry key="M2" value="3.9802906287725297" />
+      <entry key="M5" value="8.085296385571125" />
+      <entry key="M10" value="12.180884421818257" />
+      <entry key="M15" value="16.30365437608684" />
+      <entry key="M30" value="27.39475567057561" />
+      <entry key="H1" value="40.27605322731768" />
+      <entry key="H2" value="50.58322309808459" />
+      <entry key="H4" value="57.180198105287296" />
+      <entry key="D1" value="63.60188350924417" />
+      <entry key="W1" value="64.79780544589076" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="5.532229455760105E-142" />
+      <entry key="S2" value="5.2567000880885464E-36" />
+      <entry key="S5" value="1.0265185017588756E-14" />
+      <entry key="S10" value="1.3923721936338464E-7" />
+      <entry key="S30" value="0.008172440399641994" />
+      <entry key="S60" value="0.12773837170031052" />
+      <entry key="M2" value="0.5057027007565741" />
+      <entry key="M5" value="1.268324877807828" />
+      <entry key="M10" value="2.5459265322634774" />
+      <entry key="M15" value="3.9241469055244442" />
+      <entry key="M30" value="6.953356957615163" />
+      <entry key="H1" value="9.726684513613034" />
+      <entry key="H2" value="11.63084798683243" />
+      <entry key="H4" value="12.750457694042819" />
+      <entry key="D1" value="13.782071277608525" />
+      <entry key="W1" value="13.968621510541077" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="6.240097492658856E-6" />
-      <entry key="MS500" value="0.09099934681244291" />
-      <entry key="S2" value="0.5492367248560949" />
-      <entry key="S5" value="0.7868918867837822" />
-      <entry key="S10" value="0.8952585019257077" />
-      <entry key="S30" value="1.514382812745271" />
-      <entry key="S60" value="2.737041350132341" />
-      <entry key="M2" value="4.266907999639315" />
-      <entry key="M5" value="6.651300994177101" />
-      <entry key="M10" value="11.20638206623147" />
-      <entry key="M15" value="15.375032160347802" />
-      <entry key="M30" value="22.965739569882054" />
-      <entry key="H1" value="28.904176709433834" />
-      <entry key="H2" value="32.63798984808174" />
-      <entry key="H4" value="34.73411132657283" />
-      <entry key="D1" value="36.60998044800007" />
-      <entry key="W1" value="36.94397205419063" />
+      <entry key="MS100" value="2.656709482715224E-5" />
+      <entry key="MS500" value="0.12158186842653569" />
+      <entry key="S2" value="0.5904963307147651" />
+      <entry key="S5" value="0.8100034736320907" />
+      <entry key="S10" value="0.9000027127225593" />
+      <entry key="S30" value="1.0188867083183435" />
+      <entry key="S60" value="1.8469224559968054" />
+      <entry key="M2" value="4.471686969462638" />
+      <entry key="M5" value="9.343162223712705" />
+      <entry key="M10" value="14.71306668215724" />
+      <entry key="M15" value="20.211074306258553" />
+      <entry key="M30" value="34.33063002870766" />
+      <entry key="H1" value="49.98958027252379" />
+      <entry key="H2" value="62.20593401152385" />
+      <entry key="H4" value="69.9261227858017" />
+      <entry key="D1" value="77.38312734935371" />
+      <entry key="W1" value="78.76630688445778" />
     </decayedShown>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -155,6 +189,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -167,14 +202,15 @@
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "copilot.chat.legacySessionMetadata.migrated": "true",
-    "git-widget-placeholder": "rapportino-linux",
+    "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "/home/antracito/.config/JetBrains/Rider2026.1/node/versions/24.18.0/bin/node",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "RiderPMCOptionsPageId",
+    "settings.editor.selected.configurable": "terminal",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
@@ -227,6 +263,8 @@
       <workItem from="1783880951377" duration="2000" />
       <workItem from="1783881200659" duration="420000" />
       <workItem from="1783881635563" duration="3407000" />
+      <workItem from="1783967521475" duration="5000" />
+      <workItem from="1783972859666" duration="2871000" />
     </task>
     <servers />
   </component>

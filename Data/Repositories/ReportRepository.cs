@@ -35,8 +35,6 @@ namespace RapportinoServer.Data.Repositories
             public string ReportDescription { get; set; } = string.Empty;
             public string? ChangedMaterial { get; set; }
             public string? OrderedMaterial { get; set; }
-            public string? ClientSignature { get; set; }
-            public string? TechnicianSignature { get; set; }
             public string Email { get; set; } = string.Empty;
             public string TechnicianName { get; set; } = string.Empty;
             public string ServiceType { get; set; } = string.Empty;
@@ -62,8 +60,6 @@ namespace RapportinoServer.Data.Repositories
                 ReportDescription = row.ReportDescription,
                 ChangedMaterial = row.ChangedMaterial,
                 OrderedMaterial = row.OrderedMaterial,
-                ClientSignature = row.ClientSignature,
-                TechnicianSignature = row.TechnicianSignature,
                 Email = row.Email,
                 TechnicianName = row.TechnicianName,
                 ServiceType = row.ServiceType,
@@ -101,8 +97,6 @@ namespace RapportinoServer.Data.Repositories
                     ReportDescription,
                     ChangedMaterial,
                     OrderedMaterial,
-                    ClientSignature,
-                    TechnicianSignature,
                     Email,
                     TechnicianName,
                     ServiceType,
@@ -173,8 +167,6 @@ namespace RapportinoServer.Data.Repositories
                     ReportDescription,
                     ChangedMaterial,
                     OrderedMaterial,
-                    ClientSignature,
-                    TechnicianSignature,
                     Email,
                     TechnicianName,
                     ServiceType,
@@ -225,8 +217,6 @@ namespace RapportinoServer.Data.Repositories
                     ReportDescription,
                     ChangedMaterial,
                     OrderedMaterial,
-                    ClientSignature,
-                    TechnicianSignature,
                     Email,
                     TechnicianName,
                     ServiceType,
@@ -240,8 +230,6 @@ namespace RapportinoServer.Data.Repositories
                     @ReportDescription,
                     @ChangedMaterial,
                     @OrderedMaterial,
-                    @ClientSignature,
-                    @TechnicianSignature,
                     @Email,
                     @TechnicianName,
                     @ServiceType,
@@ -259,8 +247,6 @@ namespace RapportinoServer.Data.Repositories
                 report.ReportDescription,
                 report.ChangedMaterial,
                 report.OrderedMaterial,
-                report.ClientSignature,
-                report.TechnicianSignature,
                 report.Email,
                 report.TechnicianName,
                 report.ServiceType,

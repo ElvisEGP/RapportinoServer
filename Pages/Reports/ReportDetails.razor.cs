@@ -1,8 +1,4 @@
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
-using Microsoft.Extensions.Logging;
 using Microsoft.JSInterop;
 using RapportinoServer.Data.Repositories;
 using RapportinoServer.Models;
@@ -13,9 +9,9 @@ namespace RapportinoServer.Pages.Reports
     {
         [Parameter] public int Id { get; set; }
 
-        [Inject] protected ReportRepository RepoReport { get; set; } = default!;
-        [Inject] protected NavigationManager Nav { get; set; } = default!;
-        [Inject] protected ILogger<DetailsReportPageBase> Logger { get; set; } = default!;
+        [Inject] protected ReportRepository RepoReport { get; set; } = null!;
+        [Inject] protected NavigationManager Nav { get; set; } = null!;
+        [Inject] protected ILogger<DetailsReportPageBase> Logger { get; set; } = null!;
 
         protected Report? Report { get; set; }
         protected Client? Client { get; set; }
@@ -24,7 +20,7 @@ namespace RapportinoServer.Pages.Reports
         protected string? DownloadError { get; set; }
         protected bool ShowDownloadModal { get; set; }
 
-        [Inject] protected ClientRepository RepoClient { get; set; } = default!;
+        [Inject] protected ClientRepository RepoClient { get; set; } = null!;
 
         private CancellationTokenSource? _cts;
 
@@ -73,12 +69,6 @@ namespace RapportinoServer.Pages.Reports
                 });
             }
         }
-
-        protected async Task PrintAsync()
-        {
-            await JS.InvokeVoidAsync("window.print");
-        }
-
         protected void ShowPdfModal()
         {
             ShowDownloadModal = true;
@@ -99,7 +89,7 @@ namespace RapportinoServer.Pages.Reports
 
             try
             {
-                await JS.InvokeVoidAsync("pdfInterop.downloadReport", Report.Id);
+                await Js.InvokeVoidAsync("pdfInterop.downloadReport", Report.Id);
             }
             catch (Exception ex)
             {
@@ -117,7 +107,7 @@ namespace RapportinoServer.Pages.Reports
             await InvokeAsync(StateHasChanged);
         }
 
-        [Inject] protected IJSRuntime JS { get; set; } = default!;
+        [Inject] protected IJSRuntime Js { get; set; } = default!;
 
         protected void Back() => Nav.NavigateTo("/reports");
 

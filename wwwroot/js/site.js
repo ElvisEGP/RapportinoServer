@@ -33,11 +33,11 @@ window.pdfInterop = {
         const reportElement = document.querySelector(".report");
 
         if (!reportElement) {
-            throw new Error("Elemento do rapportino não encontrado para exportação PDF.");
+            throw new Error("Elemento del rapportino non trovato per l'esportazione in PDF.");
         }
 
         if (typeof window.html2pdf === "undefined") {
-            throw new Error("Biblioteca html2pdf não disponível.");
+            throw new Error("Biblioteca html2pdf non disponibile.");
         }
 
         const filename = reportId ? `rapportino_${reportId}.pdf` : "rapportino.pdf";
@@ -46,7 +46,7 @@ window.pdfInterop = {
             .set({
                 margin: [0.2, 0.2, 0.2, 0.2],
                 filename,
-                image: { type: "jpeg", quality: 0.98 },
+                image: { type: "jpeg", quality: 1.00 },
                 html2canvas: { scale: 2, logging: false },
                 jsPDF: { unit: "in", format: "a4", orientation: "portrait" }
             })

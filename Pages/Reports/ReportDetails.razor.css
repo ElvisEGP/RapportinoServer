@@ -244,41 +244,6 @@
     background: #f2f2f2;
 }
 
-/* ---------- SIGNATURES ---------- */
-.signatures {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-    margin-top: 25px;
-}
-
-.signature {
-    text-align: center;
-}
-
-.signature__image {
-    max-width: 100%;
-    max-height: 100px;
-    border-bottom: 1px solid #333;
-    margin-bottom: 6px;
-}
-
-.signature__placeholder {
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 1px solid #333;
-    margin-bottom: 6px;
-    color: #999;
-    font-style: italic;
-}
-
-.signature__label {
-    font-weight: 600;
-    font-size: 13px;
-}
-
 /* ---------- PRINT MODE ---------- */
 @media print {
     .no-print,

@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.JSInterop;
 using RapportinoServer.Data.Repositories; // ajuste conforme seu namespace real
 using RapportinoServer.Models;
 
@@ -13,7 +14,9 @@ namespace RapportinoServer.Pages.Clients
         [Parameter] public int Id { get; set; }
 
         [Inject] protected ClientRepository RepoClient { get; set; } = default!;
+        [Inject] protected MachineRepository RepoMachine { get; set; } = default!;
         [Inject] protected NavigationManager Navigation { get; set; } = default!;
+        [Inject] protected IJSRuntime Js { get; set; } = default!;
 
         protected Client? Client { get; set; }
         protected EditContext EditContext { get; private set; } = default!;
@@ -125,6 +128,26 @@ namespace RapportinoServer.Pages.Clients
         }
 
         protected void GoBack() => Navigation.NavigateTo("/clients");
+
+        protected void AddMachine() => Navigation.NavigateTo($"/machines/new?clientId={Id}");
+
+        protected void EditMachine(int machineId) => Navigation.NavigateTo($"/machines/edit/{machineId}");
+
+        protected async Task DeleteMachine(int machineId)
+        {
+            if (await Js.InvokeAsync<bool>("confirm", "Eliminare questa macchina?"))
+            {
+                try
+                {
+                    await RepoMachine.DeleteAsync(machineId);
+                    await LoadClientAsync(_cts.Token);
+                }
+                catch (Exception ex)
+                {
+                    ErrorMessage = "Errore durante l'eliminazione della macchina: " + ex.Message;
+                }
+            }
+        }
 
         public void Dispose()
         {

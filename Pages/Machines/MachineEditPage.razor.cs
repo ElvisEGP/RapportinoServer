@@ -85,7 +85,7 @@ namespace RapportinoServer.Pages.Machines
             try
             {
                 await RepoMachine.UpdateAsync(Machine, cancellationToken).ConfigureAwait(false);
-                Navigation.NavigateTo("/machines");
+                Navigation.NavigateTo($"/clients/details/{Machine.ClientId}");
             }
             catch (OperationCanceledException)
             {
@@ -103,7 +103,13 @@ namespace RapportinoServer.Pages.Machines
             }
         }
 
-        protected void Cancel() => Navigation.NavigateTo("/machines");
+        protected void Cancel()
+        {
+            if (Machine != null)
+                Navigation.NavigateTo($"/clients/details/{Machine.ClientId}");
+            else
+                Navigation.NavigateTo("/machines");
+        }
 
         public void Dispose()
         {

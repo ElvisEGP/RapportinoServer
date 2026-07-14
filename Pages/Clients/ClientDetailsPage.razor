@@ -23,10 +23,10 @@
     else
     {
         <!-- HEADER -->
-        <div class="client-details__header">
-                <h1 class="client-details__title">Dettagli Cliente</h1>
+        <div class="client-details__header d-flex justify-content-between align-items-center mb-4">
+            <h1 class="client-details__title">Dettagli Cliente</h1>
+                
         </div>
-
         <!-- GRID PRINCIPAL -->
         <div class="client-details__grid">
 
@@ -56,38 +56,51 @@
                 <h3 class="info-card__title">Note</h3>
 
                 <p>@(!string.IsNullOrWhiteSpace(Client.Note)
-                    ? Client.Note
-                    : "Nessuna nota disponibile.")</p>
+                       ? Client.Note
+                       : "Nessuna nota disponibile.")</p>
             </div>
-
             <!-- MACCHINE ASSOCIATE -->
-            @if (Client.Machines?.Any() == true)
-            {
-                <div class="info-card info-card--full">
+            <div class="info-card info-card--full">
+                <div class="d-flex justify-content-between align-items-center mb-3">
                     <h3 class="info-card__title">Macchine associate</h3>
-
+                    <button class="btn btn--small btn--primary" @onclick="AddMachine">Aggiungi Macchina</button>
+                </div>
+                
+                @if (Client.Machines?.Any() == true)
+                {
                     <table class="client-machines-table">
                         <thead>
-                            <tr>
-                                <th>Modello</th>
-                                <th>Matricola</th>
-                                <th>ClientId</th>
-                            </tr>
+                        <tr>
+                            <th>Modello</th>
+                            <th>Matricola</th>
+                            <th>Azioni</th>
+                        </tr>
                         </thead>
 
                         <tbody>
-                            @foreach (var machine in Client.Machines)
-                            {
-                                <tr>
-                                    <td>@machine.Model</td>
-                                    <td>@machine.Serial</td>
-                                    <td>@machine.ClientId</td>
-                                </tr>
-                            }
+                        @foreach (var machine in Client.Machines)
+                        {
+                            <tr>
+                                <td>@machine.Model</td>
+                                <td>@machine.Serial</td>
+                                <td>
+                                    <button class="btn btn--small btn--secondary" @onclick="() => EditMachine(machine.Id)">Modifica</button>
+                                    <button class="btn btn--small btn--danger" @onclick="() => DeleteMachine(machine.Id)">Elimina</button>
+                                </td>
+                            </tr>
+                        }
                         </tbody>
                     </table>
-                </div>
-            }
+                }
+                else
+                {
+                    <p>Nessuna macchina associata a questo cliente.</p>
+                }
+            </div>
+            <div class="info-card info-card--full box--modifica--cliente">
+                <button class="btn btn--primary me-2" @onclick="EditClient">Modifica Cliente</button>
+                <button class="btn btn--secondary me-2" @onclick="BackToList">Indietro</button>
+            </div>
         </div>
     }
 </div>

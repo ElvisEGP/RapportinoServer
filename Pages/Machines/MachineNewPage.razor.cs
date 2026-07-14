@@ -13,6 +13,9 @@ namespace RapportinoServer.Pages.Machines
         [Inject] protected MachineRepository RepoMachine { get; set; } = default!;
         [Inject] protected NavigationManager Navigation { get; set; } = default!;
 
+        [SupplyParameterFromQuery]
+        public int? ClientId { get; set; }
+
         protected Machine Machine { get; set; } = new();
         protected EditContext EditContext { get; private set; } = default!;
         protected bool IsSaving { get; private set; }
@@ -22,6 +25,10 @@ namespace RapportinoServer.Pages.Machines
 
         protected override void OnInitialized()
         {
+            if (ClientId.HasValue)
+            {
+                Machine.ClientId = ClientId.Value;
+            }
             EditContext = new EditContext(Machine);
         }
 
@@ -38,7 +45,10 @@ namespace RapportinoServer.Pages.Machines
             try
             {
                 await RepoMachine.InsertAsync(Machine, cancellationToken).ConfigureAwait(false);
-                Navigation.NavigateTo("/machines");
+                if (ClientId.HasValue)
+                    Navigation.NavigateTo($"/clients/details/{ClientId.Value}");
+                else
+                    Navigation.NavigateTo("/machines");
             }
             catch (OperationCanceledException)
             {
@@ -55,7 +65,13 @@ namespace RapportinoServer.Pages.Machines
             }
         }
 
-        protected void Cancel() => Navigation.NavigateTo("/machines");
+        protected void Cancel()
+        {
+            if (ClientId.HasValue)
+                Navigation.NavigateTo($"/clients/details/{ClientId.Value}");
+            else
+                Navigation.NavigateTo("/machines");
+        }
 
         public void Dispose()
         {

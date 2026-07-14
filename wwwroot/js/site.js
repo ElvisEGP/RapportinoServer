@@ -4,9 +4,9 @@ window.initNavMenu = () => {
 
     if (!toggle || !menu) return;
 
-    // Abre/fecha ao clicar no botão
+    // Abre/fecha ao click on the button
     toggle.addEventListener("click", (e) => {
-        e.stopPropagation(); // impede fechar imediatamente
+        e.stopPropagation(); // impede close imediatamente
         menu.classList.toggle("open");
     });
 

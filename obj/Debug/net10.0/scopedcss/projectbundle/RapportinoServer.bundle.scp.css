@@ -279,6 +279,14 @@ body .page[b-0lwjgk58vn] {
     margin-bottom: 6px;
     font-size: .95rem;
 }
+.box--modifica--cliente[b-a8p8utdz8r] {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.box--modifica--cliente button[b-a8p8utdz8r] {
+    margin-right: 1%;
+}
 
 /* ---------- TABELA DE MÁQUINAS ---------- */
 .client-machines-table[b-a8p8utdz8r] {
@@ -1980,7 +1988,23 @@ button.btn.btn--danger[b-za2vpl3trc] {
 .worklog-table th[b-kmng3bzv71] {
     background: #f2f2f2;
 }
-
+.box-signature[b-kmng3bzv71] {
+    width: 100%;
+    display: flex;
+    text-align: center;
+    margin-top: 150px;
+}
+.client-signature[b-kmng3bzv71] {
+    width: 49%;
+}
+.technician-signature[b-kmng3bzv71] {
+    width: 49%;
+}
+.signature-line[b-kmng3bzv71] {
+    border-top: 2px dotted #b7b7b7;
+    margin: auto;
+    width: 60%;
+}
 /* ---------- PRINT MODE ---------- */
 @media print {
     .no-print[b-kmng3bzv71],

@@ -53,7 +53,7 @@ namespace RapportinoServer.Data.Repositories
 
         public async Task<Client?> GetByIdAsync(int id, CancellationToken ct = default)
         {
-            const string sql = @"
+            const string sqlClient = @"
                 SELECT
                     Id,
                     Data,
@@ -72,11 +72,32 @@ namespace RapportinoServer.Data.Repositories
                 WHERE Id = @Id;
             ";
 
+            const string sqlMachines = @"
+                SELECT
+                    Id,
+                    ClientId,
+                    Model,
+                    Serial
+                FROM dbo.Machines
+                WHERE ClientId = @Id;
+            ";
+
             using var conn = new SqlConnection(_connectionString);
             await conn.OpenAsync(ct).ConfigureAwait(false);
-            return await conn.QuerySingleOrDefaultAsync<Client>(
-                new CommandDefinition(sql, new { Id = id }, cancellationToken: ct)
+
+            var client = await conn.QuerySingleOrDefaultAsync<Client>(
+                new CommandDefinition(sqlClient, new { Id = id }, cancellationToken: ct)
             ).ConfigureAwait(false);
+
+            if (client != null)
+            {
+                var machines = await conn.QueryAsync<Machine>(
+                    new CommandDefinition(sqlMachines, new { Id = id }, cancellationToken: ct)
+                ).ConfigureAwait(false);
+                client.Machines = machines.AsList();
+            }
+
+            return client;
         }
 
         public async Task<int> InsertAsync(Client client, CancellationToken ct = default)

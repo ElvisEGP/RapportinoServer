@@ -116,6 +116,44 @@
             </div>
         </EditForm>
 
+        <!-- MACCHINE ASSOCIATE -->
+        <div class="info-card info-card--full mt-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3 class="info-card__title">Macchine associate</h3>
+                <button type="button" class="btn btn--small btn--primary" @onclick="AddMachine">Aggiungi Macchina</button>
+            </div>
+
+            @if (Client.Machines?.Any() == true)
+            {
+                <table class="client-machines-table">
+                    <thead>
+                        <tr>
+                            <th>Modello</th>
+                            <th>Matricola</th>
+                            <th>Azioni</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var machine in Client.Machines)
+                        {
+                            <tr @key="machine.Id">
+                                <td>@machine.Model</td>
+                                <td>@machine.Serial</td>
+                                <td>
+                                    <button type="button" class="btn btn--small btn--secondary" @onclick="() => EditMachine(machine.Id)">Modifica</button>
+                                    <button type="button" class="btn btn--small btn--danger" @onclick="() => DeleteMachine(machine.Id)">Elimina</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>Nessuna macchina associata a questo cliente.</p>
+            }
+        </div>
+
         @if (!string.IsNullOrEmpty(ErrorMessage))
         {
             <div class="alert alert--error">@ErrorMessage</div>

@@ -70,19 +70,25 @@ else
             </div>
         </div>
 
-        <!-- INFO PRINCIPAL -->
         <div class="report__info-section">
+            <div class="info-box">
+                <h3 class="info-box__title">Informazioni Cliente</h3>
+                <div class="info-row"><span class="info-label">Cliente:</span> @(string.IsNullOrWhiteSpace(Report.Client?.CompanyName) ? "Cliente non specificato" : Report.Client.CompanyName)</div>
+                <div class="info-row"><span class="info-label">Email:</span> @Report.Email</div>
+            </div>
+
             <div class="info-box">
                 <h3 class="info-box__title">Informazioni Macchina</h3>
                 <div class="info-row"><span class="info-label">Modello:</span> @Report.Model</div>
                 <div class="info-row"><span class="info-label">Seriale:</span> @Report.Serial</div>
                 <div class="info-row"><span class="info-label">Tecnico:</span> @Report.TechnicianName</div>
             </div>
+        </div>
 
+        <div class="report__info-section">
             <div class="info-box">
                 <h3 class="info-box__title">Dettagli Servizio</h3>
                 <div class="info-row"><span class="info-label">Tipo:</span> @Report.ServiceType</div>
-                <div class="info-row"><span class="info-label">Email:</span> @Report.Email</div>
             </div>
         </div>
 

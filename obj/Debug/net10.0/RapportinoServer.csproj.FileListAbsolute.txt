@@ -98,5 +98,5 @@
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/suad3f718r-{0}-rt5xal6jeh-rt5xal6jeh.gz
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/drbtis5erm-{0}-f7fxoh55ae-f7fxoh55ae.gz
 /home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/puac7qrmye-{0}-68qhiysw0j-68qhiysw0j.gz
-/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/u2p4k7z20m-{0}-jrcr0zccst-jrcr0zccst.gz
-/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/tm7c2jv13h-{0}-jrcr0zccst-jrcr0zccst.gz
+/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/u2p4k7z20m-{0}-kwzuvv7t3q-kwzuvv7t3q.gz
+/home/antracito/Desktop/Rapportino/obj/Debug/net10.0/compressed/tm7c2jv13h-{0}-kwzuvv7t3q-kwzuvv7t3q.gz

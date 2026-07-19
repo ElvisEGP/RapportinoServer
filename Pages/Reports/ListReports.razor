@@ -27,13 +27,9 @@
         <table class="reports-table">
             <thead>
                 <tr>
-                    <th>Id</th>
+                    <th>Cliente</th>
                     <th>Data</th>
-                    <th>Matricola</th>
-                    <th>Modello</th>
-                    <th>Email</th>
                     <th>Technician</th>
-                    <th></th>
                 </tr>
             </thead>
 
@@ -41,11 +37,8 @@
                 @foreach (var r in Reports)
                 {
                     <tr>
-                        <td>@r.Id</td>
+                        <td>@(string.IsNullOrWhiteSpace(r.Client?.CompanyName) ? "Cliente non specificato" : r.Client.CompanyName)</td>
                         <td>@r.Data.ToString("dd/MM/yyyy")</td>
-                        <td>@r.Serial</td>
-                        <td>@r.Model</td>
-                        <td>@r.Email</td>
                         <td>@r.TechnicianName</td>
 
                         <td class="reports-table__actions">

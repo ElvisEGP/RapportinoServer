@@ -35,6 +35,7 @@ namespace RapportinoServer.Models
     public sealed class DashboardRecentReport
     {
         public int Id { get; set; }
+        public string? ClientName { get; set; }
         public DateTime Data { get; set; }
         public string Serial { get; set; } = string.Empty;
         public string TechnicianName { get; set; } = string.Empty;

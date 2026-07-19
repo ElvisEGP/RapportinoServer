@@ -34,4 +34,6 @@ public class ReportWorkLog
             }
         }
     }
+
+    public object? Client { get; set; }
 }

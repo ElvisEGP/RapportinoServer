@@ -133,6 +133,7 @@
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
+                                        <th>Cliente</th>
                                         <th>Data</th>
                                         <th>Seriale</th>
                                         <th>Tecnico</th>
@@ -144,6 +145,7 @@
                                     @foreach (var r in Summary.RecentReports)
                                     {
                                         <tr>
+                                            <td>@(string.IsNullOrWhiteSpace(r.ClientName) ? "Cliente non specificato" : r.ClientName)</td>
                                             <td>@r.Data.ToString("dd/MM/yyyy")</td>
                                             <td>@r.Serial</td>
                                             <td>@r.TechnicianName</td>

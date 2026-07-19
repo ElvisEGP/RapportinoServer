@@ -69,6 +69,7 @@ namespace RapportinoServer.Models
         // Compatibilidade: páginas esperam ClientId / MachineId / Title
         // Adicionamos propriedades simples; ajuste conforme seu DB/schema se necessário.
         public int ClientId { get; set; }
+        public Client? Client { get; set; }
         public int? MachineId { get; set; }
 
         // Title não existia no seu modelo original — deixamos como campo livre.

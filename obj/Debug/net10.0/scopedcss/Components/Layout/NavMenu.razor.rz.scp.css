@@ -6,10 +6,10 @@
     width: 100%;
     height: 64px;
     z-index: 9999;
-    background: rgb(40 40 40 / 82%);
+    background: rgb(23 1 187 / 82%);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    box-shadow: 0 10px 41px rgba(0, 0, 0, 0.76);
+    box-shadow: 0 10px 41px rgb(0 0 0 / 44%);
 }
 
 .nav__container[b-jnasgoe70l] {

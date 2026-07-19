@@ -57,13 +57,15 @@ namespace RapportinoServer.Data.Repositories
 
             const string recentSql = @"
                 SELECT TOP 8
-                    Id,
-                    [Data],
-                    Serial,
-                    TechnicianName,
-                    ServiceType
-                FROM dbo.Report
-                ORDER BY [Data] DESC, Id DESC;
+                    r.Id,
+                    c.CompanyName AS ClientName,
+                    r.[Data],
+                    r.Serial,
+                    r.TechnicianName,
+                    r.ServiceType
+                FROM dbo.Report r
+                LEFT JOIN dbo.Client c ON r.ClientId = c.Id
+                ORDER BY r.[Data] DESC, r.Id DESC;
             ";
 
             const string servicesSql = @"

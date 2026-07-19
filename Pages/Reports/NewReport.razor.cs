@@ -15,6 +15,7 @@ namespace RapportinoServer.Pages.Reports
         [Inject] protected TypeServiceRepository RepoService { get; set; } = default!;
         [Inject] protected NavigationManager Nav { get; set; } = default!;
         [Inject] protected ILogger<NewReportPageBase> Logger { get; set; } = default!;
+        
         [Inject] protected IJSRuntime Js { get; set; } = default!;
 
         protected Report Report { get; set; } = new();
@@ -203,7 +204,6 @@ namespace RapportinoServer.Pages.Reports
                 SelectedClient = null;
                 Report.ClientId = 0;
                 Report.Email = string.Empty;
-
                 SelectedMachine = null;
                 SelectedMachineId = null;
                 SelectedSerial = string.Empty;

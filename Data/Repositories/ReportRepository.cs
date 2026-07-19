@@ -29,6 +29,8 @@ namespace RapportinoServer.Data.Repositories
         private sealed class ReportRow
         {
             public int Id { get; set; }
+            public int ClientId { get; set; }
+            public string? CompanyName { get; set; }
             public DateTime Data { get; set; }
             public string Serial { get; set; } = string.Empty;
             public string Model { get; set; } = string.Empty;
@@ -51,9 +53,22 @@ namespace RapportinoServer.Data.Repositories
 
         private static Report Map(ReportRow row)
         {
+            var companyName = row.CompanyName;
+            if (string.IsNullOrWhiteSpace(companyName))
+            {
+                companyName = "Cliente non specificato";
+            }
+
             var report = new Report
             {
                 Id = row.Id,
+                ClientId = row.ClientId,
+                Client = new Client 
+                { 
+                    Id = row.ClientId, 
+                    CompanyName = companyName,
+                    Address = "", NumberAddress = "", City = "", PostalCode = "", State = "", Country = "", Phone = "", Email = "" 
+                },
                 Data = DateOnly.FromDateTime(row.Data),
                 Serial = row.Serial,
                 Model = row.Model,
@@ -90,19 +105,22 @@ namespace RapportinoServer.Data.Repositories
         {
             const string sql = @"
                 SELECT
-                    Id,
-                    Data,
-                    Serial,
-                    Model,
-                    ReportDescription,
-                    ChangedMaterial,
-                    OrderedMaterial,
-                    Email,
-                    TechnicianName,
-                    ServiceType,
-                    SafetyDevicesCheck
-                FROM dbo.Report
-                ORDER BY Data DESC, Id DESC;
+                    r.Id,
+                    r.Data,
+                    r.Serial,
+                    r.Model,
+                    r.ReportDescription,
+                    r.ChangedMaterial,
+                    r.OrderedMaterial,
+                    r.Email,
+                    r.TechnicianName,
+                    r.ServiceType,
+                    r.SafetyDevicesCheck,
+                    r.ClientId,
+                    c.CompanyName
+                FROM dbo.Report r
+                LEFT JOIN dbo.Client c ON r.ClientId = c.Id
+                ORDER BY r.Data DESC, r.Id DESC;
             ";
 
             using var conn = new SqlConnection(_connectionString);
@@ -160,19 +178,22 @@ namespace RapportinoServer.Data.Repositories
         {
             const string sql = @"
                 SELECT
-                    Id,
-                    Data,
-                    Serial,
-                    Model,
-                    ReportDescription,
-                    ChangedMaterial,
-                    OrderedMaterial,
-                    Email,
-                    TechnicianName,
-                    ServiceType,
-                    SafetyDevicesCheck
-                FROM dbo.Report
-                WHERE Id = @Id;
+                    r.Id,
+                    r.Data,
+                    r.Serial,
+                    r.Model,
+                    r.ReportDescription,
+                    r.ChangedMaterial,
+                    r.OrderedMaterial,
+                    r.Email,
+                    r.TechnicianName,
+                    r.ServiceType,
+                    r.SafetyDevicesCheck,
+                    r.ClientId,
+                    c.CompanyName
+                FROM dbo.Report r
+                LEFT JOIN dbo.Client c ON r.ClientId = c.Id
+                WHERE r.Id = @Id;
             ";
 
             using var conn = new SqlConnection(_connectionString);
@@ -220,7 +241,8 @@ namespace RapportinoServer.Data.Repositories
                     Email,
                     TechnicianName,
                     ServiceType,
-                    SafetyDevicesCheck
+                    SafetyDevicesCheck,
+                    ClientId
                 )
                 VALUES
                 (
@@ -233,7 +255,8 @@ namespace RapportinoServer.Data.Repositories
                     @Email,
                     @TechnicianName,
                     @ServiceType,
-                    @SafetyDevicesCheck
+                    @SafetyDevicesCheck,
+                    @ClientId
                 );
 
                 SELECT CAST(SCOPE_IDENTITY() AS int);
@@ -250,7 +273,8 @@ namespace RapportinoServer.Data.Repositories
                 report.Email,
                 report.TechnicianName,
                 report.ServiceType,
-                report.SafetyDevicesCheck
+                report.SafetyDevicesCheck,
+                report.ClientId
             };
 
             using var conn = new SqlConnection(_connectionString);

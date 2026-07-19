@@ -14,44 +14,7 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e798e2ca-a91a-4de9-b22d-b1bc7b6a836b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RapportinoServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RapportinoServer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/Layout/NavMenu.razor.css" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Layout/NavMenu.razor.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Repositories/DashboardRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Repositories/DashboardRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Repositories/ReportRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Repositories/ReportRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/DashboardSummary.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/DashboardSummary.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Report.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Report.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/ReportWorkLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ReportWorkLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Reports/ListReports.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Reports/ListReports.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Reports/ListReports.razor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Reports/ListReports.razor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Reports/NewReport.razor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Reports/NewReport.razor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Reports/ReportDetails.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Reports/ReportDetails.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net10.0/RapportinoServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net10.0/RapportinoServer.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net10.0/RapportinoServer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net10.0/RapportinoServer.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net10.0/RapportinoServer.staticwebassets.endpoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net10.0/RapportinoServer.staticwebassets.endpoints.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net10.0/RapportinoServer.staticwebassets.runtime.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net10.0/RapportinoServer.staticwebassets.runtime.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/rbcswa.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/rbcswa.dswa.cache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/ref/RapportinoServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/ref/RapportinoServer.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/refint/RapportinoServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/refint/RapportinoServer.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/rjsmrazor.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/rjsmrazor.dswa.cache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/rpswa.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/rpswa.dswa.cache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/scopedcss/Components/Layout/NavMenu.razor.rz.scp.css" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/scopedcss/Components/Layout/NavMenu.razor.rz.scp.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/scopedcss/bundle/RapportinoServer.styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/scopedcss/bundle/RapportinoServer.styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/scopedcss/projectbundle/RapportinoServer.bundle.scp.css" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/scopedcss/projectbundle/RapportinoServer.bundle.scp.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/staticwebassets.build.endpoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/staticwebassets.build.endpoints.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/staticwebassets.build.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/staticwebassets.build.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/staticwebassets.build.json.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/staticwebassets.build.json.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/staticwebassets.development.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/staticwebassets.development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
-    </list>
+    <list default="true" id="e798e2ca-a91a-4de9-b22d-b1bc7b6a836b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,61 +58,61 @@
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="5.850285959929664E-6" />
-      <entry key="MS500" value="0.27709214933517373" />
-      <entry key="S2" value="3.5279503629542592" />
-      <entry key="S5" value="7.091455306590252" />
-      <entry key="S10" value="9.175992786042176" />
-      <entry key="S30" value="11.16337399832639" />
-      <entry key="S60" value="11.952260113617413" />
-      <entry key="M2" value="13.128022908494328" />
-      <entry key="M5" value="21.11117636478639" />
-      <entry key="M10" value="44.526056912981645" />
-      <entry key="M15" value="68.89187099023422" />
-      <entry key="M30" value="125.20050361283477" />
-      <entry key="H1" value="189.34260638105678" />
-      <entry key="H2" value="245.64099284014384" />
-      <entry key="H4" value="285.1164203235808" />
-      <entry key="D1" value="326.5555629583243" />
-      <entry key="W1" value="334.6245094020641" />
+      <entry key="MS100" value="1.0000026055150162" />
+      <entry key="MS500" value="1.0764540035865595" />
+      <entry key="S2" value="1.7095378142917776" />
+      <entry key="S5" value="3.356487288498772" />
+      <entry key="S10" value="8.044720859502112" />
+      <entry key="S30" value="28.22388121872321" />
+      <entry key="S60" value="44.39037870701032" />
+      <entry key="M2" value="57.32590098808082" />
+      <entry key="M5" value="70.82307249270275" />
+      <entry key="M10" value="89.5693569845191" />
+      <entry key="M15" value="110.81163733739463" />
+      <entry key="M30" value="167.2781930237743" />
+      <entry key="H1" value="238.07381522219072" />
+      <entry key="H2" value="303.10292276644697" />
+      <entry key="H4" value="349.78522536622546" />
+      <entry key="D1" value="399.55824349912785" />
+      <entry key="W1" value="409.331483409298" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.000000000017132" />
-      <entry key="S5" value="1.0000493770441223" />
-      <entry key="S10" value="1.0070268802289568" />
-      <entry key="S30" value="1.1920810801165052" />
-      <entry key="S60" value="1.467940379389467" />
-      <entry key="M2" value="1.9382702211511251" />
-      <entry key="M5" value="3.3233636102616324" />
-      <entry key="M10" value="5.517033314239603" />
-      <entry key="M15" value="7.589247831540414" />
-      <entry key="M30" value="12.913847665313556" />
-      <entry key="H1" value="20.111316691129968" />
-      <entry key="H2" value="27.1095840325519" />
-      <entry key="H4" value="32.23682699817082" />
-      <entry key="D1" value="37.735309078926655" />
-      <entry key="W1" value="38.815595212663425" />
+      <entry key="MS100" value="7.682275642767063E-229" />
+      <entry key="MS500" value="2.3828569829858758E-46" />
+      <entry key="S2" value="3.928931836827833E-12" />
+      <entry key="S5" value="2.739742821630314E-5" />
+      <entry key="S10" value="0.005234255268546148" />
+      <entry key="S30" value="0.17362744785755319" />
+      <entry key="S60" value="0.4169296607585317" />
+      <entry key="M2" value="0.6704725165466925" />
+      <entry key="M5" value="1.4221746423151616" />
+      <entry key="M10" value="3.226500228539002" />
+      <entry key="M15" value="5.191229840641217" />
+      <entry key="M30" value="10.63273968902107" />
+      <entry key="H1" value="18.38093587388364" />
+      <entry key="H2" value="26.205472496622384" />
+      <entry key="H4" value="32.084939651254345" />
+      <entry key="D1" value="38.507286176157" />
+      <entry key="W1" value="39.78200379084307" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.2431615593276789E-4" />
-      <entry key="MS500" value="0.438427083319769" />
-      <entry key="S2" value="4.155941624299633" />
-      <entry key="S5" value="7.919534309832497" />
-      <entry key="S10" value="10.090428693253827" />
-      <entry key="S30" value="12.305903613601473" />
-      <entry key="S60" value="13.380179173529699" />
-      <entry key="M2" value="15.026214996926178" />
-      <entry key="M5" value="24.38134196552009" />
-      <entry key="M10" value="49.98573424511681" />
-      <entry key="M15" value="76.42672879464905" />
-      <entry key="M30" value="138.07000636973416" />
-      <entry key="H1" value="209.42130873461184" />
-      <entry key="H2" value="272.72926907442985" />
-      <entry key="H4" value="317.3407530549731" />
-      <entry key="D1" value="364.28845851483925" />
-      <entry key="W1" value="373.4397504913066" />
+      <entry key="MS100" value="0.001053933824711354" />
+      <entry key="MS500" value="0.2539560887259982" />
+      <entry key="S2" value="0.986549260855407" />
+      <entry key="S5" value="2.841164374855167" />
+      <entry key="S10" value="7.723607447806207" />
+      <entry key="S30" value="28.259825031815524" />
+      <entry key="S60" value="44.72916880792681" />
+      <entry key="M2" value="57.952975637906874" />
+      <entry key="M5" value="72.21752990515063" />
+      <entry key="M10" value="92.76240379593823" />
+      <entry key="M15" value="115.96607710079024" />
+      <entry key="M30" value="177.87455385759742" />
+      <entry key="H1" value="256.42493260563805" />
+      <entry key="H2" value="329.2877722430956" />
+      <entry key="H4" value="381.857712257243" />
+      <entry key="D1" value="438.0630633781296" />
+      <entry key="W1" value="449.11312376363605" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -260,7 +223,7 @@
       <workItem from="1784052112832" duration="4138000" />
       <workItem from="1784225988280" duration="602000" />
       <workItem from="1784470040015" duration="164000" />
-      <workItem from="1784470234680" duration="2577000" />
+      <workItem from="1784470234680" duration="3073000" />
     </task>
     <task id="LOCAL-00001" summary="Remove Signature for all files, i would like an another solution, from signature or authentication">
       <option name="closed" value="true" />

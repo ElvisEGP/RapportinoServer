@@ -14,7 +14,27 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e798e2ca-a91a-4de9-b22d-b1bc7b6a836b" name="Changes" comment="" />
+    <list default="true" id="e798e2ca-a91a-4de9-b22d-b1bc7b6a836b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RapportinoServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RapportinoServer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/App.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Components/App.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Factories/DbConnectionFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Factories/DbConnectionFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Home.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Home.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Reports/ListReports.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Reports/ListReports.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net10.0/RapportinoServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net10.0/RapportinoServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net10.0/RapportinoServer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net10.0/RapportinoServer.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/RapportinoServer.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/ref/RapportinoServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/ref/RapportinoServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/refint/RapportinoServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/refint/RapportinoServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/rjsmrazor.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/rjsmrazor.dswa.cache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net10.0/rpswa.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net10.0/rpswa.dswa.cache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,61 +78,61 @@
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000026055150162" />
-      <entry key="MS500" value="1.0764540035865595" />
-      <entry key="S2" value="1.7095378142917776" />
-      <entry key="S5" value="3.356487288498772" />
-      <entry key="S10" value="8.044720859502112" />
-      <entry key="S30" value="28.22388121872321" />
-      <entry key="S60" value="44.39037870701032" />
-      <entry key="M2" value="57.32590098808082" />
-      <entry key="M5" value="70.82307249270275" />
-      <entry key="M10" value="89.5693569845191" />
-      <entry key="M15" value="110.81163733739463" />
-      <entry key="M30" value="167.2781930237743" />
-      <entry key="H1" value="238.07381522219072" />
-      <entry key="H2" value="303.10292276644697" />
-      <entry key="H4" value="349.78522536622546" />
-      <entry key="D1" value="399.55824349912785" />
-      <entry key="W1" value="409.331483409298" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0000074418195577" />
+      <entry key="S2" value="1.05712827612697" />
+      <entry key="S5" value="1.4954893028432297" />
+      <entry key="S10" value="2.3964471473749223" />
+      <entry key="S30" value="4.513256736376258" />
+      <entry key="S60" value="6.58399609952194" />
+      <entry key="M2" value="12.33264471805863" />
+      <entry key="M5" value="28.769778709448534" />
+      <entry key="M10" value="55.65498540290349" />
+      <entry key="M15" value="81.77003697399222" />
+      <entry key="M30" value="149.40912455340148" />
+      <entry key="H1" value="237.62305352924253" />
+      <entry key="H2" value="322.0407000037605" />
+      <entry key="H4" value="384.36094529673824" />
+      <entry key="D1" value="452.2119404727354" />
+      <entry key="W1" value="465.69340467456726" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="7.682275642767063E-229" />
-      <entry key="MS500" value="2.3828569829858758E-46" />
-      <entry key="S2" value="3.928931836827833E-12" />
-      <entry key="S5" value="2.739742821630314E-5" />
-      <entry key="S10" value="0.005234255268546148" />
-      <entry key="S30" value="0.17362744785755319" />
-      <entry key="S60" value="0.4169296607585317" />
-      <entry key="M2" value="0.6704725165466925" />
-      <entry key="M5" value="1.4221746423151616" />
-      <entry key="M10" value="3.226500228539002" />
-      <entry key="M15" value="5.191229840641217" />
-      <entry key="M30" value="10.63273968902107" />
-      <entry key="H1" value="18.38093587388364" />
-      <entry key="H2" value="26.205472496622384" />
-      <entry key="H4" value="32.084939651254345" />
-      <entry key="D1" value="38.507286176157" />
-      <entry key="W1" value="39.78200379084307" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="4.668917261311634E-183" />
+      <entry key="S5" value="1.388449722016183E-73" />
+      <entry key="S10" value="5.513248205230258E-37" />
+      <entry key="S30" value="1.6598394236763497E-12" />
+      <entry key="S60" value="2.345340948738937E-6" />
+      <entry key="M2" value="0.0029551319914016597" />
+      <entry key="M5" value="0.24971457607587877" />
+      <entry key="M10" value="1.4555203464184767" />
+      <entry key="M15" value="3.088524789267175" />
+      <entry key="M30" value="8.337506599645428" />
+      <entry key="H1" value="16.702458035062765" />
+      <entry key="H2" value="25.806567463060535" />
+      <entry key="H4" value="32.97831310301503" />
+      <entry key="D1" value="41.08081538596907" />
+      <entry key="W1" value="42.718922685062246" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.001053933824711354" />
-      <entry key="MS500" value="0.2539560887259982" />
-      <entry key="S2" value="0.986549260855407" />
-      <entry key="S5" value="2.841164374855167" />
-      <entry key="S10" value="7.723607447806207" />
-      <entry key="S30" value="28.259825031815524" />
-      <entry key="S60" value="44.72916880792681" />
-      <entry key="M2" value="57.952975637906874" />
-      <entry key="M5" value="72.21752990515063" />
-      <entry key="M10" value="92.76240379593823" />
-      <entry key="M15" value="115.96607710079024" />
-      <entry key="M30" value="177.87455385759742" />
-      <entry key="H1" value="256.42493260563805" />
-      <entry key="H2" value="329.2877722430956" />
-      <entry key="H4" value="381.857712257243" />
-      <entry key="D1" value="438.0630633781296" />
-      <entry key="W1" value="449.11312376363605" />
+      <entry key="MS100" value="0.9138314502294005" />
+      <entry key="MS500" value="0.9821469143095842" />
+      <entry key="S2" value="1.0523989123422157" />
+      <entry key="S5" value="1.4928809017255014" />
+      <entry key="S10" value="2.3943691222135635" />
+      <entry key="S30" value="4.511786970991157" />
+      <entry key="S60" value="6.580582012557987" />
+      <entry key="M2" value="12.327084246252097" />
+      <entry key="M5" value="29.006332666924067" />
+      <entry key="M10" value="57.09185389953244" />
+      <entry key="M15" value="84.8352801670521" />
+      <entry key="M30" value="157.7180032716588" />
+      <entry key="H1" value="254.29844280774182" />
+      <entry key="H2" value="347.82698320267724" />
+      <entry key="H4" value="417.3264752927557" />
+      <entry key="D1" value="493.29012828311943" />
+      <entry key="W1" value="508.4119376242639" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -223,7 +243,8 @@
       <workItem from="1784052112832" duration="4138000" />
       <workItem from="1784225988280" duration="602000" />
       <workItem from="1784470040015" duration="164000" />
-      <workItem from="1784470234680" duration="3073000" />
+      <workItem from="1784470234680" duration="3737000" />
+      <workItem from="1784570453122" duration="2315000" />
     </task>
     <task id="LOCAL-00001" summary="Remove Signature for all files, i would like an another solution, from signature or authentication">
       <option name="closed" value="true" />
@@ -241,7 +262,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784056001178</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Fix bug from Raport List">
+      <option name="closed" value="true" />
+      <created>1784473358061</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1784473358061</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,7 +282,8 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Remove Signature for all files, i would like an another solution, from signature or authentication" />
     <MESSAGE value="-bug fix read of database on section of edit client.&#10;- Created local of signature for Client and Technician. &#10;- Created css property for edit client." />
-    <option name="LAST_COMMIT_MESSAGE" value="-bug fix read of database on section of edit client.&#10;- Created local of signature for Client and Technician. &#10;- Created css property for edit client." />
+    <MESSAGE value="Fix bug from Raport List" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix bug from Raport List" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -270,11 +300,6 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Pages/Reports/ListReports.razor</url>
-          <line>39</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

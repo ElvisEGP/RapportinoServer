@@ -143,6 +143,47 @@ body .page[b-0lwjgk58vn] {
         display: none;
     }
 }
+@media (max-width: 1024px) {
+
+    .nav__toggle[b-jnasgoe70l] {
+        display: flex;
+    }
+
+    .nav__menu[b-jnasgoe70l] {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        background: #111827;
+        flex-direction: column;
+        display: none;
+        padding: 12px 0;
+    }
+
+    .nav__menu.open[b-jnasgoe70l] {
+        display: flex;
+    }
+
+    [b-jnasgoe70l] .nav__link,
+    [b-jnasgoe70l] a.nav__link {
+        justify-content: flex-start;
+        padding: 18px 24px;
+        height: auto;
+    }
+
+    .nav__user[b-jnasgoe70l] {
+        display: none;
+    }
+}
+@media (max-width: 1440px) {
+
+    /* ===== LINKS (TODOS IGUAIS AO LOGOUT) ===== */
+    [b-jnasgoe70l] .nav__link,
+    [b-jnasgoe70l] a.nav__link {
+        font-size: 0.71rem;
+    }
+    
+}
 /* /Pages/Clients/ClientDetailsPage.razor.rz.scp.css */
 /* ============================================
    CLIENT DETAILS PAGE — BEM VERSION

@@ -135,10 +135,8 @@
                                     <tr>
                                         <th>Cliente</th>
                                         <th>Data</th>
-                                        <th>Seriale</th>
                                         <th>Tecnico</th>
                                         <th>Servizio</th>
-                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -147,12 +145,8 @@
                                         <tr>
                                             <td>@(string.IsNullOrWhiteSpace(r.ClientName) ? "Cliente non specificato" : r.ClientName)</td>
                                             <td>@r.Data.ToString("dd/MM/yyyy")</td>
-                                            <td>@r.Serial</td>
                                             <td>@r.TechnicianName</td>
                                             <td class="truncate" title="@r.ServiceType">@r.ServiceType</td>
-                                            <td class="text-right">
-                                                <a class="btn btn-link" href="@($"/reports/details/{r.Id}")">Dettaglio</a>
-                                            </td>
                                         </tr>
                                     }
                                 </tbody>
